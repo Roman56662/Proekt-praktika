@@ -8,7 +8,7 @@ const Humans = () => {
     const [children,setChildren] = useState('ребёнок')
 
     const plusPar = () => {
-        if (countParents<5) {
+        if (countParents < 5) {
             setParents(countParents + 1)
         }
         if (countParents > 0) {
@@ -17,7 +17,7 @@ const Humans = () => {
         else setParent('взрослый')
     }
     const minusPar = () => {
-        if (countParents>1) {
+        if (countParents > 1) {
             setParents(countParents - 1)
         }
         if (countParents < 3) {
@@ -26,10 +26,10 @@ const Humans = () => {
     }
 
     const plusChi = () => {
-        if (countChildrens<4) {
+        if (countChildrens < 4) {
             setChildrens(countChildrens + 1)
         }
-        if (countChildrens>0) {
+        if (countChildrens > 0) {
             setChildren('ребёнка')
         }
         else setChildren('ребёнок')
