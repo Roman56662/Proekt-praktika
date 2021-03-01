@@ -28,17 +28,17 @@ export const Nights = ({ count, onClick }) => {
         else {setfirstNight(0);
             setlastNight(0);
             }
-    },[check])
+    },[check,count])
     
-    const checker = useMemo(() => {
-        if (check==true){
-            setfirstNight(count-2);
-            setlastNight(count+2);
-        }
-        else {setfirstNight(0);
-            setlastNight(0);
-        }
-    },[count])
+    // const checker = useMemo(() => {
+    //     if (check==true){
+    //         setfirstNight(count-2);
+    //         setlastNight(count+2);
+    //     }
+    //     else {setfirstNight(0);
+    //         setlastNight(0);
+    //     }
+    // },[count])
     
 
     
