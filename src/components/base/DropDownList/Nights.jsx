@@ -11,10 +11,10 @@ export const Nights = ({ count, onClick }) => {
 
     const title = useMemo(() => {
         let nigthTitle = 'Ночь'
-        if (count < 5 && count != 2 && count != 1) {
+        if (count < 5 && count != 1) {
             nigthTitle = 'Ночи'
         }
-        if (count >= 5) {
+        if (count > 4) {
             nigthTitle = 'Ночей'
         }
         return nigthTitle
