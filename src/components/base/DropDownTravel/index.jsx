@@ -1,5 +1,3 @@
-export * from './DropDown'
-export * from './DropDownItem'
 export * from './DropDownItem'
 export * from './DropDown'
 export * from './DropDownTravel'

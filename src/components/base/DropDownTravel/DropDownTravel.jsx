@@ -1,10 +1,6 @@
 import React, { useCallback, useContext, useState } from 'react';
 import cn from 'classnames/bind';
-<<<<<<< HEAD
-import DropDown from './DropDown'
-=======
 import {DropDown} from './DropDown'
->>>>>>> dev1
 import Context from './Context';
 
 
@@ -12,11 +8,7 @@ import Context from './Context';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-<<<<<<< HEAD
-const DropDownTravel = (props) => {
-=======
 export const DropDownTravel = (props) => {
->>>>>>> dev1
 
   const [country, setCountry] = useState()
 
@@ -56,8 +48,4 @@ export const DropDownTravel = (props) => {
   )
 }
 
-<<<<<<< HEAD
-export default DropDownTravel
-=======
->>>>>>> dev1
 
