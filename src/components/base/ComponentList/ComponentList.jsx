@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from 'react';
-import Component from './Component'
-import DropDownTravel from '../DropDownTravel/DropDownTravel'
+import {Component} from './Component'
+import {DropDownTravel} from '../DropDownTravel/DropDownTravel'
 import cn from 'classnames/bind';
 
 //Styles
@@ -8,7 +8,7 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 
-const ComponentList = (props) => {
+export const ComponentList = (props) => {
 
   // const [open, setOpen] = useState(true);
 
@@ -39,7 +39,6 @@ const ComponentList = (props) => {
   )
 }
 
-export default ComponentList
 
 
 

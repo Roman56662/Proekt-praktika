@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import Context from './Context';
+<<<<<<< HEAD
 import DropDownItem from './DropDownItem'
+=======
+import {DropDownItem} from './DropDownItem'
+>>>>>>> dev1
 import cn from 'classnames/bind';
 
 //Styles
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
+<<<<<<< HEAD
 const DropDown = (props) => {
+=======
+export const DropDown = (props) => {
+>>>>>>> dev1
 
   return(
     <div className={cx('drop__body')}>
@@ -45,4 +53,7 @@ const DropDown = (props) => {
   )
 }
 
+<<<<<<< HEAD
 export default DropDown
+=======
+>>>>>>> dev1

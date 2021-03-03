@@ -9,7 +9,6 @@
     "build": "NODE_ENV=production next build",
     "analyzer": "NODE_ENV=production ANALYZER=1 yarn build",
     "start": "NODE_ENV=production node server/index.js",
-    "precommit": "npx lint-staged",
     "eslint": "npx eslint --quiet -c ./.eslintrc.json --color \"./**/*.{js,jsx}\"",
     "storybook": "start-storybook"
   },
@@ -99,5 +98,10 @@
     "lint-staged": "^8.1.5",
     "path": "^0.12.7",
     "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "npx lint-staged"
+    }
   }
 }

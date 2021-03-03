@@ -1,10 +1,18 @@
 import React from 'react';
+<<<<<<< HEAD
 import DropDownTravel from './DropDownTravel';
+=======
+import { DropDownTravel } from './DropDownTravel';
+>>>>>>> dev1
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 
 export default {
+<<<<<<< HEAD
   title: '/DropDownTravel',
+=======
+  title: 'DropDownTravel',
+>>>>>>> dev1
   decorators: [withKnobs],
   parameters: {
     docs: {

@@ -6,7 +6,11 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
+<<<<<<< HEAD
 const DropDownItem = (props) => {
+=======
+export const DropDownItem = (props) => {
+>>>>>>> dev1
 
   const {handleClick} = useContext(Context)
 
@@ -20,4 +24,7 @@ const DropDownItem = (props) => {
   )
 }
 
+<<<<<<< HEAD
 export default DropDownItem
+=======
+>>>>>>> dev1

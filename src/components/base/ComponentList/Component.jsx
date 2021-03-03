@@ -6,7 +6,7 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 
-const Component = (props) => {
+export const Component = (props) => {
 
   const [open, setOpen] = useState(false);
 
@@ -25,5 +25,3 @@ const Component = (props) => {
       </div>
   )
 }
-
-export default Component
