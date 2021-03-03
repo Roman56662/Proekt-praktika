@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './counter.styl'
 
-const Humans = () => {
+export const Humans = () => {
     const [countParents,setParents] = useState(1)
     const [countChildrens,setChildrens] = useState(1)
     const [parent,setParent] = useState('взрослый')
@@ -61,5 +61,3 @@ const Humans = () => {
         </div>
         </div>);
 }
-
-export default Humans; 

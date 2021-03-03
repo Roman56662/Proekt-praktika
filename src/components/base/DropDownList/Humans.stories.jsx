@@ -1,5 +1,5 @@
 import React from 'react';
-import Humans  from './Humans';
+import {Humans} from './Humans';
 
 
 export default { title: 'Humans'}
