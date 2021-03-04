@@ -8,13 +8,13 @@ import {DropDown} from './DropDown'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const DropDownTravel = ({getCountry}) => {
+export const DropDownTravel = ({getCountryFunc, arr}) => {
 
-  const [country, setCountry] = useState()
+  // const [country, setCountry] = useState()
 
-  const handleClick = useCallback( (q) => {
-    setCountry(q);
-  })
+  // const handleClick = useCallback( (q) => {
+  //   setCountry(q);
+  // })
 
   // getCountry(country)
 
@@ -43,7 +43,7 @@ export const DropDownTravel = ({getCountry}) => {
 
   return(
     
-    <DropDown handleClick={handleClick} arr={regions} />
+    <DropDown handleClick={getCountryFunc} arr={regions} />
 
   )
 }

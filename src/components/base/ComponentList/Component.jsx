@@ -11,7 +11,8 @@ export const Component = ({cls, title, text , children}) => {
   const [open, setOpen] = useState(false);
 
   return(
-    <div onMouseLeave={() => setOpen(false)}  className={cls}>
+    <div className={cls}>
+      {/* <div onMouseLeave={() => setOpen(false)}  className={cls}> */}
       <div className={cx('component__title')}>
         <p>{title}</p>
       </div>
