@@ -6,22 +6,22 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 
-export const Component = (props) => {
+export const Component = ({cls, title, text , children}) => {
 
   const [open, setOpen] = useState(false);
 
   return(
-    <div className={props.class}>
+    <div onMouseLeave={() => setOpen(false)}  className={cls}>
       <div className={cx('component__title')}>
-        <p>{props.title}</p>
+        <p>{title}</p>
       </div>
       <div className={cx('component__text')}>
-        <p>{props.text}</p>
+        <p>{text}</p>
       </div>
       <div className={cx('component__button')}>
-        <button onClick={() => setOpen(!open)} className={cx('button')}>=</button>
+        <button onClick={() => setOpen(!open)}  className={cx('button')}>=</button>
     </div>
-    {open && props.children}
+    {open && children}
       </div>
   )
 }

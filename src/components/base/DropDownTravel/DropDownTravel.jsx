@@ -1,14 +1,14 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import cn from 'classnames/bind';
 import {DropDown} from './DropDown'
-import Context from './Context';
+
 
 
 //Styles
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const DropDownTravel = (props) => {
+export const DropDownTravel = ({getCountry}) => {
 
   const [country, setCountry] = useState()
 
@@ -16,7 +16,7 @@ export const DropDownTravel = (props) => {
     setCountry(q);
   })
 
-  // props.getCountry(country)
+  // getCountry(country)
 
   const regions = (
     [
@@ -42,9 +42,9 @@ export const DropDownTravel = (props) => {
   )
 
   return(
-    <Context.Provider value={{handleClick}}>
-        <DropDown arr={regions}/>
-    </Context.Provider>
+    
+    <DropDown handleClick={handleClick} arr={regions} />
+
   )
 }
 
