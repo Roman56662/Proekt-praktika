@@ -43,7 +43,7 @@ export const DropDownTravel = ({getCountryFunc, arr}) => {
 
   return(
     
-    <DropDown handleClick={getCountryFunc} arr={regions} />
+    <DropDown handleClick={getCountryFunc} arr={arr} />
 
   )
 }
