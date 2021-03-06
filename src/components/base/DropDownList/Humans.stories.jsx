@@ -45,7 +45,7 @@ const HumansCounter = () => {
   }, [countChildrens])
 
   return (
-    <Humans countParents={countParents} countChildrens={countChildrens} onClick={handleClickChildrens} onClickParents={handleClickParents}/>
+    <Humans countParents={countParents} countChildrens={countChildrens} onClickChildrens={handleClickChildrens} onClickParents={handleClickParents}/>
   );
 };
 

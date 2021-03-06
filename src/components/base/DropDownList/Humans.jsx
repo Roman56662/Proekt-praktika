@@ -1,7 +1,7 @@
 import React, {useState,useMemo} from 'react'
 import './counter.styl'
 
-export const Humans = ({countParents, countChildrens, onClick, onClickParents}) => {
+export const Humans = ({countParents, countChildrens, onClickChildrens, onClickParents}) => {
     const [parent,setParent] = useState()
     const [children,setChildren] = useState()
     let parentsCount = countParents
@@ -9,7 +9,7 @@ export const Humans = ({countParents, countChildrens, onClick, onClickParents}) 
     const titleParents = useMemo(() => {
         let parentTitle = 'взрослый'
         
-        if (countParents < 5 && countParents != 1) {
+        if (countParents <= 5 && countParents != 1) {
             parentTitle = 'взрослых'
         }
         return parentTitle
@@ -39,9 +39,9 @@ export const Humans = ({countParents, countChildrens, onClick, onClickParents}) 
             <span className='nadpis'>Дети, до 14 лет</span>
         <div>
         <div style={{display:'flex',justifyContent:'left'}}>
-                    <button onClick={() => onClick('minusChildren')} className='counterLeft'>-</button>
+                    <button onClick={() => onClickChildrens('minusChildren')} className='counterLeft'>-</button>
                     <input  type="text" value={childrensCount + ' ' + titleChildrens} className='counterInput'></input>
-                    <button  onClick={() => onClick('plusChildren')} className='counterRight'>+</button>
+                    <button  onClick={() => onClickChildrens('plusChildren')} className='counterRight'>+</button>
         </div>
         </div>
         </div>);
