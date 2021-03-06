@@ -1,62 +1,47 @@
-import React, {useState} from 'react'
+import React, {useState,useMemo} from 'react'
 import './counter.styl'
 
-export const Humans = () => {
-    const [countParents,setParents] = useState(1)
-    const [countChildrens,setChildrens] = useState(1)
-    const [parent,setParent] = useState('взрослый')
-    const [children,setChildren] = useState('ребёнок')
+export const Humans = ({countParents, countChildrens, onClick, onClickParents}) => {
+    const [parent,setParent] = useState()
+    const [children,setChildren] = useState()
+    let parentsCount = countParents
+    let childrensCount = countChildrens
+    const titleParents = useMemo(() => {
+        let parentTitle = 'взрослый'
+        
+        if (countParents < 5 && countParents != 1) {
+            parentTitle = 'взрослых'
+        }
+        return parentTitle
+    }, [countParents])
 
-    const plusPar = () => {
-        if (countParents < 5) {
-            setParents(countParents + 1)
+    const titleChildrens = useMemo(() =>{
+        let childrenTitle = 'ребёнок'
+        
+        if (countChildrens < 5 && countChildrens != 1) {
+            childrenTitle = 'ребёнка'
         }
-        if (countParents > 0) {
-                setParent('взрослых')
-        }
-        else setParent('взрослый')
-    }
-    const minusPar = () => {
-        if (countParents > 1) {
-            setParents(countParents - 1)
-        }
-        if (countParents < 3) {
-            setParent('взрослый')
-        }
-    }
+        if (countChildrens === 5)
+            childrenTitle = 'детей'
+        return childrenTitle
+    },[countChildrens]
+    )
 
-    const plusChi = () => {
-        if (countChildrens < 4) {
-            setChildrens(countChildrens + 1)
-        }
-        if (countChildrens > 0) {
-            setChildren('ребёнка')
-        }
-        else setChildren('ребёнок')
-
-    }
-    const minusChi = () => {
-        if (countChildrens>1){
-            setChildrens(countChildrens-1)
-        }
-        if (countChildrens < 3)
-        setChildren('ребёнок')
-    }
 
     return (
         <div style={{width:'200px'}}>
             <span className='nadpis'>Взрослые</span>
                 <div style={{display:'flex',justifyContent:'left'}}>
-                    <button onClick={minusPar} className='counterLeft'>-</button>
-                    <input  type="text" value={countParents + ' ' + parent} className='counterInput'></input>
-                    <button  onClick={plusPar} className='counterRight'>+</button>
+                    <button onClick={() => onClickParents('minusParents')} className='counterLeft'>-</button>
+                    <input  type="text" value={parentsCount + ' ' + titleParents} className='counterInput'></input>
+                    <button  onClick={() => onClickParents('plusParents')} className='counterRight'>+</button>
                 </div>
             <span className='nadpis'>Дети, до 14 лет</span>
         <div>
         <div style={{display:'flex',justifyContent:'left'}}>
-                    <button onClick={minusChi} className='counterLeft'>-</button>
-                    <input  type="text" value={countChildrens + ' ' + children} className='counterInput'></input>
-                    <button  onClick={plusChi} className='counterRight'>+</button>
+                    <button onClick={() => onClick('minusChildren')} className='counterLeft'>-</button>
+                    <input  type="text" value={childrensCount + ' ' + titleChildrens} className='counterInput'></input>
+                    <button  onClick={() => onClick('plusChildren')} className='counterRight'>+</button>
         </div>
         </div>
         </div>);
