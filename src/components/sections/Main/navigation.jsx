@@ -1,44 +1,27 @@
 import React from 'react'
 import './navigation.styl'
 
-
+const title = 'Сбер Путешествия'
+const image = 'https://cdn2.scratch.mit.edu/get_image/gallery/2092276_200x130.png'
+const links = [{ label:'Перелеты', href:''}, { label: 'Проживание', href: ''}, { label: 'Готовые туры',href:''}, { label: 'Прокат автомобилей',href:''}]
 
 const Navigation = () => {
-
-
-
     return (
-        <div className='navigation'>
+        <div className='navigation' style={{width:'1555px'}}>
             <div className='emblema'>
-            <ul>
-                <li>
-                <img style={{height:"50px"}} src="https://cdn2.scratch.mit.edu/get_image/gallery/2092276_200x130.png"></img>
-                </li>
-                <li>
-                    <a>Сбер Путешествия</a>
-                </li>
-            </ul>
+                <img src={image} style={{width:'35px'}}></img>
+                <a>{title}</a>
             </div>
             <div className='navigator'>
                 <ul>
-                <li>
-                    <a>Перелеты</a>
-                </li>
-                <li>
-                    <a>Проживание</a>
-                </li>
-                <li>
-                    <a>Готовые туры</a>
-                </li>
-                <li>
-                    <a>Прокат автомобилей</a>
-                </li>
-                <li>
-                    <a>Сервисы</a>
-                </li>
+                    {links.map((item, key) => (
+                        <li key={key}>
+                            <a href={item.href}>{item.label}</a>
+                        </li>
+                    ))}
                 </ul>
-                </div>
-                <div className='service'>
+            </div>
+            <div className='service'>
                     <ul>
                 <li>
                     <a>Шар</a>

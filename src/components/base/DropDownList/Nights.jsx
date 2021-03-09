@@ -1,6 +1,10 @@
 import React, {useState,useMemo, useCallback} from 'react'
-import './checkbox.styl'
-import './counter.styl'
+
+import cn from 'classnames/bind';
+
+//Styles
+import styles from './styles.styl';
+const cx = cn.bind(styles);
 
 
 // mod = 'default' | 'custom'
@@ -34,14 +38,14 @@ export const Nights = ({ count, onClick }) => {
     
   
     return (
-        <div>
-            <div style={{display:'flex',justifyContent:'left'}}>
-                <button onClick={() => onClick('minus')} className='counterLeft'>-</button>
-                <input type="text" value={countNights + ' ' + title} className='counterInput'></input>
-                <button  onClick={() => onClick('plus')} className='counterRight'>+</button>
+        <div className={cx('component__nights')}>
+            <div className={cx('counter')}>
+                <button onClick={() => onClick('minus')} className={cx('counterLeft')}>-</button>
+                <input type="text" value={countNights + ' ' + title} className={cx('counterInput')}></input>
+                <button  onClick={() => onClick('plus')} className={cx('counterRight')}>+</button>
             </div>
             <div>
-                <label className='check'>
+                <label className={cx('nights__checkbox')}>
                 <input type="checkbox" onChange={checkout}/>
                 <span>± 2 ночи</span></label>
             </div>

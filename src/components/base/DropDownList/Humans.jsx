@@ -1,5 +1,9 @@
 import React, {useState,useMemo} from 'react'
-import './counter.styl'
+import cn from 'classnames/bind';
+
+//Styles
+import styles from './styles.styl';
+const cx = cn.bind(styles);
 
 export const Humans = ({countParents, countChildrens, onClickChildrens, onClickParents}) => {
     const [parent,setParent] = useState()
@@ -18,10 +22,10 @@ export const Humans = ({countParents, countChildrens, onClickChildrens, onClickP
     const titleChildrens = useMemo(() =>{
         let childrenTitle = 'ребёнок'
         
-        if (countChildrens < 5 && countChildrens != 1) {
+        if (countChildrens < 5 && countChildrens != 1 ) {
             childrenTitle = 'ребёнка'
         }
-        if (countChildrens === 5)
+        if (countChildrens === 5 || countChildrens === 0)
             childrenTitle = 'детей'
         return childrenTitle
     },[countChildrens]
@@ -29,20 +33,20 @@ export const Humans = ({countParents, countChildrens, onClickChildrens, onClickP
 
 
     return (
-        <div style={{width:'200px'}}>
-            <span className='nadpis'>Взрослые</span>
-                <div style={{display:'flex',justifyContent:'left'}}>
-                    <button onClick={() => onClickParents('minusParents')} className='counterLeft'>-</button>
-                    <input  type="text" value={parentsCount + ' ' + titleParents} className='counterInput'></input>
-                    <button  onClick={() => onClickParents('plusParents')} className='counterRight'>+</button>
+        <div className={cx('component__humans')}>
+            <span className={cx('humans__parents')}>Взрослые</span>
+                <div className={cx('counter')}>
+                    <button onClick={() => onClickParents('minusParents')} className={cx('counterLeft')}>-</button>
+                    <input  type="text" value={parentsCount + ' ' + titleParents} className={cx('counterInput')}></input>
+                    <button  onClick={() => onClickParents('plusParents')} className={cx('counterRight')}>+</button>
                 </div>
-            <span className='nadpis'>Дети, до 14 лет</span>
-        <div>
-        <div style={{display:'flex',justifyContent:'left'}}>
-                    <button onClick={() => onClickChildrens('minusChildren')} className='counterLeft'>-</button>
-                    <input  type="text" value={childrensCount + ' ' + titleChildrens} className='counterInput'></input>
-                    <button  onClick={() => onClickChildrens('plusChildren')} className='counterRight'>+</button>
-        </div>
-        </div>
+            <span className={cx('humans__children')}>Дети, до 14 лет</span>
+            <div>
+                <div className={cx('counter')}>
+                        <button onClick={() => onClickChildrens('minusChildren')} className={cx('counterLeft')}>-</button>
+                        <input  type="text" value={childrensCount + ' ' + titleChildrens} className={cx('counterInput')}></input>
+                        <button  onClick={() => onClickChildrens('plusChildren')} className={cx('counterRight')}>+</button>
+                </div>
+            </div>
         </div>);
 }

@@ -1,0 +1,98 @@
+.counterLeft
+    width 35px
+    font-size 24px
+    background white
+    border 1px solid #ccc
+    border-right 0px
+    border-radius 3px 0 0 3px
+    outline none
+
+.counterRight
+    width 35px
+    font-size 18px
+    background white
+    border 1px solid #ccc
+    border-left 0px
+    border-radius 0 3px 3px 0
+    outline none
+
+.counterInput
+    height 40px
+    width 100px
+    text-align center
+    font-size 16px
+    border 1px solid #ccc
+    outline none
+
+.humans__parents
+    font-size 14px
+
+.humans__childrens
+    font-size 14px
+
+.component__humans
+    width 200px
+
+.counter
+    display flex
+    justify-content left
+
+.nights__checkbox {
+	display: block;
+	margin: 0 0 10px 0;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+}
+.nights__checkbox input[type=checkbox] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+.nights__checkbox span {
+	display: inline-block;
+	position: relative; 
+	padding: 0 0 0 35px; 
+	line-height: 22px;    
+}
+.nights__checkbox span:before {
+	content: "";
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: background 0.3s ease;
+    background url(https://snipp.ru/uploads/contents/checkbox-1.png) 0 0 no-repeat
+}
+ 
+/* Checked */
+.nights__checkbox input[type=checkbox]:checked + span:before {
+    background-color green
+    background-image url(https://snipp.ru/uploads/contents/checkbox-2.png)
+}
+ 
+
+/* Hover */
+.nights__checkbox span:hover:before {
+	filter: brightness(110%);
+}
+ 
+/* Active */
+.nights__checkbox span:active:before {
+	filter: brightness(80%);
+}
+ 
+/* Disabled */
+.nights__checkbox input[type=checkbox]:disabled + span {
+	color: red
+	cursor: default;
+}
+.nights__checkbox input[type=checkbox]:disabled + span:before {
+	filter: grayscale(100%);
+	opacity: 0.6;
+}
