@@ -4,6 +4,7 @@ import {DropDownTravel} from '../DropDownTravel/DropDownTravel'
 import {Nights} from '../DropDownList/Nights'
 import {Humans} from '../DropDownList/Humans'
 import {Button} from '../Button/Button'
+import {MyCalendar} from '../Calendar/Calendar'
 import cn from 'classnames/bind';
 
 //Styles
@@ -59,13 +60,14 @@ const [count, setCount] = useState(1)
     }
   }, [count])
 
+  
   return(
     <div className={cx('components')}>
       <Component cls={'components__block country'} title='Страна, курорт или отель' text={country || 'Выберите страну'}>
         <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
       </Component>
       <Component cls={'components__block date'} title='Дата вылета' text='some text'>
-
+        <MyCalendar />
       </Component>
       <Component cls={'components__block nights'} title='Кол-во ночей' text='some text'>
         <Nights count={count} onClick={handleClick}/>
