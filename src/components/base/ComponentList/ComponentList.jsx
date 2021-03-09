@@ -139,7 +139,6 @@ const [count, setCount] = useState(1)
         <div className={cx('calendar__drop-body')}>
           <CalendarComponent />
         </div>
-        
       </Component>
       <Component cls={'components__block nights'} title='Кол-во ночей' text={countNights + ' ' + title}>
         <div className={cx('nights__drop-body')} >
@@ -151,7 +150,9 @@ const [count, setCount] = useState(1)
           <Humans countParents={countParents} countChildrens={countChildrens} onClickChildrens={handleClickChildrens} onClickParents={handleClickParents} parentsCount={parentsCount} titleParents={titleParents} childrensCount={childrensCount} titleChildrens={titleChildrens}/>
         </div>
       </Component>
-      <Button title={'Искать'} style={'button components__button button_gradient_radius-right'}></Button>
+      <div className={cx('components__block components__block-button')}>
+        <Button title={'Искать'} style={'button components__button button_gradient_radius-right'} />
+      </div>
     </div>
   )
 }

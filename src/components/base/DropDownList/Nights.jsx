@@ -25,7 +25,7 @@ export const Nights = ({ count, onClick, countNights, title }) => {
             setlastNight(0);
             }
             return setCheck(!check)
-    },[check,count])
+    },[check, count])
     
   
     return (
