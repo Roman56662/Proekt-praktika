@@ -1,0 +1,76 @@
+.components{
+    display: flex
+  // justify-content: space-between
+  width 1170px
+  height: 60px 
+  border-radius: 5px
+}
+
+.component__element{
+    display: block
+} 
+
+.component__left{
+    margin: 5px 10px
+    .component__title{
+    font-style: normal
+    font-weight: normal
+    font-size: 14px
+    line-height: 20px
+    color: #878B90
+} 
+
+.component__text{
+    height: 26px
+    font-style: normal
+    font-weight: normal
+    font-size: 17px
+    line-height: 26px
+    color: #2C3136
+    } 
+    
+    }
+
+.component__right{
+    display: block
+    margin: auto 20px
+
+    .component__button{
+        background-color: #fff
+        }
+}
+
+&.components__block{
+    height 60px
+    display: inline-flex
+    justify-content: space-between
+    border-right: 1px solid  #E5E8EB
+    }
+
+&.country{
+    width 360px
+    }
+&.date{
+    width 210px
+    }
+&.nights{
+    width 200px
+    }
+&.humans{
+    width 240px
+    border-right: none
+    }
+    
+
+.components__button{
+    width: 158px
+    height 60px
+    opacity: 1
+    &:active{
+        transform: scale(0.9)
+        transition: 0.1s
+        }
+    }
+
+
+
