@@ -1,6 +1,6 @@
 import React from 'react';
-import {MyCalendar} from './Calendar';
+import {CalendarComponent} from './Calendar';
 
 export default { title: 'Calendar' };
 
-export const basicUsage = () => <MyCalendar />;
+export const basicUsage = () => <CalendarComponent />;

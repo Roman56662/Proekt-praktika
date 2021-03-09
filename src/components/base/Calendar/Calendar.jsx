@@ -7,12 +7,11 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const MyCalendar = ({}) => {
+export const CalendarComponent = () => {
   const [date, setDate] = useState(new Date());
   const [check, setCheck] = useState(false);
 
   const [day, setDay] = useState('')
-  const [month, setMonth] = useState('')
   const [firstDay, setFirst] = useState('')
   const [lastDay, setLast] = useState('')
   const [firstMonth, setFirstMonth] = useState('')
@@ -38,8 +37,6 @@ export const MyCalendar = ({}) => {
         setLastMonth(monthArr[date.getMonth()])
 
         setDay(date.getDate(date.setDate(today)))
-
-        console.log(month)
       }
 
   }

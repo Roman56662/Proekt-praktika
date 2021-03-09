@@ -14,7 +14,7 @@ export default {
 };
 
 
-const Test = () => {
+const NightsCounter = () => {
   const [count, setCount] = useState(1)
   const handleClick = useCallback((znak) => {
     if (znak === 'minus') {
@@ -35,4 +35,4 @@ const Test = () => {
   );
 };
 
-export const example = () => <Test/>
+export const example = () => <NightsCounter/>

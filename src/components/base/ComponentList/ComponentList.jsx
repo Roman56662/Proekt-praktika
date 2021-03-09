@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import {Component} from './Component'
 import {DropDownTravel} from '../DropDownTravel/DropDownTravel'
 import {Nights} from '../DropDownList/Nights'
 import {Humans} from '../DropDownList/Humans'
 import {Button} from '../Button/Button'
-import {MyCalendar} from '../Calendar/Calendar'
+import {CalendarComponent} from '../Calendar/Calendar'
 import cn from 'classnames/bind';
 
 //Styles
@@ -44,6 +44,8 @@ export const ComponentList = ({arr}) => {
     ]
   )
 
+// Calendar
+
 // Nights
 const [count, setCount] = useState(1)
   const handleClick = useCallback((znak) => {
@@ -60,20 +62,84 @@ const [count, setCount] = useState(1)
     }
   }, [count])
 
-  
+  let countNights = count;
+    const title = useMemo(() => {
+        let nigthTitle = 'Ночь'
+        if (count < 5 && count != 1) {
+            nigthTitle = 'Ночи'
+        }
+        if (count > 4) {
+            nigthTitle = 'Ночей'
+        }
+        return nigthTitle
+    }, [count])
+
+// Humans 
+  const [countParents, setCountParents] = useState(1)
+  const [countChildrens, setCountChildrens] = useState(1)
+  const handleClickParents = useCallback((znakParents) => {
+    if (znakParents === 'minusParents') {
+      const resParents = countParents - 1;
+      if (resParents > 0) {
+        setCountParents(resParents)
+      }
+    } else {
+      if (countParents<5) {
+      const p = countParents + 1;
+      setCountParents(p)
+      }
+    }
+  }, [countParents])
+  const handleClickChildrens = useCallback((znakChildrens) => {
+    if (znakChildrens === 'minusChildren') {
+      const resChildrens = countChildrens - 1;
+      if (countChildrens > 0) {
+        setCountChildrens(resChildrens)
+      }
+    } else {
+      if (countChildrens<5) {
+      const c = countChildrens + 1;
+      setCountChildrens(c)
+      }
+    }
+  }, [countChildrens])
+
+  let parentsCount = countParents
+  let childrensCount = countChildrens
+  const titleParents = useMemo(() => {
+      let parentTitle = 'взрослый'
+      
+      if (countParents <= 5 && countParents != 1) {
+          parentTitle = 'взрослых'
+      }
+      return parentTitle
+  }, [countParents])
+
+  const titleChildrens = useMemo(() =>{
+      let childrenTitle = 'ребёнок'
+      
+      if (countChildrens < 5 && countChildrens != 1) {
+          childrenTitle = 'ребёнка'
+      }
+      if (countChildrens === 5)
+          childrenTitle = 'детей'
+      return childrenTitle
+  },[countChildrens]
+  )
+
   return(
     <div className={cx('components')}>
       <Component cls={'components__block country'} title='Страна, курорт или отель' text={country || 'Выберите страну'}>
         <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
       </Component>
       <Component cls={'components__block date'} title='Дата вылета' text='some text'>
-        <MyCalendar />
+        <CalendarComponent />
       </Component>
-      <Component cls={'components__block nights'} title='Кол-во ночей' text='some text'>
-        <Nights count={count} onClick={handleClick}/>
+      <Component cls={'components__block nights'} title='Кол-во ночей' text={countNights + ' ' + title}>
+        <Nights count={count} onClick={handleClick} title={title} countNights={countNights}/>
       </Component>
-      <Component cls={'components__block humans'} title='Кто поедет' text='some text'>
-        <Humans />
+      <Component cls={'components__block humans'} title='Кто поедет' text={parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens}>
+        <Humans countParents={countParents} countChildrens={countChildrens} onClickChildrens={handleClickChildrens} onClickParents={handleClickParents} parentsCount={parentsCount} titleParents={titleParents} childrensCount={childrensCount} titleChildrens={titleChildrens}/>
       </Component>
       <Button title={'Искать'} style={'button components__button button_gradient_radius-right'}></Button>
     </div>
