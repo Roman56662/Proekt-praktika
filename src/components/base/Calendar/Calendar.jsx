@@ -44,7 +44,7 @@ export const CalendarComponent = () => {
 
   return (
     
-    <div className={cx('calendar__drop-body')} >
+   
       <div className={cx('calendar')}>
 
         <Calendar minDate={new Date()} onChange={onChange} value={date} className={cx('react-calendar')}/>
@@ -65,7 +65,7 @@ export const CalendarComponent = () => {
         )} */}
         
         </div>
-      </div>
+
   );
 }
 

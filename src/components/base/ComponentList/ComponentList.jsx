@@ -105,41 +105,51 @@ const [count, setCount] = useState(1)
   }, [countChildrens])
 
   let parentsCount = countParents
-  let childrensCount = countChildrens
-  const titleParents = useMemo(() => {
-      let parentTitle = 'взрослый'
-      
-      if (countParents <= 5 && countParents != 1) {
-          parentTitle = 'взрослых'
-      }
-      return parentTitle
-  }, [countParents])
+    let childrensCount = countChildrens
+    const titleParents = useMemo(() => {
+        let parentTitle = 'взрослый'
+        
+        if (countParents <= 5 && countParents != 1) {
+            parentTitle = 'взрослых'
+        }
+        return parentTitle
+    }, [countParents])
 
-  const titleChildrens = useMemo(() =>{
-      let childrenTitle = 'ребёнок'
-      
-      if (countChildrens < 5 && countChildrens != 1) {
-          childrenTitle = 'ребёнка'
-      }
-      if (countChildrens === 5)
-          childrenTitle = 'детей'
-      return childrenTitle
-  },[countChildrens]
-  )
+    const titleChildrens = useMemo(() =>{
+        let childrenTitle = 'ребёнок'
+        
+        if (countChildrens < 5 && countChildrens != 1 ) {
+            childrenTitle = 'ребёнка'
+        }
+        if (countChildrens === 5 || countChildrens === 0)
+            childrenTitle = 'детей'
+        return childrenTitle
+    },[countChildrens]
+    )
+
 
   return(
     <div className={cx('components')}>
       <Component cls={'components__block country'} title='Страна, курорт или отель' text={country || 'Выберите страну'}>
-        <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
+        <div className={cx('drop-down-travel__drop-body')}>
+          <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
+        </div>
       </Component>
       <Component cls={'components__block date'} title='Дата вылета' text='some text'>
-        <CalendarComponent />
+        <div className={cx('calendar__drop-body')}>
+          <CalendarComponent />
+        </div>
+        
       </Component>
       <Component cls={'components__block nights'} title='Кол-во ночей' text={countNights + ' ' + title}>
-        <Nights count={count} onClick={handleClick} title={title} countNights={countNights}/>
+        <div className={cx('nights__drop-body')} >
+          <Nights count={count} onClick={handleClick} title={title} countNights={countNights}/>
+        </div>
       </Component>
       <Component cls={'components__block humans'} title='Кто поедет' text={parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens}>
-        <Humans countParents={countParents} countChildrens={countChildrens} onClickChildrens={handleClickChildrens} onClickParents={handleClickParents} parentsCount={parentsCount} titleParents={titleParents} childrensCount={childrensCount} titleChildrens={titleChildrens}/>
+        <div className={cx('humans__drop-body')}>
+          <Humans countParents={countParents} countChildrens={countChildrens} onClickChildrens={handleClickChildrens} onClickParents={handleClickParents} parentsCount={parentsCount} titleParents={titleParents} childrensCount={childrensCount} titleChildrens={titleChildrens}/>
+        </div>
       </Component>
       <Button title={'Искать'} style={'button components__button button_gradient_radius-right'}></Button>
     </div>

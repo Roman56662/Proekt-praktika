@@ -14,11 +14,10 @@ export const DropDown = ({arr, handleClick}) => {
   //   setCountry(q)
   // }, [q])
   //   const handleClick = useCallback( (q) => {
-  //   setCountry(q);
+  //   setCountry(q); 
   // })
 
   return(
-    <div className={cx('drop')}>
       <div className={cx('drop__body')}>
         <ul className={cx('drop__list')}>
           <span className={cx('list__popular')}> Популярные направления </span>
@@ -53,7 +52,6 @@ export const DropDown = ({arr, handleClick}) => {
           })}
         </ul>
       </div>
-    </div>
   )
 }
 
