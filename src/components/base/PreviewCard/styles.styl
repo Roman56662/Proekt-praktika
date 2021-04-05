@@ -1,0 +1,37 @@
+.preview-card-large{
+  margin-top: 10px
+  width 750px
+  height: 430px
+  border-radius: 5px
+  box-shadow: 0 0 10px #ccc
+  .preview-card__back{
+    height 100%
+    display: flex
+    align-items: flex-end
+    position: relative
+    .back__img{
+      position: absolute
+      height 100%
+      width 100%
+      border-radius: 5px
+      z-index 2
+    }
+    .preview-card__content{
+      flex-direction: column
+      z-index: 5
+
+      .preview-card__flag{
+      & img{
+        height 30px
+      }
+      }
+      .preview-card__country{
+        color: #fff
+      }
+      .preview-card__price{
+        color: #fff
+      }
+    }
+    
+  }
+}

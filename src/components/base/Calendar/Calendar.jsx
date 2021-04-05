@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {Calendar} from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 import cn from 'classnames/bind';
@@ -7,77 +7,33 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const CalendarComponent = () => {
-  const [date, setDate] = useState(new Date());
-  const [check, setCheck] = useState(false);
+export const CalendarComponent = ({getDayArrived, getDayDeparted, getMonthArrived, getMonthDeparted}) => {
 
-  const [day, setDay] = useState('')
-  const [firstDay, setFirst] = useState('')
-  const [lastDay, setLast] = useState('')
-  const [firstMonth, setFirstMonth] = useState('')
-  const [lastMonth, setLastMonth] = useState('')
-  const monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
-              'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']  
+  const [dateArrived, setDateArrived] = useState(new Date())
+  const [dateDeparted, setDateDeparted] = useState(new Date())
 
   let today
 
-  const onChange = date => {
-    setDate(date);
-      if (check === false) {
-        today = date.getDate()
-        setDay(date.getDate(date.setDate(today)))
-        
-      } else {
-        today = date.getDate()
-        setFirst(date.getDate(date.setDate(today-3))) 
-        setFirstMonth(monthArr[date.getMonth()])
+  const onChangeArrived = useCallback( (dateArrived) => {
+    setDateArrived(dateArrived);
+    today = dateArrived.getDate()
+    getDayArrived(dateArrived.getDate(dateArrived.setDate(today)))
+    getMonthArrived(dateArrived.getMonth())
+  },[dateArrived]) 
 
-        setLast(date.getDate(date.setDate(today+3)))
-        
-        setLastMonth(monthArr[date.getMonth()])
-
-        setDay(date.getDate(date.setDate(today)))
-      }
-
-  }
-
-
+  const onChangeDeparted = useCallback( (dateDeparted) => {
+    setDateDeparted(dateDeparted);
+    today = dateDeparted.getDate()
+    getDayDeparted(dateDeparted.getDate(dateDeparted.setDate(today)))
+    getMonthDeparted(dateDeparted.getMonth())
+  },[dateDeparted])   
+  
   return (
-    
-   
       <div className={cx('calendar')}>
-
-        <Calendar minDate={new Date()} onChange={onChange} value={date} className={cx('react-calendar')}/>
-
-        <div className={cx('calendar__flex-date')}>
-          <label className={cx('flex-date__check')}>
-            <input className={cx('check__input')} type="checkbox" onChange={() => {
-              setCheck(!check)
-              }}/>
-              <span className={cx('check__text')}>± 3 дня (гибкие даты)</span>
-            </label>
-        </div>
-
-        {/* {check ? (
-          <input type="text" value={'C ' + firstDay + ' ' + firstMonth + ' по ' + lastDay + ' ' + lastMonth}/>
-        ) : (
-          <input type="text" value={ day + ' ' + monthArr[date.getMonth()]}/>
-        )} */}
+        <Calendar  minDate={new Date()} maxDate={new Date(2022, 0, 1, 0, 0, 0, 0)} onChange={onChangeArrived} value={dateArrived} className={cx('react-calendar')}/>
+        {/* <Calendar  minDate={new Date(dateArrived)} maxDate={new Date(2022, 0, 1, 0, 0, 0, 0)} onChange={onChangeDeparted} value={dateDeparted} className={cx('react-calendar')}/> */}
         
-        </div>
-
+      </div>
   );
 }
 
-// export const MyCalendar = ({arr}) => {
-//   const [value, onChange] = useState(new Date());
-
-//   return (
-//     <div>
-//       <Calendar
-//         onChange={onChange}
-//         value={value}
-//       />
-//     </div>
-//   );
-// }

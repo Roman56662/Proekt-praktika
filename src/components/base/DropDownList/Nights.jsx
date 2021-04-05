@@ -16,18 +16,17 @@ export const Nights = ({ count, onClick, countNights, title }) => {
 
     
 
-    const checkout= useCallback(() => {
-        if (check==false){
-            setfirstNight(count-2);
-            setlastNight(count+2);
+    const checkout = useCallback(() => {
+        if (check == false){
+            setfirstNight( count - 2 );
+            setlastNight( count + 2 );
         }
-        else {setfirstNight(0);
-            setlastNight(0);
+        else {setfirstNight( 0 );
+            setlastNight( 0 );
             }
-            return setCheck(!check)
+            return setCheck( !check )
     },[check, count])
-    
-  
+
     return (
         <div className={cx('component__nights')}>
             <div className={cx('counter')}>

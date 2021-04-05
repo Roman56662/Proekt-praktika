@@ -13,7 +13,6 @@ export default {
   },
 };
 
-
 const NightsCounter = () => {
   const [count, setCount] = useState(1)
   const handleClick = useCallback((znak) => {

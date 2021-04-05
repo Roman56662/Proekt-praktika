@@ -11,7 +11,6 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-
 export const ComponentList = ({arr}) => {
 
 // DropDownTravel
@@ -45,6 +44,30 @@ export const ComponentList = ({arr}) => {
   )
 
 // Calendar
+  const [dayArrived, setDayArrived] = useState()
+  const [monthArrived, setMonthArrived] = useState()
+
+  const [dayDeparted, setDayDeparted] = useState()
+  const [monthDeparted, setMonthDeparted] = useState()
+
+  const monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+                    'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'] 
+
+  const getDayArrived = useCallback( (value) => {
+    setDayArrived(value);
+  })
+
+  const getDayDeparted = useCallback( (value) => {
+    setDayDeparted(value);
+  })
+
+  const getMonthArrived = useCallback( (value) => {
+    setMonthArrived(monthArr[value]);
+  })
+
+  const getMonthDeparted = useCallback( (value) => {
+    setMonthDeparted(monthArr[value]);
+  })
 
 // Nights
 const [count, setCount] = useState(1)
@@ -127,7 +150,6 @@ const [count, setCount] = useState(1)
     },[countChildrens]
     )
 
-
   return(
     <div className={cx('components')}>
       <Component cls={'components__block country'} title='Страна, курорт или отель' text={country || 'Выберите страну'}>
@@ -135,9 +157,9 @@ const [count, setCount] = useState(1)
           <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
         </div>
       </Component>
-      <Component cls={'components__block date'} title='Дата вылета' text='some text'>
+      <Component cls={'components__block date'} title='Дата вылета' text={ (dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) && (dayDeparted >= dayArrived) ? (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')}>
         <div className={cx('calendar__drop-body')}>
-          <CalendarComponent />
+          <CalendarComponent getDayArrived={getDayArrived} getDayDeparted={getDayDeparted} getMonthArrived={getMonthArrived} getMonthDeparted={getMonthDeparted}/>
         </div>
       </Component>
       <Component cls={'components__block nights'} title='Кол-во ночей' text={countNights + ' ' + title}>
