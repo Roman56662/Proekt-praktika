@@ -6,6 +6,7 @@ import { TravelCardBackground } from './TravelCardBackground'
 import { TravelCardStars } from './TravelCardStars'
 import { TravelCardText } from './TravelCardText'
 import { Button } from '../Button/Button'
+import {Humans} from '../DropDownList/Humans'
 
 //Styles
 import styles from './styles.styl';
@@ -33,7 +34,7 @@ export const TravelCard = ({rating, backImg, stars,
         
       </div>
       <div className={cx('travel-card__button')}>
-        <Button title={'Посмотреть тур от ' + price + ' руб.'} style={'button travel-card__button button_gradient'} />
+      <Button link='' title={'Посмотреть тур от ' + price + ' руб.'}  theme={'_button_yellow travel-card__button'} />
       </div>
     </div>
   )

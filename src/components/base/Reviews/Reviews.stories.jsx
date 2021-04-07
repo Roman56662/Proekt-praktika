@@ -45,13 +45,13 @@ const Test = () => {
         base.map((baseItem, index) => {
           return(
             <Reviews 
-            index={index} 
-            key={baseItem.id} 
+              index={index} 
+              key={baseItem.id} 
 
-            user={baseItem.user}
-            date={baseItem.date}
-            figure={baseItem.figure}
-            text={baseItem.text}
+              user={baseItem.user}
+              date={baseItem.date}
+              figure={baseItem.figure}
+              text={baseItem.text}
             />
           )
         })

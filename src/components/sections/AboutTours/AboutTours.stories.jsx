@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { AboutHotel } from './AboutHotel';
+import { AboutTours } from './AboutTours';
 import { withKnobs, text, object } from '@storybook/addon-knobs';
 
 
 export default {
-  title: 'AboutHotel',
+  title: 'AboutTours',
   decorators: [withKnobs],
   parameters: {
     docs: {
@@ -23,7 +23,9 @@ const Test = () => {
   ]
 
   return (
-    <AboutHotel />
+    <AboutTours 
+      
+    />
   );
 };
 

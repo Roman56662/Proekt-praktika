@@ -5,11 +5,11 @@ import cn from 'classnames/bind';
 import styles from './button.styl';
 const cx = cn.bind(styles);
 
-export const Button = ({title, onClick, style}) => {
+export const Button = ({link, title, onClick, theme}) => {
 
   return(
-    <button onClick={onClick} className={style}>
-      <p>{title}</p> 
+    <button onClick={onClick} className={cx('Button',{[`Button_theme_${theme}`]: theme})}>
+      <a href={link}>{title}</a> 
     </button>
   )
 }
