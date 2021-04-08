@@ -36,6 +36,24 @@ const Test = () => {
         title: 'Доминикана',
         price: ' от 106 741 ₽',
         popular: false
+      },
+      {
+        id: 4,
+        title: 'Турция',
+        price: ' от 36 524 ₽',
+        popular: true
+      },
+      {
+        id: 5,
+        title: 'Россия',
+        price: ' от 51 085 ₽',
+        popular: true
+      },
+      {
+        id: 6,
+        title: 'Доминикана',
+        price: ' от 106 741 ₽',
+        popular: false
       }
     ]
   )

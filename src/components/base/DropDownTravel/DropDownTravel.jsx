@@ -10,14 +10,6 @@ const cx = cn.bind(styles);
 
 export const DropDownTravel = ({getCountryFunc, arr}) => {
 
-  // const [country, setCountry] = useState()
-
-  // const handleClick = useCallback( (q) => {
-  //   setCountry(q);
-  // })
-
-  // getCountry(country)
-
   const regions = (
     [
       {
