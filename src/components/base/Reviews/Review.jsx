@@ -7,22 +7,14 @@ const cx = cn.bind(styles);
 
 export const Review = ({user, date, figure, text}) => {
   let modReview = ''
-  switch (figure) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
+  switch (true) {
+    case figure>=0 && figure<=3:
       modReview = '-bad'
       break;
-    case 4:
-    case 5:
-    case 6:
+    case figure>=4 && figure<=6:
       modReview = '-normal'
       break;
-    case 7:
-    case 8:
-    case 9:
-    case 10:
+    case figure>=7 && figure<=10:
       modReview = '-good'
       break;
   
@@ -30,7 +22,6 @@ export const Review = ({user, date, figure, text}) => {
       modReview = ''
       break;
   }
-  console.log(modReview)
   return(
     <div className={cx('review')} >
       <div className={cx('review__inf')}>
