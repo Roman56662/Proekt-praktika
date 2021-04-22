@@ -7,8 +7,9 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const Tour = ({date, month, countNights, nutrition, roomPlace, roomType}) => {
-  
+export const Tour = ({date, month, countNights, roomPlace, roomType,
+                      live, nutrition, fly, transfer, health}) => {
+                      
   let count = countNights
   const title = useMemo(() => {
       let nigthTitle = 'Ночь'
@@ -21,6 +22,8 @@ export const Tour = ({date, month, countNights, nutrition, roomPlace, roomType})
       return nigthTitle
   }, [count])
 
+  const str = nutrition
+  console.log({nutrition})
   return(
     <div className={cx('tour')}>
       <div className={cx('tour__date')}>
@@ -31,13 +34,21 @@ export const Tour = ({date, month, countNights, nutrition, roomPlace, roomType})
         <p>{countNights} {title}</p>
       </div>
       <div className={cx('tour__nutrition')}>
-        <p>{nutrition}</p>
+        <p>
+          {nutrition === ' ' ? 'Питание не включено' : nutrition}
+        </p>
       </div>
       <div className={cx('tour__room')}>
         <p>Номер: <span>{roomPlace} {roomType}</span></p>
       </div>
       <div className={cx('tour__icons')}>
-        <TourIcons />
+        <TourIcons 
+          live={live} 
+          nutrition={nutrition} 
+          fly={fly} 
+          transfer={transfer}
+          health={health}
+        />
       </div>
       <div className={cx('tour__button')}>
         button

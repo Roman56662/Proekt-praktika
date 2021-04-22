@@ -6,7 +6,7 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const TourIcons = ({}) => {
+export const TourIcons = ({live, nutrition, fly, transfer, health}) => {
   
 
   return(
@@ -15,7 +15,9 @@ export const TourIcons = ({}) => {
         <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
-            <p>some text</p>
+            <p>
+              {live == 1 ? 'Проживание включено' : 'Проживание не включено'}
+            </p>
           </div>
         </div>
       </div>
@@ -23,7 +25,9 @@ export const TourIcons = ({}) => {
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
-            <p>some text</p>
+            <p>
+              {fly == 1 ? 'Перелёт включен' : 'Перелёт не включен'}
+            </p>
           </div>
         </div>
       </div>
@@ -31,7 +35,9 @@ export const TourIcons = ({}) => {
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
-            <p>some text</p>
+            <p>
+              {nutrition === '' ? 'Питание не включено' : 'Питание включено'}
+            </p>
           </div>
         </div>
       </div>
@@ -39,7 +45,9 @@ export const TourIcons = ({}) => {
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
-            <p>some text</p>
+            <p>
+              {transfer == 1 ? 'Трансфер включен' : 'Трансфер не включен'}
+            </p>
           </div>
         </div>
       </div>
@@ -47,7 +55,9 @@ export const TourIcons = ({}) => {
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
-            <p>some text</p>
+            <p>
+              {health == 1 ? 'Мед страховка включена' : 'Мед страховка не включена'}
+            </p>
           </div>
         </div>
       </div>
