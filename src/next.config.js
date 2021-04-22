@@ -23,7 +23,7 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 100000,
-          name: '[name].[ext]',
+          name: '[path][name].[ext]',
         },
       },
     });

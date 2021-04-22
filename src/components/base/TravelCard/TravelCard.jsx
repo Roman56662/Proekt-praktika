@@ -6,7 +6,6 @@ import { TravelCardBackground } from './TravelCardBackground'
 import { TravelCardStars } from './TravelCardStars'
 import { TravelCardText } from './TravelCardText'
 import { Button } from '../Button/Button'
-import {Humans} from '../DropDownList/Humans'
 
 //Styles
 import styles from './styles.styl';

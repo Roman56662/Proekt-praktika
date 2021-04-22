@@ -9,11 +9,11 @@ export const TravelCardStars = ({stars}) => {
 
   return(
     <div className={cx('travel-card__stars')}>
-      <img src="https://cdn.icon-icons.com/icons2/1077/PNG/512/star_77949.png" alt=""/>
-      <img src="https://cdn.icon-icons.com/icons2/1077/PNG/512/star_77949.png" alt=""/>
-      <img src="https://cdn.icon-icons.com/icons2/1077/PNG/512/star_77949.png" alt=""/>
-      <img src="https://cdn.icon-icons.com/icons2/1077/PNG/512/star_77949.png" alt=""/>
-      <img src="https://cdn.icon-icons.com/icons2/1077/PNG/512/star_77949.png" alt=""/>
+      <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+      <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+      <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+      <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+      <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
     </div>
   )
 }
