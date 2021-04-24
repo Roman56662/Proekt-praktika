@@ -10,8 +10,8 @@ export const TourIcons = ({live, nutrition, fly, transfer, health}) => {
   
 
   return(
-    <div className={cx('tour-icons')}>
-      <div className={cx('tour-icons__live')}>
+    <div className={cx('icons')}>
+      <div className={cx('icons__live')}>
         <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
@@ -21,7 +21,7 @@ export const TourIcons = ({live, nutrition, fly, transfer, health}) => {
           </div>
         </div>
       </div>
-      <div className={cx('tour-icons__fly')}>
+      <div className={cx('icons__fly')}>
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
@@ -31,7 +31,7 @@ export const TourIcons = ({live, nutrition, fly, transfer, health}) => {
           </div>
         </div>
       </div>
-      <div className={cx('tour-icons__nutrition')}>
+      <div className={cx('icons__nutrition')}>
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
@@ -41,7 +41,7 @@ export const TourIcons = ({live, nutrition, fly, transfer, health}) => {
           </div>
         </div>
       </div>
-      <div className={cx('tour-icons__transfer')}>
+      <div className={cx('icons__transfer')}>
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>
@@ -51,7 +51,7 @@ export const TourIcons = ({live, nutrition, fly, transfer, health}) => {
           </div>
         </div>
       </div>
-      <div className={cx('tour-icons__health')}>
+      <div className={cx('icons__health')}>
       <div className={cx('statick')}>
           <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
           <div className={cx('hover')}>

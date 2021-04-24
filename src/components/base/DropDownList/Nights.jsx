@@ -34,7 +34,7 @@ export const Nights = ({ count, onClick, countNights, title }) => {
                 <input type="text" value={countNights + ' ' + title} className={cx('counterInput')}></input>
                 <button  onClick={() => onClick('plus')} className={cx('counterRight')}>+</button>
             </div>
-            <div>
+            <div className={cx('checkbox')}>
                 <label className={cx('nights__checkbox')}>
                 <input type="checkbox" onChange={checkout}/>
                 <span>± 2 ночи</span></label>

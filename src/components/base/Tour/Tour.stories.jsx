@@ -22,7 +22,7 @@ const Test = () => {
     {
       date: '25',
       month: 'апр',
-      countNights: 7,
+      countNights: 6,
       live: 1,
       nutrition: 'Только завтрак',
       fly: 1,
@@ -34,7 +34,7 @@ const Test = () => {
     {
       date: '25',
       month: 'апр',
-      countNights: 7,
+      countNights: 4,
       live: 1,
       nutrition: ' ',
       fly: 0,
@@ -46,7 +46,7 @@ const Test = () => {
     {
       date: '25',
       month: 'апр',
-      countNights: 7,
+      countNights: 3,
       live: 1,
       nutrition: ' ',
       fly: 1,
@@ -58,7 +58,7 @@ const Test = () => {
     {
       date: '27',
       month: 'апр',
-      countNights: 7,
+      countNights: 2,
       live: 1,
       nutrition: ' ',
       fly: 1,

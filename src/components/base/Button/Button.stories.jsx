@@ -15,7 +15,8 @@ export default {
 const theme = {
   primari: 'primary',
   custom: 'custom',
-  button_yellow: '_button_yellow travel-card__button'
+  button_yellow: '_button_yellow',
+  button_yellow_bordered: '_button_yellow_bordered',
 }
   
 

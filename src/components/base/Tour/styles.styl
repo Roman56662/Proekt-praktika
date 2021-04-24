@@ -1,35 +1,46 @@
 .tour{
+  display: flex
+  margin 20px auto
+.tour__body{
   display flex
   justify-content: space-between
-  border-radius: 5px
-  box-shadow: 0 0 10px #ccc
-
-  margin 20px auto
-
-  height 200px
-  width 1000px
-
-  .tour-icons{
+  border-top-left-radius: 5px
+  border-bottom-left-radius: 5px
+  -webkit-box-shadow: 5px -2px 10px 0px #ccc;
+  -moz-box-shadow:    5px -2px 10px 0px #ccc;
+  box-shadow:         5px -2px 10px 0px #ccc;
+  width: 100%
+  height 80px
+  .tour__block{
+    margin: auto
+    width 15%
+    text-align: center
+    & p{
+      display: inline-block
+      font-size: 14px
+      font-weight: bold
+    }
+      & span{
+        color green
+      }
+  }
+  .icons{
     display: flex
-    justify-content: space-between
+    justify-content: space-around
     img{
       height 10px
       width 10px
       margin-right: 10px
     }
-
     .statick{
       position:relative;
     }
-
     .hover{
       display:none;
-      background:#f3f3f3;
-      height:100px;
+      background: rgba(255,255,255,0);
       box-shadow: 0 0 10px #ccc
-
+      backdrop-filter: blur(5px);
     }
-
     .statick:hover .hover{
       display:block;
       position:absolute;
@@ -39,7 +50,21 @@
       left: -40px
     }
   }
-  
-
 }
-
+  .tour__button{
+    display: block
+    height 100%
+    -webkit-box-shadow: 6px -2px 10px 0px #ccc;
+    -moz-box-shadow:    6px -2px 10px 0px #ccc;
+    box-shadow:         6px -2px 10px 0px #ccc;
+    &:hover{
+      -webkit-box-shadow: 8px -4px 10px 0px #ccc;
+      -moz-box-shadow:    8px -4px 10px 0px #ccc;
+      box-shadow:         8px -4px 10px 0px #ccc;
+    }
+    &:active{
+      transform: translateX(-1px)
+      box-shadow: none
+  }
+}
+}

@@ -9,7 +9,7 @@ export const PreviewCard = ({mod, back, flag, country, price}) => {
 
   
   return(
-    <div className={cx('preview-card'+mod)} >
+    <div className={cx('preview-card preview-card'+mod)} >
       <div className={cx('preview-card__back')} >
         <img className={cx('back__img')} src={back} alt=""/>
         <div className={cx('preview-card__content')}>

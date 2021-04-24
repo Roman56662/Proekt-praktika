@@ -27,5 +27,6 @@ export const Humans = ({countParents, countChildrens, onClickChildrens, onClickP
                         <button  onClick={() => onClickChildrens('plusChildren')} className={cx('counterRight')}>+</button>
                 </div>
             </div>
-        </div>);
+        </div>
+        );
 }

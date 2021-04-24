@@ -33,7 +33,7 @@ export const TravelCard = ({rating, backImg, stars,
         
       </div>
       <div className={cx('travel-card__button')}>
-      <Button link='' title={'Посмотреть тур от ' + price + ' руб.'}  theme={'_button_yellow travel-card__button'} />
+        <Button link='' title={'Посмотреть тур от ' + price + ' руб.'}  theme={'_button_yellow travel-card__button'} />
       </div>
     </div>
   )

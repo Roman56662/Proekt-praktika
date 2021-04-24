@@ -1,5 +1,4 @@
-
-.counterLeft
+.counterLeft{
     width 35px
     font-size 24px
     background white
@@ -7,8 +6,8 @@
     border-right 0px
     border-radius 3px 0 0 3px
     outline none
-
-.counterRight
+}
+.counterRight{
     width 35px
     font-size 18px
     background white
@@ -16,33 +15,41 @@
     border-left 0px
     border-radius 0 3px 3px 0
     outline none
-
-.counterInput
+}
+.counterInput{
     height 40px
     width 100px
     text-align center
     font-size 16px
     border 1px solid #ccc
     outline none
-
+}
 .humans__drop-body{
     position: absolute
     width 350px
     margin-top: 60px
     }
 
-.humans__parents
+.humans__parents{
     font-size 14px
+    }
 
-.humans__children
-    font-size 14px
+.humans__children{
+    ont-size 14px
+    }
 
-.component__humans
+.component__humans{
     width 200px
+    float: left
+    }
 
-.counter
-    display flex
+.counter{
+    display inline-flex
     justify-content left
+    -webkit-box-shadow: 5px -2px 10px 0px #ccc;
+    -moz-box-shadow:    5px -2px 10px 0px #ccc;
+    box-shadow:         5px -2px 10px 0px #ccc;
+    }
 
 .nights__drop-body{
 	position: absolute
@@ -50,11 +57,21 @@
 	margin-top: 60px
 }
 
+.component__nights{
+    display: inline-block
+
+}
+
+.checkbox{
+
+}
+
 .nights__checkbox {
 	display: block;
 	margin: 0 0 10px 0;
 	cursor: pointer;
 	user-select: none;
+    border-radius: 5px
 	position: relative;
 }
 .nights__checkbox input[type=checkbox] {
