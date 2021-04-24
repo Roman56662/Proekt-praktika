@@ -100,16 +100,19 @@
     height 200px
 
     button[disabled]{
-      opacity 0
+      opacity 0.5
       }
     button{
       background-color: #fff
       border: none
       } 
     .react-calendar__tile--active{
-      background-color: #08A652
+      background-color: #FFF45F
       border-radius: 5px
-      color: #fff
+      color: #000
+      }
+    .react-calendar__tile--active:hover{
+      background-color: #FFF45F
       }
     .react-calendar__tile{
       height 35px
@@ -120,5 +123,15 @@
       background-color: #ccc
       border-radius: 5px
       }
+
+    .react-calendar__month-view__days__day--weekend{
+      abbr{
+        color red
+      }
+    }  
+    .react-calendar__month-view__days__day--neighboringMonth{
+      opacity: 0
+    }
+
 
 

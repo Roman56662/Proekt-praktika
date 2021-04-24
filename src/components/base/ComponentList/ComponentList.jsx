@@ -63,10 +63,12 @@ export const ComponentList = ({arr}) => {
 
   const getMonthArrived = useCallback( (value) => {
     setMonthArrived(monthArr[value]);
+    let manumber = value
   })
 
   const getMonthDeparted = useCallback( (value) => {
     setMonthDeparted(monthArr[value]);
+    let mdnumber = value
   })
 
 // Nights
@@ -158,7 +160,7 @@ const [count, setCount] = useState(1)
             <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
           </div>
         </Component>
-        <Component cls={'components__block date'} title='Дата вылета' text={ (dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) && (dayDeparted >= dayArrived) ? (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')}>
+        <Component cls={'components__block date'} title='Дата вылета' text={ (dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) && (dayDeparted>dayArrived && manumber>mdnumber) ? (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')}>
           <div className={cx('calendar__drop-body')}>
             <CalendarComponent getDayArrived={getDayArrived} getDayDeparted={getDayDeparted} getMonthArrived={getMonthArrived} getMonthDeparted={getMonthDeparted}/>
           </div>

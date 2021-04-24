@@ -31,7 +31,7 @@ export const CalendarComponent = ({getDayArrived, getDayDeparted, getMonthArrive
   return (
       <div className={cx('calendar')}>
         <Calendar  minDate={new Date()} maxDate={new Date(2022, 0, 1, 0, 0, 0, 0)} onChange={onChangeArrived} value={dateArrived} className={cx('react-calendar')}/>
-        {/* <Calendar  minDate={new Date(dateArrived)} maxDate={new Date(2022, 0, 1, 0, 0, 0, 0)} onChange={onChangeDeparted} value={dateDeparted} className={cx('react-calendar')}/> */}
+        <Calendar  minDate={new Date(dateArrived)} maxDate={new Date(2022, 0, 1, 0, 0, 0, 0)} onChange={onChangeDeparted} value={dateDeparted} className={cx('react-calendar')}/>
         
       </div>
   );

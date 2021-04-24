@@ -4,7 +4,7 @@ import { CalendarComponent } from './Calendar';
 import { withKnobs, number } from '@storybook/addon-knobs';
 
 export default {
-  title: 'CalendarComponent',
+  title: 'Calendar',
   decorators: [withKnobs],
   parameters: {
     docs: {
