@@ -25,7 +25,6 @@ export const Review = ({user, date, figure, text}) => {
   }
   return(
     <div className={cx('review')} >
-      <img src='../../../public/assets/images/left-arrow.png' height='100px' width='800px' alt=""/>
       <div className={cx('review__inf')}>
         <div className={cx('review__inf__col1')}>
         <div className={cx('review__user')}>
