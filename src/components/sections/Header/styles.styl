@@ -1,0 +1,52 @@
+// .container{
+//   margin: 0 auto
+//   width 1600px
+// }
+.header{
+  display: flex
+  justify-content: space-between
+  position: fixed
+  width: 100%
+  .header__logo{
+    display: inline-flex
+    & .logo__img{
+      margin-right 2.2vw
+      & img{
+        display: block
+        height 120px
+        width 120px
+        border-radius: 100%
+        background-color: #FFF45F
+      }
+    }
+    & .logo__title{
+      margin: auto auto
+    }
+  }
+  & a{
+    font-size 24px
+    font-weight bold
+    color #000
+    }
+  & a:hover{
+    text-decoration: underline
+  }
+  .header__nav{
+    .navigation{
+      display: flex
+      height: 100%
+      .navigation__list{
+        height 100%
+        width: 100%
+        display: inline-flex
+        align-items: center
+        & li{
+          margin-right 2.2vw
+        }
+        & li:last-child{
+          margin-right 0px
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { Reviews } from './Reviews';
-import { withKnobs, text, object } from '@storybook/addon-knobs';
+import React from 'react';
+import {Header} from './Header'
+import { withKnobs } from '@storybook/addon-knobs';
 
 
 export default {
-  title: 'Reviews',
+  title: 'Header',
   decorators: [withKnobs],
   parameters: {
     docs: {
@@ -40,23 +40,7 @@ const Test = () => {
   ]
 
   return (
-    <div>
-      {
-        base.map((baseItem, index) => {
-          return(
-            <Reviews 
-              index={index} 
-              key={baseItem.id} 
-
-              user={baseItem.user}
-              date={baseItem.date}
-              figure={baseItem.figure}
-              text={baseItem.text}
-            />
-          )
-        })
-      }
-    </div>
+    <Header />
   );
 };
 

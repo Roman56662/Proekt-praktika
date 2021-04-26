@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames/bind';
 import img from '../../../public/assets/images/left-arrow.png'
 
@@ -7,6 +7,7 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 export const Review = ({user, date, figure, text}) => {
+
   let modReview = ''
   switch (true) {
     case figure>=0 && figure<=3:
@@ -23,6 +24,11 @@ export const Review = ({user, date, figure, text}) => {
       modReview = ''
       break;
   }
+
+  let fullText = text
+  const [open, setOpen] = useState(false)
+
+
   return(
     <div className={cx('review')} >
       <div className={cx('review__inf')}>
@@ -41,7 +47,12 @@ export const Review = ({user, date, figure, text}) => {
         </div>
       </div>
       <div className={cx('review__text')}>
-        <p>{text}</p>
+        <p>
+          { (open == false && fullText.length > 100) ? fullText.slice(0, 220) : fullText}
+        </p><span onClick={() => setOpen(!open)} >
+          { fullText.length > 228 ? (open == false ? 'show more' : 'show less') : ''}
+        </span>
+      
       </div>
     </div>
   )
