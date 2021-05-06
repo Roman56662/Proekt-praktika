@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import Link from '@ch/next-router/Link';
 import Page from 'components/environment/Page';
+import { DropDownTravel } from '../../components/base/DropDownTravel/DropDownTravel'
 
 const HomePage = () => {
   const title = useSelector(state => state.home.title);
+
+  const [arr, setArr] = useState([])  
+
+  useEffect( () =>{
+    async function fetchData() {
+      let response = await fetch('http://localhost:3001/api/export')
+      setArr(await response.json())
+    }
+    fetchData()
+},[])
+
+
   return (
     <Page>
       <h1>Title:: {title}</h1>
@@ -31,6 +44,7 @@ const HomePage = () => {
       <br />
       <Link href="/lk/test/kit">/lk/test/kit</Link>
       <br />
+      <DropDownTravel arr={arr}/>
     </Page>
   );
 };

@@ -29,9 +29,31 @@ const testSchema = new mongoose.Schema({
 
 const Test = mongoose.model('Test', testSchema)
 
+let arr = ''
+
+const turk = new Test({
+  title: 'Турция',
+  price: 36000,
+  popular: true
+})
+const domin = new Test({
+  title: 'Доминикана',
+  price: 106000,
+  popular: false
+})
+
+// save in table
+
+
+Test.find( (err, items) => {
+  if (err) return console.error(err)
+  arr = items
+  console.log(items)
+})
+
 //client export
   app.get('/api/export', cors(), (req, res) =>{
-    res.send()
+    res.send(arr)
   })
 //
 
