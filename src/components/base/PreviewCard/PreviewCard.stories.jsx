@@ -164,21 +164,21 @@ const Test = () => {
 let count = 0
   return (    
     <div className='block-preview-cards'>
-    {base.map((baseItem, index) => {
-      count+=1
-      return(
-        <PreviewCard 
-          index={index} 
-          key={baseItem.id} 
+      {base.map((baseItem, index) => {
+        count+=1
+        return(
+          <PreviewCard 
+            index={index} 
+            key={baseItem.id} 
 
-          // mod={count % 5 == 0 ? '-large' : '-small'}
-          back={baseItem.back}
-          flag={baseItem.flag}
-          country={baseItem.country}
-          price={baseItem.price}
-        />
-      )
-    })}
+            // mod={count % 5 == 0 ? '-large' : '-small'}
+            back={baseItem.back}
+            flag={baseItem.flag}
+            country={baseItem.country}
+            price={baseItem.price}
+          />
+        )
+      })}
   </div>
   )
 }
