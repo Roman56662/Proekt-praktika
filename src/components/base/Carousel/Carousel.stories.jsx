@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { SliderTest } from './SliderTest';
+import { Carousel } from './Carousel';
 import { withKnobs, text, object } from '@storybook/addon-knobs';
 
 
 export default {
-  title: 'SliderTest',
+  title: 'Carousel',
   decorators: [withKnobs],
   parameters: {
     docs: {
@@ -34,7 +34,8 @@ const Test = () => {
   ]
 
   return (
-    <SliderTest
+    <Carousel
+      base={base}
     />
   );
 };

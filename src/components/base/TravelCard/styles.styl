@@ -1,3 +1,31 @@
+.travel-card__rating{
+  border-radius: 100%
+  text-align: center
+  color: #000
+  & p{
+    display: block 
+  }
+  & span{
+    display: block
+  }
+}
+.travel-card__rating-bad{
+  background: red
+}
+.travel-card__rating-normal{
+  background: orange
+}
+.travel-card__rating-good{
+  background: green
+}
+
+.travel-card__stars {
+  display: flex
+  justify-content: space-between
+  & img{
+  }
+}
+
 .test{
   display: flex
   justify-content: space-between
@@ -14,34 +42,20 @@
   .travel-card__back{
     position: relative
 
-    .travel-card__rating{
+.travel-card__rating{
       position: absolute
       top: 5px
       right: 5px
       height 50px
       width 50px
-      border-radius: 100%
-      text-align: center
-      color: #000
       & p{
-        display: block
         font-size: 10px  
         margin: 5px 0px 0px 0px
       }
       & span{
-        display: block
         font-size: 18px
         margin 11px 10px 10px 10px
       }
-    }
-    .travel-card__rating-bad{
-      background: red
-    }
-    .travel-card__rating-normal{
-      background: orange
-    }
-    .travel-card__rating-good{
-      background: green
     }
 
     .travel-card__background{
@@ -61,14 +75,13 @@
     margin 5px 15px 10px 15px
 
     .travel-card__stars {
-      display: flex
-      justify-content: space-between
       width: 150px
       margin: 0px 0px 10px 0px
       & img{
         height 25px
       }
     }
+
 
   .travel-card__text{
     .text__title{
