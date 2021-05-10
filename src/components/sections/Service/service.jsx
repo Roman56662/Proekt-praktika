@@ -1,20 +1,21 @@
 import React from 'react'
-import Navigation from './navigation'
 import cn from 'classnames/bind';
+import Navigation from './navigation'
 import {Footer} from './footer'
-import {SliderTest} from '../../base/Slider/Slider'
+import {CardsService} from './cardsService'
 
 //Styles
 import styles from '../../styles.styl';
 const cx = cn.bind(styles);
 
-export const Main = () => {
+
+export const Service = () => {
 
     return(
-        <div className={cx('border')}>
+        <div className={cx('service_Page')}>
             <Navigation/>
-            <div className={cx('test')}>
-            <SliderTest/>
+            <div className={cx('service_Page_Cards')}>
+                <CardsService/>
             </div>
             <Footer/>
         </div>
