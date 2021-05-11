@@ -11,7 +11,7 @@ https://developer.mozilla.org/ru/docs/Learn/Server-side/Express_Nodejs/mongoose#
 const mongoose = require('mongoose')
 
 // mongoose connection
-mongoose.connect('mongodb+srv://admin:1234qwerty@cluster0.tqb42.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('link', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
