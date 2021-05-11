@@ -73,6 +73,7 @@ const cityMok = [
 
 Story.findOne({ title: 'just title' }, function (err, story) {
   if (err) return handleError(err)
+  
   console.log(story)
 })
 
