@@ -85,3 +85,41 @@ Test.findOne({ title: 'Russia' }, function (err, story) {
   console.log(story)
 })
 ```
+## Поиск
+```
+//найти всех
+// найти всех теннисистов, выбирать поля 'name' и 'age'
+Athlete.find({ 'sport': 'Tennis' }, 'name age', function (err, athletes) {
+  if (err) return handleError(err);
+  // 'athletes' содержит список спортсменов, соответствующих критерию.
+})
+
+// найти всех теннисистов
+var query = Athlete.find({ 'sport': 'Tennis' });
+
+// выбрать поля 'name' и 'age'
+query.select('name age');
+
+// ограничить результат 5 элементами
+query.limit(5);
+
+// сортировать по возрасту
+query.sort({ age: -1 });
+
+// выполнить запрос позже
+query.exec(function (err, athletes) {
+  if (err) return handleError(err);
+  // athletes содержит упорядоченный список из 5 теннисистов
+})
+
+//поиск с условием
+Athlete.
+  find().
+  where('sport').equals('Tennis').
+  where('age').gt(17).lt(50).  //Дополнительное условие
+  limit(5).
+  sort({ age: -1 }).
+  select('name age').
+  exec(callback); // callback - имя нашей колбэк-функции.
+
+```
