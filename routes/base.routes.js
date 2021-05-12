@@ -302,8 +302,8 @@ const roomMok = [
 
 const tourMok = [
   {
-    dateArrive: '',
-    dateDeart: '',
+    dateArrive: '2021.08.01',
+    dateDeart: '2021.08.10',
     price: '',
     nutrition: true,
     fly: true,
