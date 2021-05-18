@@ -1,12 +1,30 @@
 const { Router } = require('express')
 const { Types } = require('mongoose')
+
 const Country = require('../models/Country')
-const Person = require('../models/Person')
-const Story = require('../models/Story')
+const City = require('../models/City')
+const Hotel = require('../models/Hotel')
+const Room = require('../models/Room')
+const Tour = require('../models/Tour')
+
+
 const router = Router()
 
+// countryMok.map((item) => {
+//   const country = new Country({
+//     title: item.title,
+//     popular: item.popular,
+//     flag: item.flag
+//   })
+//   country.save(function (err) {
+//     if (err) return handleError(err)
+//   })
+//   console.log('complete')
+// })
 
-const countryMok =[
+
+
+const countryMok = [
     {
       title: 'Италия',
       popular: true,
@@ -64,7 +82,7 @@ const hotelMok = [
     family: true,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Rome Kings Suite',
@@ -73,7 +91,7 @@ const hotelMok = [
     bar: false,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Hotel Villa Rosa',
@@ -82,7 +100,7 @@ const hotelMok = [
     bar: false,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Atlante Star Hotel',
@@ -91,7 +109,7 @@ const hotelMok = [
     bar: true,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'SuiteSistina for Lovers',
@@ -100,7 +118,7 @@ const hotelMok = [
     bar: false,
     parking: true,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Hilton Molino Stucky Venice', //венеция
@@ -109,7 +127,7 @@ const hotelMok = [
     bar: true,
     parking: false,
     wifi: false,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Отель Марриотт Москва Гранд', //москва 
@@ -118,7 +136,7 @@ const hotelMok = [
     bar: true,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Отель Гоголь Хауз', //питер
@@ -127,7 +145,7 @@ const hotelMok = [
     bar: true,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Centurion Hotel Residential Akasaka Station', //токио
@@ -136,7 +154,7 @@ const hotelMok = [
     bar: false,
     parking: false,
     wifi: false,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: "Hotel M's Est Shijo Karasuma", //киото
@@ -145,7 +163,7 @@ const hotelMok = [
     bar: false,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'Sofitel Sydney Darling Harbour', //сидней
@@ -154,7 +172,7 @@ const hotelMok = [
     bar: true,
     parking: false,
     wifi: false,
-    geopos: '',
+    geopos: ' ',
   },
   {
     title: 'The Langham Melbourne', //Мельбурн
@@ -163,7 +181,7 @@ const hotelMok = [
     bar: true,
     parking: false,
     wifi: true,
-    geopos: '',
+    geopos: ' ',
   },
 ]
 
@@ -195,15 +213,15 @@ const roomMok = [
       'https://psv4.userapi.com/c536236/u173154522/docs/d11/56e4d11eb8dc/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms2.jpg?extra=KSTD3ZbL9aT6LPbDuDANtja2n8v0aetm4FYOqAggw9ZA_qcsCLeP645HqhGgIMhCwYYT3OeDqz8xk9z2sH5OIQHMIJdaOmtoBUZuoWhPoD-UlAPSl5NR0DDo0Q4KZ-jI0-PBKkt006sa1TK6XueYjETShdA',
     ],
   },
-  {
-    type: 'Обычный', //Hotel M's Est Shijo Karasuma
-    roomsHotel: 5,
-    countPeople: 1,
-    photo: [
-      'https://psv4.userapi.com/c536236/u173154522/docs/d29/88e51a1906b1/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms1.jpg?extra=K5YXqy5vohF1c9e2lArzYCCV9pvc_VVjLnQxLvPcEL8Uiu1U_C_RTWlj4qiVyKdqe5dgDNT8a7f7RKfX9yJ1jbw-JPfi9fpsYYplyJ_wDU01GjdB-qqBf8NCKwaAjBrIfo24ydeR2yu6JTRbo58Qa7kELqY',
-      'https://psv4.userapi.com/c536236/u173154522/docs/d11/56e4d11eb8dc/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms2.jpg?extra=KSTD3ZbL9aT6LPbDuDANtja2n8v0aetm4FYOqAggw9ZA_qcsCLeP645HqhGgIMhCwYYT3OeDqz8xk9z2sH5OIQHMIJdaOmtoBUZuoWhPoD-UlAPSl5NR0DDo0Q4KZ-jI0-PBKkt006sa1TK6XueYjETShdA',
-    ],
-  },
+  // {
+  //   type: 'Обычный', //Hotel M's Est Shijo Karasuma
+  //   roomsHotel: 5,
+  //   countPeople: 1,
+  //   photo: [
+  //     'https://psv4.userapi.com/c536236/u173154522/docs/d29/88e51a1906b1/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms1.jpg?extra=K5YXqy5vohF1c9e2lArzYCCV9pvc_VVjLnQxLvPcEL8Uiu1U_C_RTWlj4qiVyKdqe5dgDNT8a7f7RKfX9yJ1jbw-JPfi9fpsYYplyJ_wDU01GjdB-qqBf8NCKwaAjBrIfo24ydeR2yu6JTRbo58Qa7kELqY',
+  //     'https://psv4.userapi.com/c536236/u173154522/docs/d11/56e4d11eb8dc/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms2.jpg?extra=KSTD3ZbL9aT6LPbDuDANtja2n8v0aetm4FYOqAggw9ZA_qcsCLeP645HqhGgIMhCwYYT3OeDqz8xk9z2sH5OIQHMIJdaOmtoBUZuoWhPoD-UlAPSl5NR0DDo0Q4KZ-jI0-PBKkt006sa1TK6XueYjETShdA',
+  //   ],
+  // },
   {
     type: 'Обычный', //Centurion Hotel
     roomsHotel: 3,
@@ -321,10 +339,78 @@ const tourMok = [
   },
 ]
 
-const reviewMok = [
-
+const userMok = [
+  {
+    name: 'Alex',
+    email:'alex@mail.ru',
+  },
 ]
 
+const reviewMok = [
+  {
+  text: '',
+  date: '',
+  rating: '',
+  },
+]
+
+
+
+console.log('complete')
+
+let test = ''
+
+router.get('/test', async (req, res) =>{
+  res.send(test)
+})
+
+module.exports = router
+
+//! country
+// 60a273b1afd4f11da47e6b64 италия
+// 60a273b1afd4f11da47e6b65 россия
+// 60a273b1afd4f11da47e6b66 япония
+// 60a273b1afd4f11da47e6b67 австралия
+
+
+//! city
+// 60a272fbbb663a2a6c9200bd rim
+// 60a272fbbb663a2a6c9200be ven
+// 60a272fbbb663a2a6c9200c0 Санкт-Петербург
+// 60a272fbbb663a2a6c9200bf Москва
+// 60a272fbbb663a2a6c9200c1 Токио
+// 60a272fbbb663a2a6c9200c2 Киото
+// 60a272fbbb663a2a6c9200c3 Сидней
+// 60a272fbbb663a2a6c9200c4 Мельбурн
+
+// ! hotel
+//60a2b84c660c2e188ca7e266  // Ripetta Natural Suites италия
+//60a2b53e309751056c316100 //SuiteSistina for Lovers
+
+// ! найти по ключу элемент
+// City.
+//   findOne({ title: 'Рим2' }).
+//   populate('country').
+//   exec(function (err, city) {
+//     if (err) return handleError(err)
+//     console.log('The author is %s', city.country.title)
+
+//     Country.findOne({ title: city.country.title }, function (err, country) {
+//       if (err) return handleError(err)
+      
+//       console.log(country)
+//     })
+//   })
+
+// ! найти по ключу массив
+// Country.
+//   findOne({ title: 'Италия' }).
+//   populate('city').
+//   exec(function (err, country) {
+//     if (err) return handleError(err)
+//     console.log('The author is %s', country.city)
+
+//   })
 
 // const author = new Person({
 //   _id: new Types.ObjectId,
@@ -354,11 +440,11 @@ const reviewMok = [
 //   })
 // })
 
-Story.findOne({ title: 'just title' }, function (err, story) {
-  if (err) return handleError(err)
+// Story.findOne({ title: 'just title' }, function (err, story) {
+//   if (err) return handleError(err)
   
-  console.log(story)
-})
+//   console.log(story)
+// })
 
 // Story.
 //   findOne({ title: 'New title' }).
@@ -385,17 +471,12 @@ Story.findOne({ title: 'just title' }, function (err, story) {
 // })
 // })
 
-let country = ''
+// let country = ''
 
 
 
-Country.find( (err, items) => {
-  if (err) return console.error(err)
-  country = items
-})
+// Country.find( (err, items) => {
+//   if (err) return console.error(err)
+//   country = items
+// })
 
-router.get('/test', async (req, res) =>{
-  res.send(country)
-})
-
-module.exports = router

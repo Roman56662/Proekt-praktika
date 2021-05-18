@@ -10,7 +10,7 @@ const app = express()
 app.use('/api/base', require('./routes/base.routes'))
 
 // mongoose connection
-mongoose.connect('mongodb+srv://admin:1234qwerty@cluster0.tqb42.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://admin:1234qwerty@cluster0.tqb42.mongodb.net/tours?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true

@@ -5,7 +5,7 @@ const schema = new Schema({
   roomsHotel:  { type: Number, required: true },
   countPeople: { type: Number, required: true },
   photo:      [{ type: String, required: true }],
-  hotel:       { type: Types.ObjectId, ref: 'Hotel' }
+  hotel:       { type: Types.ObjectId, ref: 'Hotel', default: null }
 })
 
 module.exports = model('Room', schema)
