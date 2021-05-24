@@ -10,7 +10,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.use('/api', require('./routes/base.routes'), cors())
@@ -30,9 +30,9 @@ db.once('open', () => {
   console.log('base connected')
 })
 
-app.use((req, res, next) => {
-  res.header({"Access-Control-Allow-Origin": "http://localhost:3000"})
-}) 
+// app.use((req, res, next) => {
+//   res.header({"Access-Control-Allow-Origin": "http://localhost:3000"})
+// }) 
 
 
 
@@ -48,8 +48,19 @@ app.use((req, res, next) => {
 //   res.send(req.query)
 // })
 
-app.post('/', function (req, res) {
-  res.render('the_template', { name: req.body.name });
+let email = null
+  let username = null
+  let password = null
+
+app.post('/post', function (req, res) {
+  email = req.body.name
+  username = req.body.username
+  password = req.body.password
+});
+
+app.get('/post', function (req, res) {
+  res.send(email + ' ' + username + ' ' + password)
+  console.log('hi')
 });
 
 

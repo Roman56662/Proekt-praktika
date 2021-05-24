@@ -164,7 +164,7 @@ export const SecPopular = ({arr}) => {
         </div>
         <div className={('section__preview-card')}>
             <div className='block-preview-cards'>
-              {arr.map((item, key) => {
+              {base.map((item, key) => {
                 if (item.popular){
                   // count+=1
                   return(

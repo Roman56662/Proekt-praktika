@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import axios from 'axios'
+
 import Link from '@ch/next-router/Link';
 import Page from 'components/environment/Page';
 
 import cn from 'classnames/bind';
+import LoadingPersonsData from '../../components/base/Loading/Loading'
 import { Header } from '../../components/sections/Header/Header'
 import { Footer } from '../../components/sections/Footer/Footer'
 import { SecFilter } from '../../components/sections/SecFilter'
@@ -15,39 +18,78 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 const HomePage = () => {
-  const title = useSelector(state => state.home.title);
 
-  const [countryAarr, setCountryAarr] = useState([])  
-
-  useEffect( () =>{
-    async function fetchData() {
-      let response = await fetch('http://localhost:3001/api/base/home')
-      setCountryAarr(await response.json())
+  const [appState, SetAppState] = useState(
+    {
+      loading: false,
+      countryAarr: null,
     }
-    fetchData()
-},[])
+  ) 
 
-useEffect( () => {
-  async function fetchPost() {
-    let user = {
-      name: 'John',
-      surname: 'Smith'
-    };
+// GET
+  useEffect(() => {
+    SetAppState({ loading: true })
+    const apiUrl = 'http://localhost:3001/api/base/home'
+    axios.get(apiUrl).then((res) => {
+      const allCountries = res.data
+      SetAppState({
+        loading: false,
+        countryAarr: allCountries
+      })
+    })
+  },[SetAppState])
+
+  console.log(appState.countryAarr)
+
+
+// POST
+const userData = {
+  email: 'demouser@gmail.com',
+  username: 'demouser',
+  password: '1a2b3c4d5e' //This should be encoded
+}
+
+  axios.post('http://localhost:3001/post', userData)
+  .then(res => {
+      responseData = res.data
+      if (responseData.status == 'success') {
+        const user = responseData.user
+      } else {
+        alert('Something went wrong while creating account')
+      }
+  })
+
+//   const [countryAarr, setCountryAarr] = useState([])  
+
+//   useEffect( () =>{
+//     async function fetchData() {
+//       let response = await fetch('http://localhost:3001/api/base/home')
+//       setCountryAarr(await response.json())
+//     }
+//     fetchData()
+// },[])
+
+// useEffect( () => {
+//   async function fetchPost() {
+//     let user = {
+//       name: 'John',
+//       surname: 'Smith'
+//     };
     
-    let response = await fetch('http://localhost:3001', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(user)
-    });
+//     let response = await fetch('http://localhost:3001', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json;charset=utf-8'
+//       },
+//       body: JSON.stringify(user)
+//     });
     
-    let result = await response.json();
-    alert(result.message);
+//     let result = await response.json();
+//     alert(result.message);
     
-  }
-  fetchPost()
-},[])
+//   }
+//   fetchPost()
+// },[])
   
 
 
@@ -58,10 +100,10 @@ useEffect( () => {
       <main>
         <div className={cx('container')}>
           <section>
-            <SecFilter countryAarr={countryAarr}/>
+            <SecFilter countryAarr={appState.countryAarr}/>
           </section>
           <section>
-            <SecPopular arr={countryAarr}/>
+            <SecPopular arr={appState.countryAarr}/>
           </section>
           <section>
             <SecAboutTours />
