@@ -4,5 +4,6 @@ module.exports = initRoutes(process.env.ASSET_PREFIX, {
   '/': '/home',
   '/home': '/home',
   '/kit': '/kit',
+  '/Sales':'/sales',
   '/user/:slug': '/user',
 });

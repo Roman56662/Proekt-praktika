@@ -4,7 +4,7 @@ import '../../navigation.styl'
 const title = 'Авиабилеты'
 const emblem  = 'CHULAKOV'
 const links = [
-{ label:'Акции', href:''}, 
+{ label:'Акции', href:'/sales'}, 
 { label: 'Сервисы', href: ''}, 
 { label: 'Перелеты',href:''},]
 
@@ -13,7 +13,7 @@ const Navigation = () => {
         <div className='navigation'>
             <div className='emblema'>
                 {emblem}
-                <a>{title}</a>
+                <a href='/'>{title}</a>
             </div>
             <div className='navigator'>
                 <ul>
