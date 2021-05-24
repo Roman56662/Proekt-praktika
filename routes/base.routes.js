@@ -1,5 +1,8 @@
-const { Router } = require('express')
+const { Router, request } = require('express')
 const { Types } = require('mongoose')
+
+const bodyParser = require("body-parser");
+const cors = require('cors')
 
 const Country = require('../models/Country')
 const City = require('../models/City')
@@ -9,6 +12,9 @@ const Tour = require('../models/Tour')
 
 
 const router = Router()
+
+const urlencodedParser = bodyParser.urlencoded({extended: false});
+
 
 // countryMok.map((item) => {
 //   const country = new Country({
@@ -360,8 +366,16 @@ console.log('complete')
 
 let test = ''
 
-router.get('/test', async (req, res) =>{
-  res.send(test)
+
+
+// router.get("/test", urlencodedParser, function (request, response) {
+//   if(!request.body) return response.sendStatus(400);
+//   console.log(request.body);
+//   response.send(request.body);
+// });
+
+router.get('/test', cors(), async (req, res) =>{
+  res.send(req.query)
 })
 
 module.exports = router
@@ -371,7 +385,6 @@ module.exports = router
 // 60a273b1afd4f11da47e6b65 россия
 // 60a273b1afd4f11da47e6b66 япония
 // 60a273b1afd4f11da47e6b67 австралия
-
 
 //! city
 // 60a272fbbb663a2a6c9200bd rim

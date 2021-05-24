@@ -6,7 +6,7 @@ import { PreviewCard } from '../../base/PreviewCard/PreviewCard'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecPopular = ({}) => {
+export const SecPopular = ({arr}) => {
   
   const base = [
     {
@@ -164,19 +164,20 @@ export const SecPopular = ({}) => {
         </div>
         <div className={('section__preview-card')}>
             <div className='block-preview-cards'>
-              {base.map((baseItem, index) => {
-                // count+=1
-                return(
-                  <PreviewCard 
-                    index={index} 
-                    key={baseItem.id} 
-                    // mod={count % 5 == 0 ? '-large' : '-small'}
-                    back={baseItem.back}
-                    flag={baseItem.flag}
-                    country={baseItem.country}
-                    price={baseItem.price}
-                  />
-                )
+              {arr.map((item, key) => {
+                if (item.popular){
+                  // count+=1
+                  return(
+                    <PreviewCard  
+                      key={key} 
+                      // mod={count % 5 == 0 ? '-large' : '-small'}
+                      // back={item.back}
+                      // flag={item.flag}
+                      country={item.title}
+                      // price={item.price}
+                    />
+                  )
+                }
               })}
           </div>
         </div>

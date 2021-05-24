@@ -3,11 +3,18 @@ const mongoose = require('mongoose')
 
 // client cors
 const cors = require('cors')
+const bodyParser = require('body-parser');
 //
 
 const app = express()
 
-app.use('/api/base', require('./routes/base.routes'))
+app.use(express.json())
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use('/api', require('./routes/base.routes'), cors())
+app.use('/api/base', require('./routes/home.base.routes'))
 
 // mongoose connection
 mongoose.connect('mongodb+srv://admin:1234qwerty@cluster0.tqb42.mongodb.net/tours?retryWrites=true&w=majority', {
@@ -22,6 +29,29 @@ db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => {
   console.log('base connected')
 })
+
+app.use((req, res, next) => {
+  res.header({"Access-Control-Allow-Origin": "http://localhost:3000"})
+}) 
+
+
+
+// app.get('/', async (req, res) =>{
+//   // res.append('Access-Control-Allow-Origin', ['*']);
+//   // res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   // res.append('Access-Control-Allow-Headers', 'Content-Type');
+
+//   // res.set({
+//   //   'Access-Control-Allow-Origin': 'http://localhost:3000/',
+//   // })
+//   console.log(req.body)
+//   res.send(req.query)
+// })
+
+app.post('/', function (req, res) {
+  res.render('the_template', { name: req.body.name });
+});
+
 
 // // schema
 // const testSchema = new mongoose.Schema({

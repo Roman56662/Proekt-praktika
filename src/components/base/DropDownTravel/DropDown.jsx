@@ -21,13 +21,11 @@ export const DropDown = ({arr, handleClick}) => {
       <div className={cx('drop__body')}>
         <ul className={cx('drop__list')}>
           <span className={cx('list__popular')}> Популярные направления </span>
-          {arr.map((region, index) => {
+          {arr.map((region, key) => {
             if (region.popular === true) {
               return(
                 <DropDownItem
-                  region={region}
-                  index={index}
-                  key={region.id}
+                  key={key}
                   title={region.title}
                   price={region.price}
                   onClick={handleClick}
@@ -36,13 +34,11 @@ export const DropDown = ({arr, handleClick}) => {
             }
           })}
           <span className={cx('list__popular')}> Остальные направления </span>
-          {arr.map((region, index) => {
+          {arr.map((region, key) => {
             if (region.popular !== true) {
               return(
                 <DropDownItem
-                  region={region}
-                  index={index}
-                  key={region.id}
+                  key={key}
                   title={region.title}
                   price={region.price}
                   onClick={handleClick}
