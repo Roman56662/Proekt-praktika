@@ -1,7 +1,7 @@
 import React from 'react'
-import Navigation from './navigation'
+import Navigation from '../components/navigation'
 import cn from 'classnames/bind';
-import {Footer} from './footer'
+import {Footer} from '../components/footer'
 import {City} from './city'
 
 //Styles

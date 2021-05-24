@@ -1,15 +1,26 @@
 import React, {useState,useMemo} from 'react'
 import cn from 'classnames/bind';
-
 //Styles
 import styles from '../../styles.styl';
 const cx = cn.bind(styles);
 
 const cityInfo = [
     { Name: 'Ростов-на-Дону',
-    info:'RostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostov'},
+    info:'RostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostovRostov',
+    foto:<div className={cx('City_Perelet_Info_Foto')}>
+        <div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+<div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+<div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+<div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+</div>},
     { Name: 'Сочи',
-    info:'СочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочи'}
+    info:'СочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочиСочи',
+    foto:<div className={cx('City_Perelet_Info_Foto')}>
+    <div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+<div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+<div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+<div><img src='https://i.ytimg.com/vi/M6rQ0x0M0IE/hqdefault.jpg'></img></div>
+</div>}
 ]
 
 
@@ -22,7 +33,7 @@ const handleChange = (e) => {
     setCitySelect(e.target.value)
 }
 console.log(citySelect)
-
+console.log(cityInfo.foto)
     return(
         <div>
             <div className={cx('City_Perelet_Select')}>
@@ -42,6 +53,15 @@ console.log(citySelect)
                 ))}
             </div>
             <hr></hr>
+            <div className={cx('City_Perelet_Foto')}>
+                    {cityInfo.map((item) => (
+                        item.Name == citySelect ? item.foto:''
+                    ))}
+                        
+                        
+                        
+            
+            </div>
         </div>
     )
 }

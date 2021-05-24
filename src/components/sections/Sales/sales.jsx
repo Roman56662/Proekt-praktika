@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
+import Navigation from '../components/navigation'
 import cn from 'classnames/bind';
-import Navigation from './navigation'
-import {Footer} from './footer'
+import {Footer} from '../components/footer'
 import {Cards} from './cards'
 
 //Styles

@@ -5,15 +5,15 @@ const title = 'Авиабилеты'
 const emblem  = 'CHULAKOV'
 const links = [
 { label:'Акции', href:'/sales'}, 
-{ label: 'Сервисы', href: ''}, 
-{ label: 'Перелеты',href:''},]
+{ label: 'Перелеты', href: ''}, 
+{ label: 'FAQ',href:''},]
 
 const Navigation = () => {
     return (
         <div className='navigation'>
             <div className='emblema'>
-                {emblem}
-                <a href='/'>{title}</a>
+               <a href='/'> {emblem}
+                {title}</a>
             </div>
             <div className='navigator'>
                 <ul>

@@ -1,7 +1,7 @@
 import React from 'react'
+import Navigation from '../components/navigation'
 import cn from 'classnames/bind';
-import Navigation from './navigation'
-import {Footer} from './footer'
+import {Footer} from '../components/footer'
 import {CardsService} from './cardsService'
 
 //Styles
@@ -9,7 +9,7 @@ import styles from '../../styles.styl';
 const cx = cn.bind(styles);
 
 
-export const Service = () => {
+export const Booking= () => {
 
     return(
         <div className={cx('service_Page')}>
