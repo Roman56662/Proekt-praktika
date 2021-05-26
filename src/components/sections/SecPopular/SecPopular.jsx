@@ -156,7 +156,6 @@ export const SecPopular = ({arr}) => {
   ]
 
 //  let count = 0
-
   return(
       <div className={('section_popular')} >
         <div className={('section__title')}>
@@ -164,21 +163,26 @@ export const SecPopular = ({arr}) => {
         </div>
         <div className={('section__preview-card')}>
             <div className='block-preview-cards'>
-              {base.map((item, key) => {
-                if (item.popular){
-                  // count+=1
-                  return(
-                    <PreviewCard  
-                      key={key} 
-                      // mod={count % 5 == 0 ? '-large' : '-small'}
-                      // back={item.back}
-                      // flag={item.flag}
-                      country={item.title}
-                      // price={item.price}
-                    />
-                  )
-                }
-              })}
+              {
+                arr != null ? 
+                  arr.map((item, key) => {
+                    if (item.popular){
+                      // count+=1
+                      return(
+                        <PreviewCard  
+                          key={key} 
+                          // mod={count % 5 == 0 ? '-large' : '-small'}
+                          // back={item.back}
+                          // flag={item.flag}
+                          country={item.title}
+                          // price={item.price}
+                        />
+                      )
+                    }
+                  })
+                  :
+                  <p className='error'>Произошла ошибка</p>
+              }
           </div>
         </div>
       </div>

@@ -376,7 +376,7 @@ let test = ''
 // });
 
 router.get('/test', cors(), async (req, res) =>{
-  res.send(req.query)
+  res.send(filterData)
 })
 
 module.exports = router

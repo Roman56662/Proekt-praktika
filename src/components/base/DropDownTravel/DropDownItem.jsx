@@ -7,8 +7,9 @@ const cx = cn.bind(styles);
 
 export const DropDownItem = ({onClick, title, price}) => {
 
-  
 
+  
+  
   return(
     <div onClick={() => onClick(title)} className={cx('drop__element')}>
       <li className={cx('drop__element-li')}>

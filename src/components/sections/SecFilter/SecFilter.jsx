@@ -6,7 +6,7 @@ import { ComponentList } from '../../base/ComponentList/ComponentList'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecFilter = ({countryAarr}) => {
+export const SecFilter = ({countryAarr, filterData}) => {
   
 
   // DropDownTravel
@@ -148,7 +148,7 @@ const [count, setCount] = useState(1)
     },[countChildrens]
     )
   
-    
+
   return(
       <div className={('section_filter')} >
         <div className={('section__title')}>
@@ -156,6 +156,7 @@ const [count, setCount] = useState(1)
         </div>
         <div className={('section__component-list')}>
           <ComponentList 
+                filterData={filterData}
                 country={country}
                 regions={countryAarr}
                 getCountry={getCountry}

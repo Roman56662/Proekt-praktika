@@ -29,7 +29,7 @@ const HomePage = () => {
 // GET
   useEffect(() => {
     SetAppState({ loading: true })
-    const apiUrl = 'http://localhost:3001/api/base/home'
+    const apiUrl = 'http://localhost:3001/api/base/country'
     axios.get(apiUrl).then((res) => {
       const allCountries = res.data
       SetAppState({
@@ -39,25 +39,22 @@ const HomePage = () => {
     })
   },[SetAppState])
 
-  console.log(appState.countryAarr)
+// // POST
+// const userData = {
+//   email: 'demouser@gmail.com',
+//   username: 'demouser',
+//   password: '1a2b3c4d5e' //This should be encoded
+// }
 
-
-// POST
-const userData = {
-  email: 'demouser@gmail.com',
-  username: 'demouser',
-  password: '1a2b3c4d5e' //This should be encoded
-}
-
-  axios.post('http://localhost:3001/post', userData)
-  .then(res => {
-      responseData = res.data
-      if (responseData.status == 'success') {
-        const user = responseData.user
-      } else {
-        alert('Something went wrong while creating account')
-      }
-  })
+//   axios.post('http://localhost:3001/post', userData)
+//   .then(res => {
+//       responseData = res.data
+//       if (responseData.status == 'success') {
+//         const user = responseData.user
+//       } else {
+//         alert('Something went wrong while creating account')
+//       }
+//   })
 
 //   const [countryAarr, setCountryAarr] = useState([])  
 
@@ -100,7 +97,7 @@ const userData = {
       <main>
         <div className={cx('container')}>
           <section>
-            <SecFilter countryAarr={appState.countryAarr}/>
+            <SecFilter filterData={null} countryAarr={appState.countryAarr}/>
           </section>
           <section>
             <SecPopular arr={appState.countryAarr}/>

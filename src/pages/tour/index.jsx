@@ -3,62 +3,52 @@ import { useSelector } from 'react-redux';
 import Link from '@ch/next-router/Link';
 import Page from 'components/environment/Page';
 
-import {TourIcons} from './TourIcons'
-import {Button} from '../Button/Button'
+
 import cn from 'classnames/bind';
 import { Header } from '../../components/sections/Header/Header'
 import { Footer } from '../../components/sections/Footer/Footer'
-import { SecFilter } from '../../components/sections/SecFilter'
-import { SecPopular } from '../../components/sections/SecPopular'
-import { SecAboutTours } from '../../components/sections/SecAboutTours/SecAboutTours'
+import { SecShortInf } from '../../components/sections/SecShortInf/SecShortInf'
+import { SecSlide } from '../../components/sections/SecSlide/SecSlide'
+import { SecAboutHotel } from '../../components/sections/SecAboutHotel'
+import { SecChooseTour } from '../../components/sections/SecChooseTour'
+import { SecReviews } from '../../components/sections/SecReviews'
 
-export const Tour = ({date, month, countNights, roomPlace, roomType,
-                      live, nutrition, fly, transfer, health}) => {
-                      
-  let count = countNights
-  const title = useMemo(() => {
-      let nigthTitle = 'Ночь'
-      if (count < 5 && count != 1) {
-          nigthTitle = 'Ночи'
-      }
-      if (count > 4) {
-          nigthTitle = 'Ночей'
-      }
-      return nigthTitle
-  }, [count])
+//Styles
+import styles from './styles.styl';
+const cx = cn.bind(styles);
 
+const TourPage = ({}) => {
+
+    
   return(
-    <div className={cx('tour')}>
-    <div className={cx('tour__body')}> 
-      <div className={cx('tour__block tour__date')}>
-        <p>{date}</p>
-        <br/>
-        <span>{month}</span>
-      </div>
-      <div className={cx('tour__block tour__nigths')}>
-        <p>{countNights} {title}</p>
-      </div>
-      <div className={cx('tour__block tour__nutrition')}>
-        <p>
-          {nutrition === ' ' ? 'Питание не включено' : nutrition}
-        </p>
-      </div>
-      <div className={cx('tour__block tour__room')}>
-        <p>Номер: <span>{roomPlace} <br/> {roomType}</span></p>
-      </div>
-      <div className={cx('tour__block tour__icons')}>
-        <TourIcons 
-          live={live} 
-          nutrition={nutrition} 
-          fly={fly} 
-          transfer={transfer}
-          health={health}
-        />
-      </div> 
-    </div>
-      <div className={cx('tour__block_button')}>
-        <Button link='' title={'Посмотреть тур от '}  theme={'_button_yellow_bordered tour__button '} />
-      </div>
-    </div>
+    <Page>
+    <Header />
+      <main>
+        <div className={cx('container')}>
+          <section>
+            <SecShortInf />
+          </section>
+          <section id='slide'>
+            <SecSlide />
+          </section>
+          <section id='about'>
+            <SecAboutHotel />
+          </section>
+          <section id='tour'>
+            <SecChooseTour />
+          </section>
+          <section id='reviews'>
+            <SecReviews />
+          </section>
+        </div>
+      </main>
+      <footer>
+          <div className={cx('container')}>
+            <Footer />
+          </div>
+        </footer>
+    </Page>
   )
 }
+
+export default TourPage

@@ -1,4 +1,6 @@
 import React, { useCallback, useState, useMemo } from 'react';
+import axios from 'axios'
+
 import {Component} from './Component'
 import {DropDownTravel} from '../DropDownTravel/DropDownTravel'
 import {Nights} from '../DropDownList/Nights'
@@ -12,6 +14,7 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 export const ComponentList = ({
+  filterData,
   country,
   regions,
   getCountry,
@@ -36,12 +39,36 @@ export const ComponentList = ({
   handleClickChildrens,
   handleClickParents,
 }) => {
+
+const findClick = () => {
+  const data = {
+    country: country,
+    dayArrived: dayArrived,
+    dayDeparted: dayDeparted,
+    monthArrived: monthArrived,
+    monthDeparted: monthDeparted,
+    countNights: countNights,
+    parentsCount: parentsCount,
+    titleParents: titleParents,
+    childrensCount: childrensCount,
+    titleChildrens: titleChildrens,
+  }
   
+    axios.post('http://localhost:3001/post', data)
+    .then(res => {
+        responseData = res.data
+        if (responseData.status == 'success') {
+          const user = responseData.user
+        } else {
+          alert('Something went wrong while creating account')
+        }
+    })
+}
 
   return(
     <div className={cx('components')}>
       <div className={cx('components__body')}>
-        <Component cls={'components__block country'} title='Страна, курорт или отель' text={country || 'Выберите страну'}>
+        <Component cls={'components__block country'} title='Страна, курорт или отель' text={ filterData == null ? (country || 'Выберите страну') : filterData.country }>
           <div className={cx('drop-down-travel__drop-body')}>
             <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
           </div>
@@ -49,7 +76,8 @@ export const ComponentList = ({
         <Component 
           cls={'components__block date'} 
           title='Дата вылета' 
-          text={ (dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) ? (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')}
+          text={ filterData == null ? ((dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) ? 
+            (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')) : (filterData.dayArrived + ' ' + filterData.monthArrived + ' ' + filterData.dayDeparted + ' ' + filterData.monthDeparted) }
         >
           <div className={cx('calendar__drop-body')}>
             <CalendarComponent 
@@ -60,12 +88,12 @@ export const ComponentList = ({
             />
           </div>
         </Component>
-        <Component cls={'components__block nights'} title='Кол-во ночей' text={countNights + ' ' + title}>
+        <Component cls={'components__block nights'} title='Кол-во ночей' text={ filterData == null ? (countNights + ' ' + title) : filterData.countNights + ' ' + title}>
           <div className={cx('nights__drop-body')} >
             <Nights count={count} onClick={handleClick} title={title} countNights={countNights}/>
           </div>
         </Component>
-        <Component cls={'components__block humans'} title='Кто поедет' text={parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens}>
+        <Component cls={'components__block humans'} title='Кто поедет' text={ filterData == null ? (parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens) : (filterData.parentsCount + ' ' + filterData.titleParents + ', ' + filterData.childrensCount + ' ' + filterData.titleChildrens)  }>
           <div className={cx('humans__drop-body')}>
             <Humans 
               countParents={countParents} 
@@ -80,7 +108,12 @@ export const ComponentList = ({
         </Component>
       </div>
       <div className={cx('components__block-button')}>
-        <Button title={'Искать'} theme={'_button_yellow_bordered components__button '} />
+        <Button 
+          title={'Искать'} 
+          theme={'_button_yellow_bordered components__button '} 
+          onClick={findClick}
+          link="/tours"
+        />
       </div>
     </div>
   )

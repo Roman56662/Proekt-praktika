@@ -4,17 +4,8 @@ const mongoose = require('mongoose')
 // client cors
 const cors = require('cors')
 const bodyParser = require('body-parser');
-//
-
 const app = express()
-
 app.use(express.json())
-
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
-app.use('/api', require('./routes/base.routes'), cors())
-app.use('/api/base', require('./routes/home.base.routes'))
 
 // mongoose connection
 mongoose.connect('mongodb+srv://admin:1234qwerty@cluster0.tqb42.mongodb.net/tours?retryWrites=true&w=majority', {
@@ -30,37 +21,51 @@ db.once('open', () => {
   console.log('base connected')
 })
 
-// app.use((req, res, next) => {
-//   res.header({"Access-Control-Allow-Origin": "http://localhost:3000"})
-// }) 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/api', require('./routes/base.routes'), cors())
+app.use('/api/base', require('./routes/home.base.routes'))
 
+app.options("/*", function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  res.sendStatus(200);
+});
 
+app.all('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
-// app.get('/', async (req, res) =>{
-//   // res.append('Access-Control-Allow-Origin', ['*']);
-//   // res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   // res.append('Access-Control-Allow-Headers', 'Content-Type');
+app.use('/static', express.static(__dirname + '/public')) //Rome_Kings_Suite_Rooms1
 
-//   // res.set({
-//   //   'Access-Control-Allow-Origin': 'http://localhost:3000/',
-//   // })
-//   console.log(req.body)
-//   res.send(req.query)
-// })
+app.get('/', function (req,res) {
+  res.send()
+})
 
-let email = null
-  let username = null
-  let password = null
+filterData = {
+  country: null,
+  dayArrived: null,
+  dayDeparted: null,
+  monthArrived: null,
+  monthDeparted: null,
+  countNights: null,
+  parentsCount: null,
+  titleParents: null,
+  childrensCount: null,
+  titleChildrens: null,
+}
+
 
 app.post('/post', function (req, res) {
-  email = req.body.name
-  username = req.body.username
-  password = req.body.password
+
+  for (key in filterData) {
+    filterData[key] = req.body[key]
+  }
 });
 
 app.get('/post', function (req, res) {
-  res.send(email + ' ' + username + ' ' + password)
-  console.log('hi')
+  res.send(filterData)
 });
 
 

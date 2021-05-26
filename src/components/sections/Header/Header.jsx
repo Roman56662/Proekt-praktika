@@ -11,7 +11,7 @@ const cx = cn.bind(styles);
 
 export const Header = ({}) => {
   
-  const links = [{ label:'Туры', href:''}, { label: 'Интересное', href: ''}, { label: 'Новости',href:''}]
+  const links = [{ label:'Туры', href:''}, { label: 'Интересное', href: ''}]
 
     
   return(

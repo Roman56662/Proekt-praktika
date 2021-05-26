@@ -39,7 +39,7 @@ Country.
   })
 
 
-router.get('/home', cors(), async (req, res) =>{
+router.get('/country', cors(), async (req, res) =>{
   res.send(countryArr)
 })
 
