@@ -5,8 +5,8 @@ const title = 'Авиабилеты'
 const emblem  = 'CHULAKOV'
 const links = [
 { label:'Акции', href:'/sales'}, 
-{ label: 'Перелеты', href: ''}, 
-{ label: 'FAQ',href:''},]
+{ label: 'Перелеты', href: '/perelet'}, 
+{ label: 'FAQ',href:'/booking'},]
 
 const Navigation = () => {
     return (
