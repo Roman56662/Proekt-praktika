@@ -12,9 +12,9 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 export const TravelCard = ({rating, backImg, stars, 
-                            hotel, city, seaMeters,
-                            beachType, wifiType, price }) => {
-  
+                            hotel, city, bar,
+                            parking, wifiType, price, hotelArr }) => {
+
   return(
     <div className={cx('travel-card')}>
       <div className={cx('travel-card__back')}>
@@ -26,8 +26,8 @@ export const TravelCard = ({rating, backImg, stars,
         <TravelCardText 
           hotel={hotel}  
           city={city} 
-          seaMeters={seaMeters} 
-          beachType={beachType} 
+          bar={bar} 
+          parking={parking} 
           wifiType={wifiType} 
         />
         

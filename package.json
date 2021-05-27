@@ -10,5 +10,8 @@
   },
   "scripts": {
     "server": "nodemon server.js"
+  },
+  "devDependencies": {
+    "supertest": "^6.1.3"
   }
 }

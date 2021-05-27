@@ -22,8 +22,7 @@ db.once('open', () => {
 })
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/api', require('./routes/base.routes'), cors())
-app.use('/api/base', require('./routes/home.base.routes'))
+
 
 app.options("/*", function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -36,6 +35,9 @@ app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
+
+app.use('/api', require('./routes/base.routes'), cors())
+app.use('/api/base', require('./routes/home.base.routes'))
 
 app.use('/static', express.static(__dirname + '/public')) //Rome_Kings_Suite_Rooms1
 

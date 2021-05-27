@@ -6,7 +6,7 @@ import { TravelCard } from '../../base/TravelCard/TravelCard'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecTours = ({}) => {
+export const SecTours = ({hotelArr}) => {
 
   const base = [
     {
@@ -118,32 +118,36 @@ export const SecTours = ({}) => {
       price: '105 000'
     }
   ]
-    
+
+
   return(
     <div className={('section_tours')}>
       <div className={('section__title')}>
         <h1>Туры</h1>
       </div>
       <div className={('section__travel-card')}>
-        {base.map((baseItem, index) => {
-          return(
-            <TravelCard
-              index={index} 
-              key={baseItem.id} 
-    
-              rating={baseItem.rating}
-              backImg={baseItem.backImg}
-              stars={baseItem.stars}
-    
-              hotel={baseItem.hotel}  
-              city={baseItem.city} 
-              seaMeters={baseItem.seaMeters} 
-              beachType={baseItem.beachType} 
-              wifiType={baseItem.wifiType}
-              price={baseItem.price}
-            />
-          )
-        })}
+        { (hotelArr != null || hotelArr != undefined) ?
+          hotelArr.map((item, key) => {
+            return(
+              <TravelCard
+                key={key} 
+      
+                // rating={item.rating}
+                // backImg={baseItem.backImg}
+                // stars={item.stars}
+                
+                hotel={item.title}  
+                city={item.city.title} 
+                bar={item.bar} 
+                parking={item.parking} 
+                wifiType={item.wifi}
+                // price={baseItem.price}
+              />
+            )
+          })
+          :
+          <p className='error'>Произошла ошибка</p>
+        }
       </div>
     </div>
   )

@@ -6,7 +6,6 @@ import Link from '@ch/next-router/Link';
 import Page from 'components/environment/Page';
 
 import cn from 'classnames/bind';
-import LoadingPersonsData from '../../components/base/Loading/Loading'
 import { Header } from '../../components/sections/Header/Header'
 import { Footer } from '../../components/sections/Footer/Footer'
 import { SecFilter } from '../../components/sections/SecFilter'
@@ -19,77 +18,17 @@ const cx = cn.bind(styles);
 
 const HomePage = () => {
 
-  const [appState, SetAppState] = useState(
-    {
-      loading: false,
-      countryAarr: null,
-    }
-  ) 
+  const [countryArr, setCountryArr] = useState([]) 
 
-// GET
-  useEffect(() => {
-    SetAppState({ loading: true })
-    const apiUrl = 'http://localhost:3001/api/base/country'
-    axios.get(apiUrl).then((res) => {
-      const allCountries = res.data
-      SetAppState({
-        loading: false,
-        countryAarr: allCountries
-      })
-    })
-  },[SetAppState])
-
-// // POST
-// const userData = {
-//   email: 'demouser@gmail.com',
-//   username: 'demouser',
-//   password: '1a2b3c4d5e' //This should be encoded
-// }
-
-//   axios.post('http://localhost:3001/post', userData)
-//   .then(res => {
-//       responseData = res.data
-//       if (responseData.status == 'success') {
-//         const user = responseData.user
-//       } else {
-//         alert('Something went wrong while creating account')
-//       }
-//   })
-
-//   const [countryAarr, setCountryAarr] = useState([])  
-
-//   useEffect( () =>{
-//     async function fetchData() {
-//       let response = await fetch('http://localhost:3001/api/base/home')
-//       setCountryAarr(await response.json())
-//     }
-//     fetchData()
-// },[])
-
-// useEffect( () => {
-//   async function fetchPost() {
-//     let user = {
-//       name: 'John',
-//       surname: 'Smith'
-//     };
-    
-//     let response = await fetch('http://localhost:3001', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json;charset=utf-8'
-//       },
-//       body: JSON.stringify(user)
-//     });
-    
-//     let result = await response.json();
-//     alert(result.message);
-    
-//   }
-//   fetchPost()
-// },[])
-  
-
-
+  // GET COUNTRY
+    useEffect( () => {
+      async function fetchData() {
+        const request = await axios.get('http://localhost:3001/api/base/country')
+        setCountryArr(request.data)
+        return request
+      }
+      fetchData()
+    },[])
 
   return (
     <Page>
@@ -97,10 +36,10 @@ const HomePage = () => {
       <main>
         <div className={cx('container')}>
           <section>
-            <SecFilter filterData={null} countryAarr={appState.countryAarr}/>
+            <SecFilter filterData={null}/>
           </section>
           <section>
-            <SecPopular arr={appState.countryAarr}/>
+            <SecPopular arr={countryArr} />
           </section>
           <section>
             <SecAboutTours />

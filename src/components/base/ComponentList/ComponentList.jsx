@@ -68,7 +68,7 @@ const findClick = () => {
   return(
     <div className={cx('components')}>
       <div className={cx('components__body')}>
-        <Component cls={'components__block country'} title='Страна, курорт или отель' text={ filterData == null ? (country || 'Выберите страну') : filterData.country }>
+        <Component cls={'components__block country'} title='Страна, курорт или отель' text={ filterData == null ? (country || 'Выберите страну') : country || filterData.country }>
           <div className={cx('drop-down-travel__drop-body')}>
             <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
           </div>
@@ -76,8 +76,11 @@ const findClick = () => {
         <Component 
           cls={'components__block date'} 
           title='Дата вылета' 
-          text={ filterData == null ? ((dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) ? 
-            (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')) : (filterData.dayArrived + ' ' + filterData.monthArrived + ' ' + filterData.dayDeparted + ' ' + filterData.monthDeparted) }
+          text={ filterData == null ? 
+            ((dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) ? 
+            (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')) 
+              : 
+            ( filterData.dayArrived + ' ' + filterData.monthArrived + ' ' + filterData.dayDeparted + ' ' + filterData.monthDeparted ) }
         >
           <div className={cx('calendar__drop-body')}>
             <CalendarComponent 
@@ -88,12 +91,12 @@ const findClick = () => {
             />
           </div>
         </Component>
-        <Component cls={'components__block nights'} title='Кол-во ночей' text={ filterData == null ? (countNights + ' ' + title) : filterData.countNights + ' ' + title}>
+        <Component cls={'components__block nights'} title='Кол-во ночей' text={ filterData == null ? (countNights + ' ' + title) : countNights + ' ' + title || filterData.countNights + ' ' + title }>
           <div className={cx('nights__drop-body')} >
             <Nights count={count} onClick={handleClick} title={title} countNights={countNights}/>
           </div>
         </Component>
-        <Component cls={'components__block humans'} title='Кто поедет' text={ filterData == null ? (parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens) : (filterData.parentsCount + ' ' + filterData.titleParents + ', ' + filterData.childrensCount + ' ' + filterData.titleChildrens)  }>
+        <Component cls={'components__block humans'} title='Кто поедет' text={ filterData == null ? (parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens) : ( parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens || filterData.parentsCount + ' ' + filterData.titleParents + ', ' + filterData.childrensCount + ' ' + filterData.titleChildrens)  }>
           <div className={cx('humans__drop-body')}>
             <Humans 
               countParents={countParents} 
@@ -111,12 +114,13 @@ const findClick = () => {
         <Button 
           title={'Искать'} 
           theme={'_button_yellow_bordered components__button '} 
-          onClick={findClick}
+          onClick={ findClick }
           link="/tours"
         />
       </div>
     </div>
   )
+  
 }
 
 

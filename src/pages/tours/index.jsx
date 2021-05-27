@@ -16,28 +16,66 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 const Tours = ({}) => {
-  
-  const [appState, SetAppState] = useState(
-    {
-      loading: false,
-      filter: null,
+   
+  const [filter, setFilter] = useState([])
+  const [hotel, setHotel] = useState([])
+  const [tour, setTour] = useState([])
+
+
+// GET FILTER
+  useEffect( () => {
+    async function fetchData() {
+      const request = await axios.get('http://localhost:3001/api/filter')
+      setFilter(request.data)
+      return request
     }
-  ) 
+    fetchData()
+  },[])  
+ 
 
-  // GET
-  useEffect(() => {
-      SetAppState({ loading: true })
-      const apiUrl = 'http://localhost:3001/api/test'
-      axios.get(apiUrl).then((res) => {
-        const filterData = res.data
-        SetAppState({
-          loading: false,
-          filter: filterData
-        })
-      })
-  },[SetAppState])
 
-  console.log(appState.filter)
+// GET HOTEL
+  useEffect( () => {
+    async function fetchData() {
+      const request = await axios.get('http://localhost:3001/api/base/tour-card/hotel')
+      setHotel(request.data)
+      return request
+    }
+    fetchData()
+  },[])
+
+  
+// GET TOUR
+  useEffect( () => {
+    async function fetchData() {
+      const request = await axios.get('http://localhost:3001/api/base/tour-card/tour')
+      setTour(request.data)
+      return request
+    }
+    fetchData()
+  },[])
+      
+
+
+// const CancelToken = axios.CancelToken;
+// const source = CancelToken.source();
+
+// axios.get('http://localhost:3001/api/filter', {
+//   cancelToken: source.token
+// }).catch(function (thrown) {
+//   if (axios.isCancel(thrown)) {
+//     console.log('Request canceled', thrown.message);
+//   } else {
+//     // handle error
+//   }
+// });
+
+// // cancel the request (the message parameter is optional)
+// source.cancel('Operation canceled by the user.');
+
+
+
+
 
   return(
     <Page>
@@ -45,10 +83,10 @@ const Tours = ({}) => {
       <main>
         <div className={cx('container')}>
           <section>
-            <SecFilter filterData={appState.filter}/>
+            <SecFilter filterData={ filter }/>
           </section>
           <section>
-            <SecTours />
+            <SecTours hotelArr={ hotel } />
           </section>
         </div>
       </main>

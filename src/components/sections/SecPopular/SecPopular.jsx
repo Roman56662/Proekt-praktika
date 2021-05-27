@@ -1,4 +1,4 @@
-import React, {  useState, useCallback, useMemo } from 'react';
+import React, {  useState, useEffect } from 'react';
 import cn from 'classnames/bind';
 import { PreviewCard } from '../../base/PreviewCard/PreviewCard'
 
@@ -165,7 +165,7 @@ export const SecPopular = ({arr}) => {
             <div className='block-preview-cards'>
               {
                 arr != null ? 
-                  arr.map((item, key) => {
+                arr.map((item, key) => {
                     if (item.popular){
                       // count+=1
                       return(

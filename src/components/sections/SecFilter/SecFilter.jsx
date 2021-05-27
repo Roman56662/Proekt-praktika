@@ -1,4 +1,5 @@
-import React, {  useState, useCallback, useMemo } from 'react';
+import React, {  useState, useCallback, useMemo, useEffect } from 'react';
+import axios from 'axios'
 import cn from 'classnames/bind';
 import { ComponentList } from '../../base/ComponentList/ComponentList'
 
@@ -6,7 +7,7 @@ import { ComponentList } from '../../base/ComponentList/ComponentList'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecFilter = ({countryAarr, filterData}) => {
+export const SecFilter = ({ filterData }) => {
   
 
   // DropDownTravel
@@ -147,6 +148,19 @@ const [count, setCount] = useState(1)
         return childrenTitle
     },[countChildrens]
     )
+
+  const [countryArr, setCountryArr] = useState([]) 
+
+// GET COUNTRY
+  useEffect( () => {
+    async function fetchData() {
+      const request = await axios.get('http://localhost:3001/api/base/country')
+      setCountryArr(request.data)
+      return request
+    }
+    fetchData()
+  },[])
+
   
 
   return(
@@ -158,7 +172,7 @@ const [count, setCount] = useState(1)
           <ComponentList 
                 filterData={filterData}
                 country={country}
-                regions={countryAarr}
+                regions={countryArr}
                 getCountry={getCountry}
                 dayArrived={dayArrived}
                 dayDeparted={dayDeparted}

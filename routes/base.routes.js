@@ -375,7 +375,7 @@ let test = ''
 //   response.send(request.body);
 // });
 
-router.get('/test', cors(), async (req, res) =>{
+router.get('/filter', async (req, res) =>{
   res.send(filterData)
 })
 

@@ -38,9 +38,86 @@ Country.
     // })
   })
 
-
-router.get('/country', cors(), async (req, res) =>{
+router.get('/country', async (req, res) =>{
   res.send(countryArr)
 })
+
+let tourArr = ''
+let hotelArr = []
+let hotelTitle = []
+
+Tour.
+  find({  }).
+  populate('hotel').
+  exec(function (err, tour) {
+    if (err) return handleError(err)
+    tourArr = tour
+
+    let title = tour[0].hotel.title
+    hotelTitle.push(tour[0].hotel.title)
+
+    tour.map((item) => {
+      if (title != item.hotel.title) {
+        hotelTitle.push(item.hotel.title)
+        title = item.hotel.title
+      }
+    })
+
+
+    hotelTitle.map((item) => {
+      Hotel.find({title: item}).populate('city').exec(function (err, hotel) {
+        if (err) return handleError(err)
+        hotelArr.push(hotel[0])
+      })
+    })
+    
+
+    // let title = tour[0].hotel.title
+    // hotelArr.push(tour[0].hotel)
+    // console.log(tour[0].hotel.title)
+
+    // tour.map((item) => {
+    //   Hotel.find({title: item.hotel.title}).populate('city').exec(function (err, hotel) {
+    //     if (err) return handleError(err)
+    //     if (title != hotel.title) {
+    //       title = hotel.title
+    //       hotelArr.push(hotel)
+    //     }
+    //     // console.log(hotelArr)
+    //   })
+    // })
+
+    
+
+  })
+
+// Tour.
+//   find({  }).
+//   populate('hotel').
+//   exec(function (err, tour) {
+//     if (err) return handleError(err)
+//     tourArr = tour
+
+//     let title = tour[0].hotel.title 
+//     hotelArr.push(tour[0].hotel)
+//     tour.map((item)=> {
+//       if (item.hotel.title != title){
+//         title = item.hotel.title
+//         hotelArr.push(item.hotel)
+
+//       }
+//     })
+//   })
+
+  
+
+router.get('/tour-card/tour', async (req, res) =>{
+  res.send(tourArr)
+})
+
+router.get('/tour-card/hotel', async (req, res) =>{
+  res.send(hotelArr)
+})
+
 
 module.exports = router
