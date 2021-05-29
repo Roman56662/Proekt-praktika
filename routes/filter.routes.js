@@ -25,10 +25,12 @@ router.post('/post', function (req, res) {
 
 router.get('/post', function (req, res) {
   res.send(filterData)
+  res.status(400)
 });
 
 router.get('/filter', async (req, res) =>{
   res.send(filterData)
+  res.status(400)
 })
 
 module.exports = router

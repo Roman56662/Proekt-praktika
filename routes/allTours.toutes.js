@@ -39,6 +39,7 @@ Tour.
 //все отели, у которых есть туры
 router.get('/hotels', async (req, res) =>{
   res.send(hotelArr)
+  res.status(400)
 })
 
 module.exports = router

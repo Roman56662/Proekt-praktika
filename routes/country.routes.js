@@ -21,12 +21,12 @@ Country.
         cityArr.push(item)
       })
     })
-
   })
 
 // все страны
 router.get('/country', async (req, res) =>{
   res.send(countryArr)
+  res.status(400)
 })
 
 module.exports = router

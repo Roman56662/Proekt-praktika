@@ -37,6 +37,7 @@ router.post('/tour', async (req, res) =>{
 //все туры по конкретному отелю
 router.get('/tour', async (req, res) =>{
   res.send( tourArr )
+  res.status(400)
 })
 
 
@@ -49,6 +50,7 @@ router.post('/hotel', async (req, res) =>{
 
 router.get('/hotel', async (req, res) =>{
   res.send(reqHotel)
+  res.status(400)
 })
 
 module.exports = router

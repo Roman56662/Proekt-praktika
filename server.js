@@ -1,6 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const request = require('supertest')
 
 // client cors
 const cors = require('cors')
@@ -39,7 +38,6 @@ app.all('*', function(req, res, next) {
   next();
 });
 
-
 // routes
 app.use('/api', require('./routes/base.routes'), cors())
 app.use('/api/base', require('./routes/home.base.routes'))
@@ -49,6 +47,8 @@ app.use('/api/base',require('./routes/country.routes'))
 app.use('/api/base',require('./routes/filter.routes'))
 app.use('/api/base',require('./routes/tour.routes'))
 
+
+
 // файловый сервер
 app.use('/static', express.static(__dirname + '/public')) //Rome_Kings_Suite_Rooms1
 
@@ -56,3 +56,5 @@ app.use('/static', express.static(__dirname + '/public')) //Rome_Kings_Suite_Roo
 console.log('started')
 
 app.listen(3001)
+
+module.exports.app = app;

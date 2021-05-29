@@ -7,13 +7,57 @@ const cx = cn.bind(styles);
 
 export const TravelCardStars = ({stars}) => {
 
+  const link = "http://localhost:3001/static/star.png"
+  
+switch (stars) {
+  case 1:
+    return(
+      <div className={cx('travel-card__stars')}>
+        <img src={link} alt=""/>
+      </div>
+    )
+    break;
+    case 2:
+      return(
+        <div className={cx('travel-card__stars')}>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+        </div>
+      )
+      break;
+    case 3:
+      return(
+        <div className={cx('travel-card__stars')}>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+        </div>
+      )
+      break;
+    case 4:
+      return(
+        <div className={cx('travel-card__stars')}>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+        </div>
+      )
+      break;
+    case 5:
+      return(
+        <div className={cx('travel-card__stars')}>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+          <img src={link} alt=""/>
+        </div>
+      )
+      break;
+}
   return(
     <div className={cx('travel-card__stars')}>
-      <img src="https://psv4.userapi.com/c532036/u173154522/docs/d33/fb6328365f90/star.png?extra=yU-NEcEekBUHRWMU5mwp8EAED-iKy4JSDHBBW5qK21aTHxhjZH1SadcsQkCckinxLaDeQvIX697o3XM1-KLv_eZZGla0OKA6fQjp4FdV9iWbj0ZOsZOpA_IlL7d4nJWpCmNXjSv4grNepTJBxwow5S8bfg" alt=""/>
-      <img src="https://psv4.userapi.com/c532036/u173154522/docs/d33/fb6328365f90/star.png?extra=yU-NEcEekBUHRWMU5mwp8EAED-iKy4JSDHBBW5qK21aTHxhjZH1SadcsQkCckinxLaDeQvIX697o3XM1-KLv_eZZGla0OKA6fQjp4FdV9iWbj0ZOsZOpA_IlL7d4nJWpCmNXjSv4grNepTJBxwow5S8bfg" alt=""/>
-      <img src="https://psv4.userapi.com/c532036/u173154522/docs/d33/fb6328365f90/star.png?extra=yU-NEcEekBUHRWMU5mwp8EAED-iKy4JSDHBBW5qK21aTHxhjZH1SadcsQkCckinxLaDeQvIX697o3XM1-KLv_eZZGla0OKA6fQjp4FdV9iWbj0ZOsZOpA_IlL7d4nJWpCmNXjSv4grNepTJBxwow5S8bfg" alt=""/>
-      <img src="https://psv4.userapi.com/c532036/u173154522/docs/d33/fb6328365f90/star.png?extra=yU-NEcEekBUHRWMU5mwp8EAED-iKy4JSDHBBW5qK21aTHxhjZH1SadcsQkCckinxLaDeQvIX697o3XM1-KLv_eZZGla0OKA6fQjp4FdV9iWbj0ZOsZOpA_IlL7d4nJWpCmNXjSv4grNepTJBxwow5S8bfg" alt=""/>
-      <img src="https://psv4.userapi.com/c532036/u173154522/docs/d33/fb6328365f90/star.png?extra=yU-NEcEekBUHRWMU5mwp8EAED-iKy4JSDHBBW5qK21aTHxhjZH1SadcsQkCckinxLaDeQvIX697o3XM1-KLv_eZZGla0OKA6fQjp4FdV9iWbj0ZOsZOpA_IlL7d4nJWpCmNXjSv4grNepTJBxwow5S8bfg" alt=""/>
     </div>
   )
 }

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import { useSelector } from 'react-redux';
 import Link from '@ch/next-router/Link';
 import Page from 'components/environment/Page';
-
 
 import cn from 'classnames/bind';
 import { Header } from '../../components/sections/Header/Header'
@@ -19,6 +19,31 @@ const cx = cn.bind(styles);
 
 const TourPage = ({}) => {
 
+  const [tourArr, setTourArr] = useState([]) 
+  const [hotelArr, setHotelArr] = useState([]) 
+
+// GET HOTEL 
+    useEffect( () => {
+      async function fetchData() {
+        const request = await axios.get('http://localhost:3001/api/base/hotel')
+        setHotelArr(request.data)
+        return request
+      }
+      fetchData()
+    },[])
+
+// GET TOUR
+  useEffect( () => {
+    async function fetchData() {
+      const request = await axios.get('http://localhost:3001/api/base/tour')
+      setTourArr(request.data)
+      return request
+    }
+    fetchData()
+  },[])
+
+  // console.log('tourArr', tourArr)
+  // console.log('hotelArr', hotelArr)  
     
   return(
     <Page>
@@ -26,7 +51,7 @@ const TourPage = ({}) => {
       <main>
         <div className={cx('container')}>
           <section>
-            <SecShortInf />
+            <SecShortInf hotelArr={ hotelArr }/>
           </section>
           <section id='slide'>
             <SecSlide />
@@ -35,7 +60,7 @@ const TourPage = ({}) => {
             <SecAboutHotel />
           </section>
           <section id='tour'>
-            <SecChooseTour />
+            <SecChooseTour tourArr={tourArr}/>
           </section>
           <section id='reviews'>
             <SecReviews />

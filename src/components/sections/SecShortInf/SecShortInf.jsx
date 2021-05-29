@@ -8,7 +8,7 @@ import { TravelCardStars } from '../../base/TravelCard/TravelCardStars'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecShortInf = ({slide, about, tour, reviews}) => {
+export const SecShortInf = ({slide, about, tour, reviews, hotelArr}) => {
 
   const rating = '9.5'
 
@@ -41,13 +41,13 @@ export const SecShortInf = ({slide, about, tour, reviews}) => {
   return(
     <div className={cx('section__short-inf')}>
       <div className={cx('section__title')}>
-        <h1>Туры в отель</h1>
-        <p>Страна, Город</p>
+        <h1>Туры в отель {hotelArr.title}</h1>
+        <p>{hotelArr.city !== undefined ? hotelArr.city.title : '' } {hotelArr.city !== undefined ? hotelArr.city.title : '' }</p>
       </div>
       <div className={cx('section__short-inf__body')}>
         <div className={cx('short-inf__tour-raiting')}>
-          <TravelCardRating rating={rating}/>
-          <TravelCardStars />
+          <TravelCardRating rating='0'/>
+          <TravelCardStars stars={hotelArr.stars}/>
         </div>
         <div className={cx('short-inf__tour-icon')}>
           {base.map((baseItem, index) => {

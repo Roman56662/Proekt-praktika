@@ -6,7 +6,7 @@ import { Tour } from '../../base/Tour/Tour'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecChooseTour = ({}) => {
+export const SecChooseTour = ({tourArr}) => {
 
   const base = [
     {
@@ -69,21 +69,21 @@ export const SecChooseTour = ({}) => {
       <div className={cx('section__choose-tour__body')}>
         <div className={cx('choose-tour__tour')}>
           {
-            base.map((baseItem, index) => {
+            tourArr.map((item, key) => {
               return(
                 <Tour 
-                  index={index} 
+                  key={key} 
 
-                  date={baseItem.date}
-                  month={baseItem.month}
-                  countNights={baseItem.countNights}
-                  roomPlace={baseItem.roomPlace}
-                  roomType={baseItem.roomType}
-                  live={baseItem.live}
-                  nutrition={baseItem.nutrition}
-                  fly={baseItem.fly}
-                  transfer={baseItem.transfer}
-                  health={baseItem.health}
+                  date={item.dateArrive}
+                  // month={item.month}
+                  // countNights={item.countNights}
+                  // roomPlace={item.roomPlace}
+                  // roomType={item.roomType}
+                  // live={item.live}
+                  nutrition={item.nutrition}
+                  fly={item.fly}
+                  transfer={item.transfer}
+                  health={item.health}
                 />
               )
             })
