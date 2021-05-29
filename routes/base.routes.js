@@ -17,17 +17,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 
 
-// countryMok.map((item) => {
-//   const country = new Country({
-//     title: item.title,
-//     popular: item.popular,
-//     flag: item.flag
-//   })
-//   country.save(function (err) {
-//     if (err) return handleError(err)
-//   })
-//   console.log('complete')
-// })
+
 
 
 
@@ -363,23 +353,21 @@ const reviewMok = [
 
 
 
-console.log('complete')
 
-let test = ''
-
-
-
-// router.get("/test", urlencodedParser, function (request, response) {
-//   if(!request.body) return response.sendStatus(400);
-//   console.log(request.body);
-//   response.send(request.body);
-// });
-
-router.get('/filter', async (req, res) =>{
-  res.send(filterData)
-})
 
 module.exports = router
+
+// countryMok.map((item) => {
+//   const country = new Country({
+//     title: item.title,
+//     popular: item.popular,
+//     flag: item.flag
+//   })
+//   country.save(function (err) {
+//     if (err) return handleError(err)
+//   })
+//   console.log('complete')
+// })
 
 //! country
 // 60a273b1afd4f11da47e6b64 италия

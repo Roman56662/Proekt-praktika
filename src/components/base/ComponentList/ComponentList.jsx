@@ -53,8 +53,9 @@ const findClick = () => {
     childrensCount: childrensCount,
     titleChildrens: titleChildrens,
   }
-  
-    axios.post('http://localhost:3001/post', data)
+
+// POST
+    axios.post('http://localhost:3001/api/base/post', data)
     .then(res => {
         responseData = res.data
         if (responseData.status == 'success') {

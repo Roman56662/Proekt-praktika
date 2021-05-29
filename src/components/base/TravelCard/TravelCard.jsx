@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import axios from 'axios'
 import cn from 'classnames/bind';
 
 import { TravelCardRating } from './TravelCardRating'
@@ -14,6 +15,51 @@ const cx = cn.bind(styles);
 export const TravelCard = ({rating, backImg, stars, 
                             hotel, city, bar,
                             parking, wifiType, price, hotelArr }) => {
+
+
+
+  const postHotelTitle = () => {
+    const data = {
+      tourTitle: hotelArr.title
+    }
+
+    const arr = {
+      hotel: hotelArr
+    }
+
+    console.log(data)
+    console.log(arr)
+
+// POST
+      axios.post('http://localhost:3001/api/base/tour', data)
+      .then(res => {
+          responseData = res.data
+          if (responseData.status == 'success') {
+            const user = responseData.user
+          } else {
+            alert('Something went wrong while creating account')
+          }
+      })
+
+      console.log(hotelArr)
+
+      // POST
+      axios.post('http://localhost:3001/api/base/hotel', arr)
+      .then(res => {
+          responseData = res.arr
+          if (responseData.status == 'success') {
+            const user = responseData.user
+          } else {
+            alert('Something went wrong while creating account')
+          }
+      })
+  }
+
+
+
+
+
+
 
   return(
     <div className={cx('travel-card')}>
@@ -33,7 +79,7 @@ export const TravelCard = ({rating, backImg, stars,
         
       </div>
       <div className={cx('travel-card__button')}>
-        <Button link='' title={'Посмотреть тур от ' + price + ' руб.'}  theme={'_button_yellow travel-card__button'} />
+        <Button onClick={postHotelTitle} link='#' title={'Посмотреть тур от ' + price + ' руб.'}  theme={'_button_yellow travel-card__button'} />
       </div>
     </div>
   )

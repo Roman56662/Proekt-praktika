@@ -12,6 +12,7 @@
     "server": "nodemon server.js"
   },
   "devDependencies": {
+    "mocha": "^8.4.0",
     "supertest": "^6.1.3"
   }
 }

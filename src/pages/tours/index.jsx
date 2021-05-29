@@ -25,7 +25,7 @@ const Tours = ({}) => {
 // GET FILTER
   useEffect( () => {
     async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/filter')
+      const request = await axios.get('http://localhost:3001/api/base/filter')
       setFilter(request.data)
       return request
     }
@@ -37,7 +37,7 @@ const Tours = ({}) => {
 // GET HOTEL
   useEffect( () => {
     async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/tour-card/hotel')
+      const request = await axios.get('http://localhost:3001/api/base/hotels')
       setHotel(request.data)
       return request
     }
@@ -48,7 +48,7 @@ const Tours = ({}) => {
 // GET TOUR
   useEffect( () => {
     async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/tour-card/tour')
+      const request = await axios.get('http://localhost:3001/api/base/tour')
       setTour(request.data)
       return request
     }

@@ -1,9 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const request = require('supertest')
 
 // client cors
 const cors = require('cors')
 const bodyParser = require('body-parser');
+
+// создание приложения
 const app = express()
 app.use(express.json())
 
@@ -21,92 +24,34 @@ db.once('open', () => {
   console.log('base connected')
 })
 
+// создание bodyparser
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+// cors settings
 app.options("/*", function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
   res.sendStatus(200);
 });
-
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
+
+// routes
 app.use('/api', require('./routes/base.routes'), cors())
 app.use('/api/base', require('./routes/home.base.routes'))
 
+app.use('/api/base',require('./routes/allTours.toutes'))
+app.use('/api/base',require('./routes/country.routes'))
+app.use('/api/base',require('./routes/filter.routes'))
+app.use('/api/base',require('./routes/tour.routes'))
+
+// файловый сервер
 app.use('/static', express.static(__dirname + '/public')) //Rome_Kings_Suite_Rooms1
 
-app.get('/', function (req,res) {
-  res.send()
-})
-
-filterData = {
-  country: null,
-  dayArrived: null,
-  dayDeparted: null,
-  monthArrived: null,
-  monthDeparted: null,
-  countNights: null,
-  parentsCount: null,
-  titleParents: null,
-  childrensCount: null,
-  titleChildrens: null,
-}
-
-
-app.post('/post', function (req, res) {
-
-  for (key in filterData) {
-    filterData[key] = req.body[key]
-  }
-});
-
-app.get('/post', function (req, res) {
-  res.send(filterData)
-});
-
-
-// // schema
-// const testSchema = new mongoose.Schema({
-//   title: String,
-//   price: Number,
-//   popular: Boolean
-// })
-
-// const Test = mongoose.model('Test', testSchema)
-
-// let arr = ''
-
-// const turk = new Test({
-//   title: 'Турция',
-//   price: 36000,
-//   popular: true
-// })
-// const domin = new Test({
-//   title: 'Доминикана',
-//   price: 106000,
-//   popular: false
-// })
-
-// // save in table
-
-
-// Test.find( (err, items) => {
-//   if (err) return console.error(err)
-//   arr = items
-//   console.log(items)
-// })
-
-// //client export
-//   app.get('/api/export', cors(), (req, res) =>{
-//     res.send(arr)
-//   })
-// //
 
 console.log('started')
 

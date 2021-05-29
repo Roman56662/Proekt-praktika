@@ -135,7 +135,7 @@ export const SecTours = ({hotelArr}) => {
                 // rating={item.rating}
                 // backImg={baseItem.backImg}
                 // stars={item.stars}
-                
+                hotelArr={hotelArr[key]}
                 hotel={item.title}  
                 city={item.city.title} 
                 bar={item.bar} 
