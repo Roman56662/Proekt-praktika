@@ -16,7 +16,7 @@ export const Searchstring = () => {
             <div className={cx('Filters_searchstring')}>
                 <input placeholder='Откуда' style={{width:'140px'}} ></input>
                 <input placeholder='Куда' style={{width:'140px'}}></input>
-                <input placeholder='Дата вылета' type='date'style={{width:'140px'}}></input>
+                <input placeholder='Дата вылета' type='datetime-local'style={{width:'140px'}}></input>
                 <input placeholder='Пасажиры'style={{width:'120px'}}></input>
                 <button>Найти</button>
             </div>

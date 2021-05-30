@@ -6,12 +6,7 @@ import styles from '../../styles.styl';
 const cx = cn.bind(styles);
 const traveler = "Путешественникам"
 const company = "Компания"
-const adress = [{label:'Chulkov >', href:' '}]
-const aboutTraveler = [
-{label: 'Text', href:' '},
-{label: 'Text', href:' '},
-{label: 'Text', href:' '},
-{label: 'Text', href:' '},]
+const adress = [{label:'CHULAKOV Авиабилеты', href:''}]
 const aboutCompany = [
     {label:'© 2021 ООО «Студия Олега Чулакова»',href:' '},
     {label:'Политика обработки персональных данных',href:' '},
@@ -27,18 +22,6 @@ export const Footer = () => {
             ))}
             </div>
             <div className={cx('table')}>
-            <table>
-                <tr className={cx('main_Tr')}>
-                    <td><a>{traveler}</a></td>
-                    <td><a>{company}</a></td>
-                </tr>
-                {aboutTraveler.map((aboutTraveler, key) => (
-                        <tr key={key} className={cx('all_Tr')}>
-                            <td><a href={aboutTraveler.href}>{aboutTraveler.label}</a></td>
-                            <td><a href={aboutTraveler.href}>{aboutTraveler.label}</a></td>
-                        </tr>
-                    ))}
-            </table>
             </div>
             <div className={cx('down')}>
                {aboutCompany.map((item) => (
