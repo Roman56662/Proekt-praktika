@@ -17,7 +17,7 @@ const nameString = [
 ]
 
 
-export const BookingCard = () => {
+export const BookingCard = ({ticket}) => {
 
         const [countParents, setCountParents] = useState(1)
         const [countChildrens, setCountChildrens] = useState(0)
@@ -53,7 +53,7 @@ const nameStringCopy = nameString.map((item) => {
         <div>{item.Name}</div>
         )
        })
-       console.log(nameStringCopy)
+       
        const count = countParents + countChildrens;
        const nameArray =[];
        for (let i = 0; i < count; i++) {
@@ -61,7 +61,7 @@ const nameStringCopy = nameString.map((item) => {
         nameArray.push(<h2>{j} Пассажир</h2>)
         nameArray.push(nameStringCopy);
       }
-      console.log(nameArray)
+      
 
     return(
         <div className={cx('Booking_Card')}>

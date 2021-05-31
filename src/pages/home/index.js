@@ -13,7 +13,7 @@ const cx = cn.bind(styles);
 
 const Main = () => {
   const [cardsTest, setCardsTest] = useState([]) 
-  // GET COUNTRY
+ 
     useEffect( () => {
       async function fetchData() {
         const request = await axios.get('http://localhost:3001/')

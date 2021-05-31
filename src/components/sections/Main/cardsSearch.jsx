@@ -1,6 +1,8 @@
 import React, {useMemo} from 'react'
 import cn from 'classnames/bind';
 
+import {Card} from './Card'
+
 //Styles
 import styles from '../../styles.styl';
 const cx = cn.bind(styles);
@@ -14,10 +16,8 @@ const cx = cn.bind(styles);
 export const Cardssearch = ({cardsTest}) => {
     
 
-    const onclick = () => {
-        
-    }
-    console.log(cardsTest)
+
+
     
     return(
         <div className={cx('Cards_Search_P')}>
@@ -26,23 +26,11 @@ export const Cardssearch = ({cardsTest}) => {
             </div>
             <div className={cx('Cards_Search')}>
             <div className={cx('Cards_Search_Cards')}>
-            {cardsTest.map((item) => (
-                <div className={cx('Sales_Card')}>
-                    <div className={cx('Sales_Card_Name_Card')}>
-                        <div className={cx('Sales_Card_Name')}> 
-                        {item.cityO} - {item.cityP}
-                        </div>
-                    </div>
-                    <div className={cx('Sales_Card_Data')}>
-                        <div className={cx('Sales_Card_Data_O')}>Дата и время отправки<br></br>
-                        {item.dataO} {item.timeO}</div>
-                        <div className={cx('Sales_Card_Data_P')}>Дата и время прибытия<br></br>
-                        {item.dataP} {item.timeP}</div>
-                        <div className={cx('Sales_Card_Price_New')}>{item.price}<br></br><button onClick={onclick} className={cx('Sales_Card_Button')} >Купить</button></div>
-                    </div>
-                 </div>   
+            {cardsTest.map((item, key) => (
+                    <Card key={key} item={item}/>
                 ))}
-            </div></div>
+            </div>
+            </div>
         </div>
     )
 } 

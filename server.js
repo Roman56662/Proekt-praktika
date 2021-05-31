@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser');
 const app = express()
 const mongoose = require('mongoose')
 const Aviabullets = require('./models/Avia')
@@ -15,8 +16,10 @@ db.once('open', () => {
   console.log('base connected')
 })
 
-// cors settings
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }));
 
+// cors settings
 app.options("/*", function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
@@ -42,7 +45,7 @@ Aviabullets.find({}, function (err, bullet) {
 
 
 
-app.use('/api',require('./routes/test.rout'))
+app.use('/base',require('./routes/booking.route'))
 
 app.get('/',async(req, res) => {
     res.send(aviabulletsArr)
