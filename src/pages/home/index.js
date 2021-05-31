@@ -26,12 +26,13 @@ const Main = () => {
     <Page>
      <div className={cx('border')}>
             <Navigation/>
+            <div className={cx('Main')}>
             <div className={cx('Searchstring')}>
                 <Searchstring/>
             </div>
             <div className={cx('test')}>
                 <Cardssearch cardsTest={cardsTest}/>
-            </div>
+            </div></div>
             <Footer/>
         </div>
     </Page>

@@ -27,11 +27,12 @@ export const Cards = () => {
         return cardsCount
     }, [countCards])
     return(
+        <div className={cx('Cards_Page')}>
         <div className={cx('Cards_Page_Sales')}>
            
             <div className={cx('Cards_Page_Sales_Card')}> 
             <div className={cx('Cards_Count')}>
-                {countCards} {titleCards}
+            <p>Сейчас у нас действую скидки на следующие  {countCards} {titleCards}</p>
             </div>
                 {cardsValue.map((item) => (
                 <div className={cx('Sales_Card')}>
@@ -56,7 +57,7 @@ export const Cards = () => {
                  </div>   
                 ))}
             </div>
-        </div>
+        </div></div>
     )
 
 }

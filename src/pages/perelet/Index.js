@@ -4,24 +4,22 @@ import Link from '@ch/next-router/Link';
 import Page from 'components/environment/Page';
 import Navigation from '../../components/sections/components/navigation'
 import {Footer} from '../../components/sections/components/footer'
-import {Cards} from '../../components/sections/Sales/cards'
 import styles from '../../components/styles.styl';
+import { City } from '../../components/sections/Perelet/city';
 const cx = cn.bind(styles);
 
-const Sales = () => {
+const Perelet = () => {
 
     return (
         <Page>
         <div className={cx('sales_Page')}>
             <Navigation/>
-            <div className={cx('Main')}>
             <div className={cx('sales_Page_Cards')}>
-                <Cards/>
-            </div>
+                <City/>
             </div>
             <Footer/>
         </div>
         </Page>
     )
 }
-export default Sales;
+export default Perelet;

@@ -13,11 +13,13 @@ export const Main = () => {
     return(
         <div className={cx('border')}>
             <Navigation/>
-            <div className={cx('Searchstring')}>
+            <div className={cx('Main')}>
+                <div className={cx('Searchstring')}>
                 <Searchstring/>
-            </div>
-            <div className={cx('test')}>
-                <Cardssearch/>
+                </div>
+                <div className={cx('test')}>
+                <Cardssearch cardsTest={cardsTest}/>
+                </div>
             </div>
             <Footer/>
         </div>
