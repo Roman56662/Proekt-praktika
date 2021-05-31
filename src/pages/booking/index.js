@@ -6,7 +6,6 @@ import Page from 'components/environment/Page';
 import Navigation from '../../components/sections/components/navigation'
 import {Footer} from '../../components/sections/components/footer'
 import styles from '../../components/styles.styl';
-
 import { BookingCard } from '../../components/sections/Booking/bookingCard';
 import { CardsService } from '../../components/sections/Booking/cardsService';
 const cx = cn.bind(styles);
