@@ -9,6 +9,7 @@ const schema = new Schema({
   transfer:   { type: Boolean, required: true },
   health:     { type: Boolean, required: true },
   hotel:      { type: Types.ObjectId, ref: 'Hotel', default: null },
+  room:       { type: Types.ObjectId, ref: 'Room', default: null }
 })
 
 module.exports = model('Tour', schema)

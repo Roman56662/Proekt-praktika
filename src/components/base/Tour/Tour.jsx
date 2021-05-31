@@ -1,6 +1,6 @@
-import React, {useMemo} from 'react';
-import {TourIcons} from './TourIcons'
-import {Button} from '../Button/Button'
+import React, { useState, useMemo } from 'react';
+import { TourIcons } from './TourIcons'
+import { Button } from '../Button/Button'
 
 import cn from 'classnames/bind';
 
@@ -23,24 +23,40 @@ export const Tour = ({date, month, countNights, roomPlace, roomType,
       return nigthTitle
   }, [count])
 
+  let d = new Date(date);
+  let day = d.getDay() + 1
+  let monthNumber = d.getMonth()
+
+  const monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+                    'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'] 
+
+  
+
+
+
+
+
+
+
   return(
     <div className={cx('tour')}>
     <div className={cx('tour__body')}> 
       <div className={cx('tour__block tour__date')}>
-        <p>{date}</p>
+        <p>{day}</p>
         <br/>
-        <span>{month}</span>
+        <span>{monthArr[monthNumber]}</span>
       </div>
       <div className={cx('tour__block tour__nigths')}>
         <p>{countNights} {title}</p>
       </div>
       <div className={cx('tour__block tour__nutrition')}>
         <p>
-          {nutrition === ' ' ? 'Питание не включено' : nutrition}
+          {nutrition === true ? 'Питание включено' : 'Питание не включено'}
         </p>
       </div>
       <div className={cx('tour__block tour__room')}>
-        <p>Номер: <span>{roomPlace} <br/> {roomType}</span></p>
+        <p>Номер: <span>{roomType}</span></p>
+        <p>Кол-во комнат <span>{roomPlace}</span></p>
       </div>
       <div className={cx('tour__block tour__icons')}>
         <TourIcons 

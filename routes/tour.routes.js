@@ -20,7 +20,7 @@ router.post('/tour', async (req, res) =>{
 
   Tour.
   find({  }).
-  populate('hotel').
+  populate('hotel room').
   exec(function (err, tour) {
     if (err) return handleError(err)
     tour.map((item)=> {

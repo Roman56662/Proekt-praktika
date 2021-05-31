@@ -59,7 +59,7 @@ export const SecChooseTour = ({tourArr, hotelArr}) => {
     }
   ]
 
-
+console.log(tourArr)
 
   return(
     <div className={cx('section__choose-tour')}>
@@ -77,8 +77,8 @@ export const SecChooseTour = ({tourArr, hotelArr}) => {
                   date={item.dateArrive}
                   // month={item.month}
                   // countNights={item.countNights}
-                  // roomPlace={item.roomPlace}
-                  // roomType={item.roomType}
+                  roomPlace={item.room.countPeople}
+                  roomType={item.room.type}
                   // live={item.live}
                   nutrition={item.nutrition}
                   fly={item.fly}
