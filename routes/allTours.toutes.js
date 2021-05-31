@@ -28,7 +28,7 @@ Tour.
     })
 
     hotelTitle.map((item) => {
-      Hotel.find({title: item}).populate('city').exec(function (err, hotel) {
+      Hotel.find({title: item}).populate('city room').exec(function (err, hotel) {
         if (err) return handleError(err)
         hotelArr.push(hotel[0])
       })

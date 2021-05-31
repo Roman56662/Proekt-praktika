@@ -9,7 +9,7 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 export const Tour = ({date, month, countNights, roomPlace, roomType,
-                      live, nutrition, fly, transfer, health}) => {
+                      live, nutrition, fly, transfer, health, price}) => {
                       
   let count = countNights
   const title = useMemo(() => {
@@ -53,7 +53,7 @@ export const Tour = ({date, month, countNights, roomPlace, roomType,
       </div> 
     </div>
       <div className={cx('tour__block_button')}>
-        <Button link='' title={'Посмотреть тур от '}  theme={'_button_yellow_bordered tour__button '} />
+        <Button link='' title={'Посмотреть тур от ' + price}  theme={'_button_yellow_bordered tour__button '} />
       </div>
     </div>
   )

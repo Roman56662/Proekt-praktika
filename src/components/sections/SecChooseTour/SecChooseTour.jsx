@@ -6,7 +6,7 @@ import { Tour } from '../../base/Tour/Tour'
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecChooseTour = ({tourArr}) => {
+export const SecChooseTour = ({tourArr, hotelArr}) => {
 
   const base = [
     {
@@ -84,6 +84,7 @@ export const SecChooseTour = ({tourArr}) => {
                   fly={item.fly}
                   transfer={item.transfer}
                   health={item.health}
+                  price={item.price}
                 />
               )
             })

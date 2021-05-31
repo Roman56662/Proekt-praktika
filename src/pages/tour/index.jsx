@@ -60,7 +60,7 @@ const TourPage = ({}) => {
             <SecAboutHotel />
           </section>
           <section id='tour'>
-            <SecChooseTour tourArr={tourArr}/>
+            <SecChooseTour hotelArr={hotelArr} tourArr={tourArr}/>
           </section>
           <section id='reviews'>
             <SecReviews />
