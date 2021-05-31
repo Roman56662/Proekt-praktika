@@ -4,6 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const Aviabullets = require('./models/Avia')
 
+
 mongoose.connect('mongodb+srv://roma:123qwerty@cluster0.hiemo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -33,17 +34,39 @@ app.options("/*", function(req, res, next) {
 
 let aviabulletsArr = []
 
+console.log()
+
 Aviabullets.find({}, function (err, bullet) {
   if (err) return handleError(err);
   bullet.map((item) => {
     aviabulletsArr.push(item)
   })
-  console.log(aviabulletsArr)
+  // console.log(aviabulletsArr)
  
   // 'bullet' содержит список спортсменов, соответствующих критерию.
 })
 
+let test2
 
+app.post('/base/bullets',(req,res) => {
+  test2 = req.body
+  console.log(test2)
+  Aviabullets.find({cityO : test2.citySelectO}, function (err, bullets) {
+    if (err) return handleError(err);
+    console.log(bullets)
+    // 'athletes' содержит список спортсменов, соответствующих критерию.
+  })
+})
+
+app.get('/base/bullets',(req,res) => {
+  res.send(test2)
+})
+
+// 
+
+
+
+// console.log(bullet)
 
 app.use('/base',require('./routes/booking.route'))
 
@@ -52,6 +75,7 @@ app.get('/',async(req, res) => {
 })
 
 app.use('/static',express.static(__dirname + '/public'))
+
 
 // const aviabullets = new Aviabullets({
 //   cityO: 'Москва',

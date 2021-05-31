@@ -6,7 +6,7 @@ const emblem  = 'CHULAKOV'
 const links = [
 { label:'Акции', href:'/sales'}, 
 { label: 'Перелеты', href: '/perelet'}, 
-{ label: 'F.A.Q.',href:'/booking'},]
+{ label: 'F.A.Q.',href:'/faq'},]
 
 const Navigation = () => {
     return (

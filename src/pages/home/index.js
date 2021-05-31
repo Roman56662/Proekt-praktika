@@ -13,7 +13,17 @@ const cx = cn.bind(styles);
 
 const Main = () => {
   const [cardsTest, setCardsTest] = useState([]) 
+  const [tickets , setTickets] = useState([]) 
+  
  
+  // useEffect( () => {
+  //   async function fetchData() {
+  //     const request = await axios.get('http://localhost:3001/base/bullets')
+  //     setTickets(request.data)
+  //     return request
+  //   }
+  //   fetchData()
+  // },[])
     useEffect( () => {
       async function fetchData() {
         const request = await axios.get('http://localhost:3001/')
@@ -22,6 +32,9 @@ const Main = () => {
       }
       fetchData()
     },[])
+    const ticketArr = []
+
+    console.log('Vff',cardsTest)
   return (
     <Page>
      <div className={cx('border')}>

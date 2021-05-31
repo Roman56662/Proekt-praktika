@@ -33,7 +33,7 @@ const Booking = () => {
             <Navigation/>
             <div className={cx('Main_Booking')}>
             <div>
-                <BookingCard/>
+                <BookingCard ticket={ticket}/>
             </div>
             <div>
                 <CardsService/> 

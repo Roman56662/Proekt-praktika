@@ -13,7 +13,7 @@ const cx = cn.bind(styles);
 
 
 
-export const Cardssearch = ({cardsTest}) => {
+export const Cardssearch = ({tickets,cardsTest}) => {
     
 
 

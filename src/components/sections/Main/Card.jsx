@@ -27,7 +27,6 @@ export const Card = ({item}) => {
         alert('Something went wrong while creating account')
       }
   })
-
   }
 
   return(
@@ -42,7 +41,7 @@ export const Card = ({item}) => {
       {item.dataO} {item.timeO}</div>
       <div className={cx('Sales_Card_Data_P')}>Дата и время прибытия<br></br>
       {item.dataP} {item.timeP}</div>
-      <div className={cx('Sales_Card_Price_New')}>{item.price}<br></br><a onClick={postClick} href={'/booking'} className={cx('Sales_Card_Button')} >Купить</a></div>
+      <div className={cx('Sales_Card_Price_New')}>{item.price}<br></br><a href={'/booking'}><button onClick={postClick} className={cx('Sales_Card_Button')}>Купить</button></a></div>
   </div>
 </div>   
   )

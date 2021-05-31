@@ -62,15 +62,15 @@ const nameStringCopy = nameString.map((item) => {
         nameArray.push(nameStringCopy);
       }
       
+      console.log(ticket)
 
     return(
         <div className={cx('Booking_Card')}>
             <h1>Авиабилет</h1>
             <div className={cx('Booking_Card_Search')}>
-                <h2>Откуда</h2>
-                <h2>Куда</h2>
-                <h2>Дата</h2>
-                <h2>Время</h2>
+                <h2>{ticket.cityO}</h2>
+                <h2>{ticket.cityP}</h2>
+                <h2>{ticket.dataO}</h2>
                 <Humans countParents={countParents} countChildrens={countChildrens} onClickChildrens={handleClickChildrens} onClickParents={handleClickParents}/>
             </div>
             <div className={cx('Booking_Card_Humans')}>
