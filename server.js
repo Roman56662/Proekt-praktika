@@ -39,7 +39,7 @@ app.all('*', function(req, res, next) {
 });
 
 // routes
-app.use('/api', require('./routes/base.routes'), cors())
+app.use('/api', require('./routes/base.routes'))
 app.use('/api/base', require('./routes/home.base.routes'))
 
 app.use('/api/base',require('./routes/allTours.toutes'))
