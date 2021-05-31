@@ -14,9 +14,10 @@ const Perelet = () => {
         <Page>
         <div className={cx('sales_Page')}>
             <Navigation/>
+            <div className={cx('Main_Perelet')}>
             <div className={cx('sales_Page_Cards')}>
                 <City/>
-            </div>
+            </div></div>
             <Footer/>
         </div>
         </Page>

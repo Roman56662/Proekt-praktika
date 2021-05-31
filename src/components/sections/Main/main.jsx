@@ -17,6 +17,8 @@ export const Main = () => {
                 <div className={cx('Searchstring')}>
                 <Searchstring/>
                 </div>
+                <div className={cx('Cards_Search_P')}>
+                <p>Результаты поиска</p></div>
                 <div className={cx('test')}>
                 <Cardssearch cardsTest={cardsTest}/>
                 </div>

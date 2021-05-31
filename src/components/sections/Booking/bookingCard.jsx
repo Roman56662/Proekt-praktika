@@ -16,10 +16,11 @@ const nameString = [
         </div>}
 ]
 
+
 export const BookingCard = () => {
 
         const [countParents, setCountParents] = useState(1)
-        const [countChildrens, setCountChildrens] = useState(1)
+        const [countChildrens, setCountChildrens] = useState(0)
         const handleClickParents = useCallback((znakParents) => {
           if (znakParents === 'minusParents') {
             const resParents = countParents - 1;

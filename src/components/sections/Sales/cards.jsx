@@ -32,7 +32,7 @@ export const Cards = () => {
            
             <div className={cx('Cards_Page_Sales_Card')}> 
             <div className={cx('Cards_Count')}>
-            <p>Сейчас у нас действую скидки на следующие  {countCards} {titleCards}</p>
+            <p>Сейчас у нас действуют скидки на следующие  {countCards} {titleCards}</p>
             </div>
                 {cardsValue.map((item) => (
                 <div className={cx('Sales_Card')}>

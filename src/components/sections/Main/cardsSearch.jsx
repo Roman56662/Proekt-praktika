@@ -13,10 +13,18 @@ const cx = cn.bind(styles);
 
 export const Cardssearch = ({cardsTest}) => {
     
+
+    const onclick = () => {
+        
+    }
     console.log(cardsTest)
     
     return(
-        <div className={cx('Cards_Search')}>
+        <div className={cx('Cards_Search_P')}>
+            <div className={cx('Cards_Search_PP')}>
+                <p>Результаты поиска</p>
+            </div>
+            <div className={cx('Cards_Search')}>
             <div className={cx('Cards_Search_Cards')}>
             {cardsTest.map((item) => (
                 <div className={cx('Sales_Card')}>
@@ -30,11 +38,11 @@ export const Cardssearch = ({cardsTest}) => {
                         {item.dataO} {item.timeO}</div>
                         <div className={cx('Sales_Card_Data_P')}>Дата и время прибытия<br></br>
                         {item.dataP} {item.timeP}</div>
-                        <div className={cx('Sales_Card_Price_New')}>{item.price}<br></br><button className={cx('Sales_Card_Button')}>Купить</button></div>
+                        <div className={cx('Sales_Card_Price_New')}>{item.price}<br></br><button onClick={onclick} className={cx('Sales_Card_Button')} >Купить</button></div>
                     </div>
                  </div>   
                 ))}
-            </div>
+            </div></div>
         </div>
     )
 } 

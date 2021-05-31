@@ -34,19 +34,22 @@ export const Humans = ({countParents, countChildrens, onClickChildrens, onClickP
 
     return (
         <div className={cx('component__humans')}>
+            <div className={cx('humans_Parents')}>
             <span className={cx('humans__parents')}>Взрослые</span>
                 <div className={cx('counter')}>
                     <button onClick={() => onClickParents('minusParents')} className={cx('counterLeft')}>-</button>
                     <input  type="text" value={parentsCount + ' ' + titleParents} className={cx('counterInput')}></input>
                     <button  onClick={() => onClickParents('plusParents')} className={cx('counterRight')}>+</button>
                 </div>
-            <span className={cx('humans__children')}>Дети, до 14 лет</span>
+            </div>
+            <div className={cx('humans_Children')}>
+            <span className={cx('humans__parents')}>Дети, до 14 лет</span>
             <div>
                 <div className={cx('counter')}>
                         <button onClick={() => onClickChildrens('minusChildren')} className={cx('counterLeft')}>-</button>
                         <input  type="text" value={childrensCount + ' ' + titleChildrens} className={cx('counterInput')}></input>
                         <button  onClick={() => onClickChildrens('plusChildren')} className={cx('counterRight')}>+</button>
                 </div>
-            </div>
+            </div></div>
         </div>);
 }

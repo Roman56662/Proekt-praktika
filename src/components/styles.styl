@@ -6,9 +6,10 @@
     justify-content space-between
     
 
+
 .footer
-    width 100%
-    height 175px
+    // width 100%
+    // height 175px
     background-color #333333FF
 
 .footer_adress 
@@ -19,8 +20,8 @@
         font-size 24px
 
 .table 
-    margin-left 10%
-    padding-top 2%
+    margin-left 20px
+    padding-top 10px
     color #999999FF
 
 .main_Tr 
@@ -37,12 +38,13 @@
             color white
 
 .down
+    display flex
+    justify-content space-around
     margin-top 10px
-    margin-left 10%
+    margin-left 20px
     a
         color #999999FF
         font-size 18px
-        margin-right 7%
 
 .test
     height 800px
@@ -56,6 +58,24 @@
     margin-right 100px
     margin-left 100px
     padding-bottom 800px 
+    background #FFFFFFFF
+    box-shadow 0 0 10px rgba(0,0,0,0.5)
+
+.Main_Perelet
+    padding-top 200px
+    margin-top 0px
+    margin-right 100px
+    margin-left 100px
+    padding-bottom 100px 
+    background #FFFFFFFF
+    box-shadow 0 0 10px rgba(0,0,0,0.5)
+
+.Main_Booking
+    padding-top 100px
+    margin-top 0px
+    margin-right 100px
+    margin-left 100px
+    padding-bottom 100px 
     background #FFFFFFFF
     box-shadow 0 0 10px rgba(0,0,0,0.5)
 
@@ -152,9 +172,21 @@
     display flex
     justify-content space-between
     input
-        border-radius 15px
+        border-radius 10px
+        border 0.1px solid black    
     button
-        border-radius 15px
+        border-radius 10px
+        background white
+    select
+        display: block
+        padding: .25rem 2.5rem .25rem 1rem
+        background: none 
+        border: 1px solid #ccc
+        border-radius: 3px
+        appearance: none
+        font-family: inherit
+        font-size: 1rem
+        color: #444
 
 .Cards_Search_Filters
     margin-bottom 20px
@@ -171,13 +203,34 @@
 
 .City_Perelet_Select
     display flex
+    justify-content center
     h1
+        font-size 24px
         margin-right 5px
+    select
+        display: block
+        padding: .75rem 2.5rem .75rem 1rem
+        background: none 
+        border: 1px solid #ccc
+        border-radius: 3px
+        appearance: none
+        font-family: inherit
+        font-size: 1rem
+        color: #444
+
+
 
 .City_Perelet_Info
-    display flex
+    font-size 18px
     height 300px
-    justify-content justify
+    margin-right 20px
+    margin-left 20px
+    margin-top 10px
+    p
+        display flex
+        justify-content justify
+
+    
 
 .City_Perelet_Info_Foto
     display flex
@@ -197,9 +250,10 @@
 
 .Booking_Card_Search
     display flex
-    justify-content space-around
+    justify-content space-around 
     h2 
         font-size 20px
+        
 
 .Booking_Card_nameString
     margin-top 20px
@@ -212,6 +266,13 @@
     justify-content center
     div
         margin-bottom 10px
+    
+.Cards_Search_PP
+    display flex
+    justify-content center
+    margin-bottom 10px
+    font-size 28px
+
     
 
 .Cards_Search
@@ -244,14 +305,20 @@
     border 1px solid #ccc
     outline none
 
-.humans__parents
-    font-size 14px
+.Cards_Search_P
+    font-size 24px
 
-.humans__childrens
-    font-size 14px
+.humans__parents
+    font-size 18px
+    display flex
+    justify-content center
+
+.humans_Parents
+    margin-right 10px
 
 .component__humans
-    width 200px
+    display flex
+    width 400px
 
 .counter
     display flex

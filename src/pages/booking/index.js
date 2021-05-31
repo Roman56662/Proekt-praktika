@@ -16,12 +16,13 @@ const Booking = () => {
         <Page>
         <div className={cx('sales_Page')}>
             <Navigation/>
+            <div className={cx('Main_Booking')}>
             <div>
                 <BookingCard/>
             </div>
             <div>
                 <CardsService/> 
-            </div>
+            </div></div>
             <Footer/>
         </div>
         </Page>

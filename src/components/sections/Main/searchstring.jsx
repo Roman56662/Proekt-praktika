@@ -14,10 +14,21 @@ export const Searchstring = () => {
                 <h1>Укажите маршрут, куда Вы хотите отправиться</h1>
             </div>
             <div className={cx('Filters_searchstring')}>
-                <input placeholder='Откуда' style={{width:'140px'}} ></input>
-                <input placeholder='Куда' style={{width:'140px'}}></input>
-                <input placeholder='Дата вылета' type='datetime-local'style={{width:'140px'}}></input>
-                <input placeholder='Пасажиры'style={{width:'120px'}}></input>
+                <select>
+                    <option value='' selected></option>
+                    <option value='Москва'>Москва</option>
+                    <option value='Ростов-на-Дону'>Ростов-на-Дону</option>
+                    <option value='Сочи'>Сочи</option>
+                    <option value='Санкт-Петербург'>Санкт-Петербург</option>
+                </select>
+                <select>
+                    <option value='' selected></option>
+                    <option value='Москва'>Москва</option>
+                    <option value='Ростов-на-Дону'>Ростов-на-Дону</option>
+                    <option value='Сочи'>Сочи</option>
+                    <option value='Санкт-Петербург'>Санкт-Петербург</option>
+                </select>
+                <input placeholder='Дата вылета' type='datetime-local'style={{width:'240px'}}></input>
                 <button>Найти</button>
             </div>
 
