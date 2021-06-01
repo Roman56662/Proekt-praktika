@@ -10,7 +10,7 @@
   },
   "scripts": {
     "server": "nodemon server.js",
-    "test" : "mocha *.test.js"
+    "test": "mocha *.test.js"
   },
   "devDependencies": {
     "mocha": "^8.4.0",

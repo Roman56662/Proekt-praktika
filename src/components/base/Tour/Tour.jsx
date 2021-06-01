@@ -8,7 +8,7 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const Tour = ({date, month, countNights, roomPlace, roomType,
+export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
                       live, nutrition, fly, transfer, health, price}) => {
                       
   let count = countNights
@@ -23,28 +23,22 @@ export const Tour = ({date, month, countNights, roomPlace, roomType,
       return nigthTitle
   }, [count])
 
-  let d = new Date(date);
-  let day = d.getDay() + 1
-  let monthNumber = d.getMonth()
 
+  let dateA = new Date(date);
+  let dateD = new Date(date);
+  // let day = d.getDay() + 1
+  // let monthNumber = d.getMonth()
+  // console.log(date)
   const monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
                     'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'] 
-
-  
-
-
-
-
-
-
 
   return(
     <div className={cx('tour')}>
     <div className={cx('tour__body')}> 
       <div className={cx('tour__block tour__date')}>
-        <p>{day}</p>
+        <p>{ d.getDate() + '-'  }</p>
         <br/>
-        <span>{monthArr[monthNumber]}</span>
+        <span>{ monthArr[d.getMonth()] }</span>
       </div>
       <div className={cx('tour__block tour__nigths')}>
         <p>{countNights} {title}</p>

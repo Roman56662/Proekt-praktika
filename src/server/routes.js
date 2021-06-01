@@ -6,5 +6,6 @@ module.exports = initRoutes(process.env.ASSET_PREFIX, {
   '/kit': '/kit',
   '/tours': '/tours',
   '/tour': '/tour',
+  '/booking': 'booking',
   '/user/:slug': '/user',
 });
