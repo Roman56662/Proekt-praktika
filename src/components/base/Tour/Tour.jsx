@@ -24,8 +24,8 @@ export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
   }, [count])
 
 
-  let dateA = new Date(date);
-  let dateD = new Date(date);
+  let dateA = new Date(dateArrive);
+  let dateD = new Date(dateDepart);
   // let day = d.getDay() + 1
   // let monthNumber = d.getMonth()
   // console.log(date)
@@ -36,9 +36,10 @@ export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
     <div className={cx('tour')}>
     <div className={cx('tour__body')}> 
       <div className={cx('tour__block tour__date')}>
-        <p>{ d.getDate() + '-'  }</p>
+        <p>{ dateA.getDate() }</p>
         <br/>
-        <span>{ monthArr[d.getMonth()] }</span>
+        <span>{ monthArr[dateA.getMonth()] }</span>
+        
       </div>
       <div className={cx('tour__block tour__nigths')}>
         <p>{countNights} {title}</p>

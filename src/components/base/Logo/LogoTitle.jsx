@@ -10,6 +10,6 @@ export const LogoTitle = ({}) => {
   const title = 'Chulakov.Туры'
   
   return(
-    <a className={(cx('logo__title'))} href="">{title}</a>
+    <a className={(cx('logo__title'))} href="/">{title}</a>
   )
 }

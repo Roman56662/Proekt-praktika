@@ -74,7 +74,8 @@ console.log(tourArr)
                 <Tour 
                   key={key} 
 
-                  date={item.dateArrive}
+                  dateArrive={item.dateArrive}
+                  dateDepart={item.dateDepart}
                   // month={item.month}
                   // countNights={item.countNights}
                   roomPlace={item.room.countPeople}

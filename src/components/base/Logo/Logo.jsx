@@ -10,7 +10,7 @@ export const Logo = ({}) => {
   const image = 'http://localhost:3001/static/logo.png'
   
   return(
-      <a className={(cx('logo__img'))} href="/tours">
+      <a className={(cx('logo__img'))} href="/">
         <img src={image} alt="logo"/>
       </a>
   )
