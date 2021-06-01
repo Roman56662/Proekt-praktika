@@ -36,9 +36,9 @@ export const CardsService = () => {
                         </div>
                     </div>
                     <div className={cx('Sales_Card_Data')}>
-                        <div className={cx('Sales_Card_Data_O')}>Адрес отправки <br></br>
+                        <div className={cx('Sales_Card_Data_O')}><p>Адрес отправки</p> 
                         {item.Adress}</div>
-                        <div className={cx('Sales_Card_Data_P')}>Время отправки<br></br>
+                        <div className={cx('Sales_Card_Data_P')}><p>Время отправки</p>
                         {item.TimeO}</div>
                         <button className={cx('Sales_Card_Button')}>Заказать</button>
                    

@@ -7,7 +7,8 @@ const schema = new Schema({
   timesO: {type: String, required:true},
   dataP: {type: String, reqired:true},
   timesP: {type: String, required:true},
-  price: {type: String, required: true}
+  priceOld: {type: String, required: true},
+  priceNew: {type: String, required: true}
 })
 
-module.exports = model('Avia', schema)
+module.exports = model('AviaSales', schema)

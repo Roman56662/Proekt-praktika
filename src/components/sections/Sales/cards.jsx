@@ -3,6 +3,7 @@ import cn from 'classnames/bind';
 
 //Styles
 import styles from '../../styles.styl';
+import { CardSales } from './CardSales';
 const cx = cn.bind(styles);
 const cardsValue = [
    {Name:'Ростов-на-Дону - Москва', dataAndTimesO:'04.05.21 15:45:00', dataAndTimesP: '04.05.21 23:00:00', priceOld: '15400 руб', priceNew: '12200 руб'},
@@ -14,8 +15,9 @@ const cardsValue = [
 ];
 
 
-export const Cards = () => {
-   let countCards = cardsValue.length; 
+export const Cards = ({cardsSales}) => {
+   let countCards = cardsSales.length; 
+
     const titleCards = useMemo(() => {
         let cardsCount = 'предложение'
         if (countCards < 5 && countCards != 1) {
@@ -29,32 +31,12 @@ export const Cards = () => {
     return(
         <div className={cx('Cards_Page')}>
         <div className={cx('Cards_Page_Sales')}>
-           
             <div className={cx('Cards_Page_Sales_Card')}> 
             <div className={cx('Cards_Count')}>
             <p>Сейчас у нас действуют скидки на следующие  {countCards} {titleCards}</p>
             </div>
-                {cardsValue.map((item) => (
-                <div className={cx('Sales_Card')}>
-                    <div className={cx('Sales_Card_Name_Card')}>
-                        <div className={cx('Sales_Card_Name')}> 
-                        {item.Name}
-                        </div>
-                        <div className={cx('Sales_Card_Price_Old')}>
-                            {item.priceOld}
-                        </div>
-                    </div>
-                    <div className={cx('Sales_Card_Data')}>
-                        <div className={cx('Sales_Card_Data_O')}>Дата и время отправки<br></br>
-                        {item.dataAndTimesO}</div>
-                        <div className={cx('Sales_Card_Data_P')}>Дата и время прибытия<br></br>
-                        {item.dataAndTimesP}</div>
-                        <div className={cx('Sales_Card_Price_New')}>{item.priceNew}<br></br><button className={cx('Sales_Card_Button')}>Купить</button></div>
-                    </div>
-                     
-                     
-                     
-                 </div>   
+                {cardsSales.map((item, key) => (
+                    <CardSales key={key} item={item}/>
                 ))}
             </div>
         </div></div>

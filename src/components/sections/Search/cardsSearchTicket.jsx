@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react'
 import cn from 'classnames/bind';
 
-import {Card} from './Card'
+import {CardTicket} from './CardTicket'
 
 //Styles
 import styles from '../../styles.styl';
@@ -9,21 +9,19 @@ const cx = cn.bind(styles);
 
 
 
-export const Cardssearch = ({tickets,cardsTest}) => {
+export const Cardssearchticket = ({tickets,cardsSearch}) => {
     
 
-
-
-    
     return(
         <div className={cx('Cards_Search_P')}>
             <div className={cx('Cards_Search_PP')}>
-                <p>Доступные билеты</p>
+                <p>Результаты поиска  </p>
+                <a href='/home'><button>Отменить</button></a>
             </div>
             <div className={cx('Cards_Search')}>
             <div className={cx('Cards_Search_Cards')}>
-            {cardsTest.map((item, key) => (
-                    <Card key={key} item={item}/>
+            {cardsSearch.map((item, key) => (
+                    <CardTicket key={key} item={item}/>
                 ))}
             </div>
             </div>

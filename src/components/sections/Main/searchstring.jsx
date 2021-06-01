@@ -18,7 +18,6 @@ export const Searchstring = () => {
     const handleChange2 = (e) => {
         setCitySelectP(e.target.value)
     }
-
     const handleChange3 = (e) => {
         setDataSelect(e.target.value)
     }
@@ -44,26 +43,27 @@ const searchClick = () =>{
         <div>
             <div className={cx('Search_String')}>
                 <h1>Укажите маршрут, куда Вы хотите отправиться</h1>
+                {((citySelectO == undefined)||(citySelectP ==undefined)||(dataSelect ==undefined) ? <p>Пожалуйста, заполните все поля, прежде чем искать авиабилеты</p>:'')}
             </div>
             <div className={cx('Filters_searchstring')}>
                 <select onChange={handleChange1}>
-                    <option value='' selected></option>
+                    <option value='' selected>Откуда</option>
                     <option value='Москва'>Москва</option>
                     <option value='Ростов-на-Дону'>Ростов-на-Дону</option>
                     <option value='Сочи'>Сочи</option>
                     <option value='Санкт-Петербург'>Санкт-Петербург</option>
                 </select>
                 <select onChange={handleChange2}>
-                    <option value='' selected></option>
+                    <option value='' selected>Куда</option>
                     <option value='Москва'>Москва</option>
                     <option value='Ростов-на-Дону'>Ростов-на-Дону</option>
                     <option value='Сочи'>Сочи</option>
                     <option value='Санкт-Петербург'>Санкт-Петербург</option>
                 </select>
                 <input placeholder='Дата вылета' type='date'style={{width:'240px'}} onChange={handleChange3}></input>
-                <button onClick={searchClick}>Найти</button>
+                <a href={((citySelectO == undefined)||(citySelectP ==undefined)||(dataSelect ==undefined) ? '':'/Search')}><button onClick={searchClick}>Найти</button></a>
             </div>
-
+            
         </div>
     )
 

@@ -47,7 +47,7 @@
         font-size 18px
 
 .test
-    height 800px
+    height 100%
 
 .border 
     background #F6F6F6FF
@@ -57,8 +57,8 @@
     margin-top 0px
     margin-right 100px
     margin-left 100px
-    padding-bottom 800px 
-    background #FFFFFFFF
+    padding-bottom 100px 
+    background #C8E4EFFF
     box-shadow 0 0 10px rgba(0,0,0,0.5)
 
 .Main_Perelet
@@ -67,7 +67,7 @@
     margin-right 100px
     margin-left 100px
     padding-bottom 100px 
-    background #FFFFFFFF
+    background #C8E4EFFF
     box-shadow 0 0 10px rgba(0,0,0,0.5)
 
 .Main_Booking
@@ -76,7 +76,7 @@
     margin-right 100px
     margin-left 100px
     padding-bottom 100px 
-    background #FFFFFFFF
+    background #C8E4EFFF
     box-shadow 0 0 10px rgba(0,0,0,0.5)
 
 .Main_Faq
@@ -85,7 +85,7 @@
     margin-right 100px
     margin-left 100px
     padding-bottom 100px 
-    background #FFFFFFFF
+    background #C8E4EFFF
     box-shadow 0 0 10px rgba(0,0,0,0.5)
 
 .sales_Page
@@ -109,14 +109,18 @@
     justify-content center  
 
 .Sales_Card
-    width 850px
-    height 175px
-    border 1px solid #ccc
+    width 900px
+    // height 175px
+    border 1px solid black 
     border-radius 20px
-    padding 10px   
+    padding 20px   
     margin-bottom 20px
+    background white
      
-   
+.Sales_Card_Price
+    font-style italic
+    font-size 24px
+
 .Sales_Card_Name
     font-size 24px
 
@@ -134,13 +138,37 @@
     justify-content space-between
 
 .Sales_Card_Data_O
-    font-style italic
-    font-size 20px
+    p
+        font-style italic
+        font-size 20px
+    input
+        border-radius 10px
+        border 0.1px solid black  
+        font-size 20px
+        background white 
+        padding: .25rem .25rem .25rem 1rem
     
 
 .Sales_Card_Data_P
-    font-style italic
-    font-size 20px
+    p
+        font-style italic
+        font-size 20px
+    input
+        border-radius 10px
+        border 0.1px solid black  
+        font-size 20px
+        background white 
+        padding: .25rem .25rem .25rem 1rem
+    select
+        display: block
+        padding: .25rem 2.5rem .25rem 1rem
+        background: white
+        border: 1px solid black
+        border-radius: 10px
+        appearance: none
+        font-family: inherit
+        font-size: 1rem
+        color: #444
 
 .Sales_Card_Price_Old
     text-decoration line-through
@@ -155,12 +183,18 @@
     float right
     border-radius 10px
     color black
-    background-color white 
+    font-style italic
+    font-size 24px
+    background-color #C9D8EEFF
 
 .Search_String
-    font-size 32px
-    margin-bottom 15px
-    justify-content center 
+    h1
+        font-size 32px
+        margin-bottom 15px
+        justify-content center 
+    p
+        font-size 18px
+        margin-bottom 5px
 
 .Searchstring
     // margin-top 50px
@@ -169,7 +203,7 @@
     // margin-left 100px
     display flex
     justify-content center 
-    padding-bottom 400px 
+    padding-bottom 100px 
     margin-bottom 100px
     // border 1px solid black
     // border-radius 10px
@@ -182,20 +216,28 @@
     justify-content space-between
     input
         border-radius 10px
-        border 0.1px solid black    
+        border 0.1px solid black  
+        background white 
+        padding: .25rem .25rem .25rem 1rem
     button
+        color white
+        width 125px
         border-radius 10px
-        background white
+        font-size 24px
+        background #007ACCFF
     select
         display: block
         padding: .25rem 2.5rem .25rem 1rem
-        background: none 
-        border: 1px solid #ccc
-        border-radius: 3px
+        background: white
+        border: 1px solid black
+        border-radius: 10px
         appearance: none
         font-family: inherit
         font-size: 1rem
         color: #444
+
+.Cards_Search
+    height 100%
 
 .Cards_Search_Filters
     margin-bottom 20px
@@ -219,9 +261,9 @@
     select
         display: block
         padding: .75rem 2.5rem .75rem 1rem
-        background: none 
+        background: white 
         border: 1px solid #ccc
-        border-radius: 3px
+        border-radius: 10px
         appearance: none
         font-family: inherit
         font-size: 1rem
@@ -248,7 +290,7 @@
 
 .Booking_Card
     h1
-        font-size 24px
+        font-size 28px
         display flex
         justify-content center
         margin-top 20px
@@ -257,10 +299,13 @@
     display flex
     justify-content center
     button
-        background white 
+        background #007ACCFF
         border-radius 10px
+        font-size 24px
+        color white
 
 .Booking_Card_Search
+    margin-top 20px
     display flex
     justify-content space-around 
     h2 
@@ -274,19 +319,40 @@
     justify-content space-around
     input
         border 0.2px solid black
+    .seria
+        width 180px
+    .nomer
+        width 180px
     
-    
+.Booking_Card_Humans_H1
+    margin-bottom 5px
+
 .Booking_Card_Humans
     display flex
     justify-content center
-    div
-        margin-bottom 10px
+    .Booking_Card_Humans_H1
+        margin-bottom 5px
+    .Booking_Card_Humans_Input
+        margin-bottom 15px
+        h2
+            font-size 18px
+    input 
+        border-radius 10px
+        border 0.1px solid black  
+        background white 
+        padding: .25rem .25rem .25rem 1.25rem
     
 .Cards_Search_PP
     display flex
     justify-content center
     margin-bottom 10px
     font-size 28px
+    button
+        background #007ACCFF
+        border-radius 10px
+        font-size 24px
+        color white
+        margin-left 5px
 
     
 
