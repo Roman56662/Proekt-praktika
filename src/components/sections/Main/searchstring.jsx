@@ -43,7 +43,7 @@ const searchClick = () =>{
         <div>
             <div className={cx('Search_String')}>
                 <h1>Укажите маршрут, куда Вы хотите отправиться</h1>
-                {((citySelectO == undefined)||(citySelectP ==undefined)||(dataSelect ==undefined) ? <p>Пожалуйста, заполните все поля, прежде чем искать авиабилеты</p>:'')}
+                {((citySelectO == undefined)||(citySelectP ==undefined)||(dataSelect ==undefined) ? <p className={cx('Errors_P')}>Пожалуйста, заполните все поля, прежде чем искать авиабилеты</p>:'')}
             </div>
             <div className={cx('Filters_searchstring')}>
                 <select onChange={handleChange1}>
