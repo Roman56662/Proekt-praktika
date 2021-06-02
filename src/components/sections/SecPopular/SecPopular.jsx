@@ -172,8 +172,8 @@ export const SecPopular = ({arr}) => {
                         <PreviewCard  
                           key={key} 
                           // mod={count % 5 == 0 ? '-large' : '-small'}
-                          // back={item.back}
-                          // flag={item.flag}
+                          back={item.back}
+                          flag={item.flag}
                           country={item.title}
                           // price={item.price}
                         />

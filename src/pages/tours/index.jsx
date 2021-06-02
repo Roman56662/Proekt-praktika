@@ -37,7 +37,7 @@ const Tours = ({}) => {
 // GET HOTEL
   useEffect( () => {
     async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/hotels')
+      const request = await axios.get('http://localhost:3001/api/base/filter/hotels')
       setHotel(request.data)
       return request
     }
@@ -86,7 +86,12 @@ const Tours = ({}) => {
             <SecFilter filterData={ filter }/>
           </section>
           <section>
-            <SecTours hotelArr={ hotel } />
+            {
+              hotel == undefined || hotel.length == 0  ? 
+                <p className={cx('error')}>Ничего не найдено</p>
+              :
+                <SecTours hotelArr={ hotel } />
+            }
           </section>
         </div>
       </main>

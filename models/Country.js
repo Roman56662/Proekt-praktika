@@ -4,6 +4,7 @@ const schema = new Schema({
   title:   { type: String, required: true, unique: true },
   popular: { type: Boolean, required: true },
   flag:    { type: String, required: true },
+  back:    { type: String, required: true },
   city:    [{ type: Types.ObjectId, ref: 'City', default: null }]
 })
 

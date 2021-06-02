@@ -90,11 +90,11 @@ const findClick = () => {
             />
           </div>
         </Component>
-        <Component cls={'components__block nights'} title='Кол-во ночей' text={ filterData == null ? (countNights + ' ' + title) : countNights + ' ' + title || filterData.countNights + ' ' + title }>
+        {/* <Component cls={'components__block nights'} title='Кол-во ночей' text={ filterData == null ? (countNights + ' ' + title) : countNights + ' ' + title || filterData.countNights + ' ' + title }>
           <div className={cx('nights__drop-body')} >
             <Nights count={count} onClick={handleClick} title={title} countNights={countNights}/>
           </div>
-        </Component>
+        </Component> */}
         <Component cls={'components__block humans'} title='Кто поедет' text={ filterData == null ? (parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens) : ( parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens || filterData.parentsCount + ' ' + filterData.titleParents + ', ' + filterData.childrensCount + ' ' + filterData.titleChildrens)  }>
           <div className={cx('humans__drop-body')}>
             <Humans 

@@ -166,7 +166,7 @@ const [count, setCount] = useState(1)
   return(
       <div className={('section_filter')} >
         <div className={('section__title')}>
-          <h1>Туры из вашего города</h1>
+          <h1>Туры из Ростова-на-Дону</h1>
         </div>
         <div className={('section__component-list')}>
           <ComponentList 

@@ -25,6 +25,9 @@ router.post('/tour', async (req, res) =>{
     if (err) return handleError(err)
     tour.map((item)=> {
       if (item.hotel.title == tourOptions.title) {
+
+        
+
         tourArr.push(item)
       }
     })

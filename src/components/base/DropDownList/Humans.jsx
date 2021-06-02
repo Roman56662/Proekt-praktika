@@ -19,14 +19,14 @@ export const Humans = ({countParents, countChildrens, onClickChildrens, onClickP
                     <input  type="text" value={parentsCount + ' ' + titleParents} className={cx('counterInput')}></input>
                     <button  onClick={() => onClickParents('plusParents')} className={cx('counterRight')}>+</button>
                 </div>
-            <span className={cx('humans__children')}>Дети, до 14 лет</span>
+            {/* <span className={cx('humans__children')}>Дети, до 14 лет</span>
             <div>
                 <div className={cx('counter')}>
                         <button onClick={() => onClickChildrens('minusChildren')} className={cx('counterLeft')}>-</button>
                         <input  type="text" value={childrensCount + ' ' + titleChildrens} className={cx('counterInput')}></input>
                         <button  onClick={() => onClickChildrens('plusChildren')} className={cx('counterRight')}>+</button>
                 </div>
-            </div>
+            </div> */}
         </div>
         );
 }
