@@ -35,18 +35,6 @@ app.options("/*", function(req, res, next) {
 
 
 
-// console.log()
-
-// Aviabullets.find({}, function (err, bullet) {
-//   if (err) return handleError(err);
-//   bullet.map((item) => {
-//     aviabulletsArr.push(item)
-//   })
-//   // console.log(aviabulletsArr)
- 
-//   // 'bullet' содержит список спортсменов, соответствующих критерию.
-// })
-
 let test2
 
 let aviabulletsArr = []
@@ -56,9 +44,6 @@ Aviabullets.find({}, function (err, bullet) {
   bullet.map((item) => {
     aviabulletsArr.push(item)
   })
-  // console.log(aviabulletsArr)
- 
-  // 'bullet' содержит список спортсменов, соответствующих критерию.
 })
 let aviabulletsArrSearch = []
 
@@ -88,9 +73,6 @@ AviabulletsSales.find({}, function (err, bulletSales) {
   bulletSales.map((item) => {
     aviabulletsArrSales.push(item)
   })
-  // console.log(aviabulletsArr)
- 
-  // 'bullet' содержит список спортсменов, соответствующих критерию.
 })
 
 
@@ -109,16 +91,11 @@ AviabulletsSales.find({}, function (err, bulletSales) {
 //   if (err) return handleError(err)
 // })
 
-
 // console.log(aviabulletsSales)
 
 app.get('/base/bullets',(req,res) => {
   res.send(test2)
 })
-
-// 
-
-
 
 // console.log(bullet)
 

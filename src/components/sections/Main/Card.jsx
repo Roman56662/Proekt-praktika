@@ -5,10 +5,6 @@ import cn from 'classnames/bind';
 //Styles
 import styles from '../../styles.styl';
 const cx = cn.bind(styles);
-// const cardsSearchValue = [
-//     {Name:'Ростов-на-Дону - Москва', dataAndTimesO:'10.05.21 15:45:00', dataAndTimesP: '04.05.21 23:00:00', price: '13200 руб'},
-//     {Name:'Ростов-на-Дону - Москва', dataAndTimesO:'10.05.21 21:45:00', dataAndTimesP: '06.05.21 05:20:00', price: '11900 руб'} ,
-//  ];
 
 
 

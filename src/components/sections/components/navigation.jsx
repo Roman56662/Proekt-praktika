@@ -1,8 +1,8 @@
 import React from 'react'
 import '../../navigation.styl'
 
-const title = 'Авиабилеты'
-const emblem  = 'CHULAKOV'
+const title = 'билеты'
+const emblem  = 'AVIA'
 const links = [
 { label:'Акции', href:'/sales'}, 
 { label: 'Перелеты', href: '/perelet'}, 

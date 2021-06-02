@@ -15,15 +15,6 @@ const Main = () => {
   const [cardsTest, setCardsTest] = useState([]) 
   const [tickets , setTickets] = useState([]) 
   
- 
-  // useEffect( () => {
-  //   async function fetchData() {
-  //     const request = await axios.get('http://localhost:3001/base/bullets')
-  //     setTickets(request.data)
-  //     return request
-  //   }
-  //   fetchData()
-  // },[])
     useEffect( () => {
       async function fetchData() {
         const request = await axios.get('http://localhost:3001/')

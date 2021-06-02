@@ -6,9 +6,9 @@ import styles from '../../styles.styl';
 const cx = cn.bind(styles);
 const traveler = "Путешественникам"
 const company = "Компания"
-const adress = [{label:'CHULAKOV Авиабилеты', href:'/home'}]
+const adress = [{label:'AVIAбилеты', href:'/home'}]
 const aboutCompany = [
-    {label:'© 2021 ООО «Студия Олега Чулакова»',href:' '},
+    {label:'© 2021 AVIAбилеты',href:' '},
     {label:'Политика обработки персональных данных',href:' '},
     {label:'Правовая информация',href:' '},
 ]
@@ -23,7 +23,7 @@ export const Footer = () => {
             </div>
             <div className={cx('table')}>
                 <p>
-                Copyright © 2021 CHULAKOV Авиабилеты - All rights reserved
+                Copyright © 2021 AVIAбилеты - All rights reserved
                 </p>
             </div>
             <div className={cx('down')}>

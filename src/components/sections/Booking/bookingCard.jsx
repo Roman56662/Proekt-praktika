@@ -10,6 +10,7 @@ const cx = cn.bind(styles);
 
 
 export const BookingCard = ({ticket}) => {
+
    const [docNumber,setDocNumber] = useState();
    let checkNumberKey = key => key >= '0' && key <= '9';
    let checkFIOKey = key => ((key>= 'А' && key <='Я')|| (key>= 'А' && key <='я')||(key>= 'а' && key <='я'))
@@ -31,7 +32,8 @@ export const BookingCard = ({ticket}) => {
     if(!checkFIOKey(e.target.value[e.target.value.length - 1]) || howDigits(e.target.value) > 4)
         e.target.value = e.target.value.slice(0, -1)
   }
-  
+
+// Массив компонентов для ввода персональных данных
   const nameString = [
     {
         Name: <div className={cx('Booking_Card_nameString')}>
@@ -46,7 +48,7 @@ export const BookingCard = ({ticket}) => {
     
  
 
-
+//Ниже код для счетчика
         const [countParents, setCountParents] = useState(1)
         const [countChildrens, setCountChildrens] = useState(0)
         const handleClickParents = useCallback((znakParents) => {
@@ -75,7 +77,8 @@ export const BookingCard = ({ticket}) => {
             }
           }
         }, [countChildrens]) 
-    
+
+//Рендер компонентов для ввода данных   
 const nameStringCopy = nameString.map((item) => {
         return ( 
         <div>{item.Name}</div>
@@ -89,15 +92,14 @@ const nameStringCopy = nameString.map((item) => {
         nameArray.push(<h2 className={cx('Booking_Card_Humans_H1')}>{j} Пассажир</h2>)
         nameArray.push(nameStringCopy);
       }
-      
-      // console.log(ticket)
-
+  
     return(
         <div className={cx('Booking_Card')}>
             <h1>Авиабилет</h1>
             <div className={cx('Booking_Card_Search')}>
                 <h2>{ticket.cityO} - {ticket.cityP}</h2>
                 <h2>Дата отправки {ticket.dataO}</h2>
+                <h2>Время отправки {ticket.timesO}</h2>
                 <Humans countParents={countParents} countChildrens={countChildrens} onClickChildrens={handleClickChildrens} onClickParents={handleClickParents}/>
             </div>
             <div className={cx('Booking_Card_Humans')}>

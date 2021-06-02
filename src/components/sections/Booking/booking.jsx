@@ -14,8 +14,6 @@ const cx = cn.bind(styles);
 
 export const Booking= () => {
 
-
-
     return(
         <div className={cx('service_Page')}>
             <Navigation/>

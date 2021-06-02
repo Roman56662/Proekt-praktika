@@ -4,7 +4,7 @@ import cn from 'classnames/bind';
 //Styles
 import styles from '../../styles.styl';
 const cx = cn.bind(styles);
-
+// Данные карточки дополнительных услуг
 const cardsServiceTaxi = [
     {Name: 'Такси до аэропорта', Adress:<input type='text'></input>
     , TimeO:<input type='time'></input>
