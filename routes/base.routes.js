@@ -13,13 +13,79 @@ const Tour = require('../models/Tour')
 
 const router = Router()
 
-const urlencodedParser = bodyParser.urlencoded({extended: false});
+//? hotels
+//http://localhost:3001/static/hotels/Atlante_Star_Hotel.jpg
+//http://localhost:3001/static/hotels/Centurion_Hotel_Residential_Akasaka_Station.jpg
+//http://localhost:3001/static/hotels/Hilton_Molino_Stucky_Venice.jpg
+//http://localhost:3001/static/hotels/Hotel_M_39_s_Est_Shijo_Karasuma.jpg
+//http://localhost:3001/static/hotels/Hotel_Villa_Rosa.jpg
+//http://localhost:3001/static/hotels/Otel_Gogol_Khauz.jpg
+//http://localhost:3001/static/hotels/Otel_Marriott_Moskva_Grand.jpg
+//http://localhost:3001/static/hotels/Rome_Kings_Suite.jpg
+//http://localhost:3001/static/hotels/Sofitel_Sydney_Darling_Harbour.jpg
+//http://localhost:3001/static/hotels/SuiteSistina_for_Lovers.jpg
+//http://localhost:3001/static/hotels/The_Langham_Melbourne.jpg
+//http://localhost:3001/static/hotels/Ripetta_Natural_Suites.jpg
 
+//? rooms
+//http://localhost:3001/static/rooms/Atlante_Star_Hotel_Rooms1.jpg
+//http://localhost:3001/static/rooms/Atlante_Star_Hotel_Rooms2.jpg
+//http://localhost:3001/static/rooms/Atlante_Star_Hotel_Rooms3.jpg
 
+//http://localhost:3001/static/rooms/Centurion_Hotel_Residential_Akasaka_Station_Rooms1.jpg
+//http://localhost:3001/static/rooms/Centurion_Hotel_Residential_Akasaka_Station_Rooms2.jpg
 
+//http://localhost:3001/static/rooms/Hilton_Molino_Stucky_Venice_Rooms1.jpg
+//http://localhost:3001/static/rooms/Hilton_Molino_Stucky_Venice_Rooms2.jpg
 
+//http://localhost:3001/static/rooms/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms1.jpg
+//http://localhost:3001/static/rooms/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms2.jpg
 
+//http://localhost:3001/static/rooms/Hotel_Villa_Rosa_Rooms1.jpg
+//http://localhost:3001/static/rooms/Hotel_Villa_Rosa_Rooms2.jpg
 
+//http://localhost:3001/static/rooms/Otel_Gogol_Khauz_Rooms1.jpg
+//http://localhost:3001/static/rooms/Otel_Gogol_Khauz_Rooms2.jpg
+
+//http://localhost:3001/static/rooms/Otel_Marriott_Moskva_Grand_Rooms1.jpg
+//http://localhost:3001/static/rooms/Otel_Marriott_Moskva_Grand_Rooms2.jpg
+
+//http://localhost:3001/static/rooms/Ripetta_Natural_Suites_Rooms.jpg
+//http://localhost:3001/static/rooms/Ripetta_Natural_Suites_Rooms2.jpg
+//http://localhost:3001/static/rooms/Ripetta_Natural_Suites_Rooms3.jpg
+//http://localhost:3001/static/rooms/Ripetta_Natural_Suites_Rooms4.jpg
+
+//http://localhost:3001/static/rooms/Sofitel_Sydney_Darling_Harbour_Rooms1.jpg
+//http://localhost:3001/static/rooms/Sofitel_Sydney_Darling_Harbour_Rooms2.jpg
+
+//http://localhost:3001/static/rooms/SuiteSistina_for_Lovers_Rooms1.jpg
+//http://localhost:3001/static/rooms/SuiteSistina_for_Lovers_Rooms2.jpg
+//http://localhost:3001/static/rooms/SuiteSistina_for_Lovers_Rooms3.jpg
+
+//http://localhost:3001/static/rooms/The_Langham_Melbourne_Rooms1.jpg
+//http://localhost:3001/static/rooms/The_Langham_Melbourne_Rooms2.jpg
+
+//http://localhost:3001/static/rooms/Hotel_M_39_s_Est_Shijo_Karasuma_Rooms1.jpg
+
+//! country
+// 60a273b1afd4f11da47e6b64 италия
+// 60a273b1afd4f11da47e6b65 россия
+// 60a273b1afd4f11da47e6b66 япония
+// 60a273b1afd4f11da47e6b67 австралия
+
+//! city
+// 60a272fbbb663a2a6c9200bd rim
+// 60a272fbbb663a2a6c9200be ven
+// 60a272fbbb663a2a6c9200c0 Санкт-Петербург
+// 60a272fbbb663a2a6c9200bf Москва
+// 60a272fbbb663a2a6c9200c1 Токио
+// 60a272fbbb663a2a6c9200c2 Киото
+// 60a272fbbb663a2a6c9200c3 Сидней
+// 60a272fbbb663a2a6c9200c4 Мельбурн
+
+// ! hotel
+//60a2b84c660c2e188ca7e266  // Ripetta Natural Suites италия
+//60a2b53e309751056c316100 //SuiteSistina for Lovers
 
 const countryMok = [
     {
@@ -369,25 +435,7 @@ module.exports = router
 //   console.log('complete')
 // })
 
-//! country
-// 60a273b1afd4f11da47e6b64 италия
-// 60a273b1afd4f11da47e6b65 россия
-// 60a273b1afd4f11da47e6b66 япония
-// 60a273b1afd4f11da47e6b67 австралия
 
-//! city
-// 60a272fbbb663a2a6c9200bd rim
-// 60a272fbbb663a2a6c9200be ven
-// 60a272fbbb663a2a6c9200c0 Санкт-Петербург
-// 60a272fbbb663a2a6c9200bf Москва
-// 60a272fbbb663a2a6c9200c1 Токио
-// 60a272fbbb663a2a6c9200c2 Киото
-// 60a272fbbb663a2a6c9200c3 Сидней
-// 60a272fbbb663a2a6c9200c4 Мельбурн
-
-// ! hotel
-//60a2b84c660c2e188ca7e266  // Ripetta Natural Suites италия
-//60a2b53e309751056c316100 //SuiteSistina for Lovers
 
 // ! найти по ключу элемент
 // City.

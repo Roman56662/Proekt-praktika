@@ -19,7 +19,6 @@ export const ImageSlider = ({base}) => {
   const pervSlide = () => {
     setCurrent(current === 0  ? length - 1 : current - 1)
   }
-  console.log(current)
 
   if (!Array.isArray(base) || base.length <= 0){
     return null
@@ -36,7 +35,7 @@ export const ImageSlider = ({base}) => {
               {index === current && (
                 <img 
                   className={cx('slider__slider-image')}
-                  src={baseItem.image}
+                  src={baseItem}
                 />
               )}
             </div>

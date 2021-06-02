@@ -43,10 +43,10 @@ export const ComponentList = ({
 const findClick = () => {
   const data = {
     country: country,
-    dayArrived: dayArrived,
-    dayDeparted: dayDeparted,
-    monthArrived: monthArrived,
-    monthDeparted: monthDeparted,
+    dayArrive: dayArrived,
+    dayDepart: dayDeparted,
+    monthArrive: monthArrived,
+    monthDepart: monthDeparted,
     countNights: countNights,
     parentsCount: parentsCount,
     titleParents: titleParents,
@@ -77,11 +77,9 @@ const findClick = () => {
         <Component 
           cls={'components__block date'} 
           title='Дата вылета' 
-          text={ filterData == null ? 
-            ((dayArrived != undefined && monthArrived != undefined) && (dayDeparted != undefined  && monthDeparted != undefined) ? 
-            (dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted) : ('Выберите дату')) 
-              : 
-            ( filterData.dayArrived + ' ' + filterData.monthArrived + ' ' + filterData.dayDeparted + ' ' + filterData.monthDeparted ) }
+          text={ filterData == null || filterData.dayArrive == undefined ? 
+            ( dayArrived != undefined && monthArrived != undefined && dayDeparted != undefined && monthDeparted != undefined ? dayArrived + ' ' + monthArrived + ' ' + dayDeparted + ' ' + monthDeparted : 'Выберите дату') : 
+            (filterData.dayArrive + ' ' + filterData.monthArrive + ' ' + filterData.dayDepart + ' ' + filterData.monthDepart)} 
         >
           <div className={cx('calendar__drop-body')}>
             <CalendarComponent 

@@ -6,57 +6,47 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const TourIcons = ({live, nutrition, fly, transfer, health}) => {
+export const TourIcons = ({ nutrition, fly, transfer, health}) => {
   
 
   return(
     <div className={cx('icons')}>
-      <div className={cx('icons__live')}>
-        <div className={cx('statick')}>
-          <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
-          <div className={cx('hover')}>
-            <p>
-              {live == 1 ? 'Проживание включено' : 'Проживание не включено'}
-            </p>
-          </div>
-        </div>
-      </div>
       <div className={cx('icons__fly')}>
       <div className={cx('statick')}>
-          <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+          <img src="http://localhost:3001/static/airplane.png" alt=""/>
           <div className={cx('hover')}>
             <p>
-              {fly == 1 ? 'Перелёт включен' : 'Перелёт не включен'}
+              {fly === true ? 'Перелёт включен' : 'Перелёт не включен'}
             </p>
           </div>
         </div>
       </div>
       <div className={cx('icons__nutrition')}>
       <div className={cx('statick')}>
-          <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+          <img src="http://localhost:3001/static/restaurant.png" alt=""/>
           <div className={cx('hover')}>
             <p>
-              {nutrition === '' ? 'Питание не включено' : 'Питание включено'}
+              {nutrition === true ? 'Питание включено' : ' Питание не включено'}
             </p>
           </div>
         </div>
       </div>
       <div className={cx('icons__transfer')}>
       <div className={cx('statick')}>
-          <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+          <img src="http://localhost:3001/static/transfer.png" alt=""/>
           <div className={cx('hover')}>
             <p>
-              {transfer == 1 ? 'Трансфер включен' : 'Трансфер не включен'}
+              {transfer === true ? 'Трансфер включен' : 'Трансфер не включен'}
             </p>
           </div>
         </div>
       </div>
       <div className={cx('icons__health')}>
       <div className={cx('statick')}>
-          <img src="https://i7.pngflow.com/pngimage/414/415/png-symmetry-star-angle-design-angle-symmetry-art-star-clipart.png" alt=""/>
+          <img src="http://localhost:3001/static/health-care.png" alt=""/>
           <div className={cx('hover')}>
             <p>
-              {health == 1 ? 'Мед страховка включена' : 'Мед страховка не включена'}
+              {health === true ? 'Мед страховка включена' : 'Мед страховка не включена'}
             </p>
           </div>
         </div>

@@ -9,20 +9,7 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
-                      live, nutrition, fly, transfer, health, price}) => {
-                      
-  let count = countNights
-  const title = useMemo(() => {
-      let nigthTitle = 'Ночь'
-      if (count < 5 && count != 1) {
-          nigthTitle = 'Ночи'
-      }
-      if (count > 4) {
-          nigthTitle = 'Ночей'
-      }
-      return nigthTitle
-  }, [count])
-
+                      nutrition, fly, transfer, health, price}) => {
 
   let dateA = new Date(dateArrive);
   let dateD = new Date(dateDepart);
@@ -32,17 +19,36 @@ export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
   const monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
                     'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'] 
 
+  let count = dateD.getDate() - dateA.getDate()
+  const title = useMemo(() => {
+    let nigthTitle = 'Ночь'
+    if (count < 5 && count != 1) {
+      nigthTitle = 'Ночи'
+    }
+    if (count > 4) {
+      nigthTitle = 'Ночей'
+    }
+    return nigthTitle
+  }, [count])
+
   return(
     <div className={cx('tour')}>
     <div className={cx('tour__body')}> 
       <div className={cx('tour__block tour__date')}>
-        <p>{ dateA.getDate() }</p>
-        <br/>
-        <span>{ monthArr[dateA.getMonth()] }</span>
-        
+        <div>
+          <p>{ dateA.getDate() }</p>
+          <br/>
+          <span>{ monthArr[dateA.getMonth()] }</span>
+        </div>
+        <p>-</p>
+        <div>
+          <p>{ dateD.getDate() }</p>
+          <br/>
+          <span>{ monthArr[dateD.getMonth()] }</span>
+        </div>
       </div>
       <div className={cx('tour__block tour__nigths')}>
-        <p>{countNights} {title}</p>
+        <p>{count} {title}</p>
       </div>
       <div className={cx('tour__block tour__nutrition')}>
         <p>
@@ -55,7 +61,6 @@ export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
       </div>
       <div className={cx('tour__block tour__icons')}>
         <TourIcons 
-          live={live} 
           nutrition={nutrition} 
           fly={fly} 
           transfer={transfer}

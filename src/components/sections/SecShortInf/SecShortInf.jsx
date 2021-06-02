@@ -15,19 +15,19 @@ export const SecShortInf = ({slide, about, tour, reviews, hotelArr}) => {
   const base = [
     {
       title: 'Посмотреть туры',
-      image: 'https://psv4.userapi.com/c505536/u173154522/docs/d35/99329b8f0312/car.png?extra=Lss-usxRxp7tXwtTxaP2qWrL0eIDKVvXbtJWUqluEEvlW5UZWEajiHIonvlcl7BxmlYoTr6djasG-i0bbNSPRBTuwOlUB6U7qqwAhTk0weOBF3UeHOVWijLEe90EI_9pkD9IKCH4SO_48c5As7HqYtvJZg'
+      image: 'http://localhost:3001/static/car.png'
     },
     {
       title: 'Об отеле',
-      image: 'https://psv4.userapi.com/c534536/u173154522/docs/d38/024dc0d841ed/hotel.png?extra=iI9KHSPbIDDAEw_DrSnF-8_1NxbRU734O0VEfpzajFg0ZZR091QkvWYz47cfEtE484h7ySmTzDF32jrwezuF4_dKzQlSkmbnygq_ioDpWq9BcDKvX71_QvWs2CkODIaJ-EFHbCiDuiFvt4SE8i3NhHcUhw'
+      image: 'http://localhost:3001/static/hotel.png'
     },
     {
       title: 'Фотографии',
-      image: 'https://psv4.userapi.com/c534536/u173154522/docs/d47/0f5d6329c739/camera.png?extra=x6_PjyPuwHAMoIFy9aSbUDapN3JZ7_Q8G3TQExQTHSVyD450IaOd5hBjlQBsGIp6KC2b3c1xCc88VuS45_HJw_ItNDXSaE5WU-akGO4cfouz99IxERq9MYKGD1nyld6X_XGp74glJlvIoheXOT33Th4K-Q'
+      image: 'http://localhost:3001/static/camera.png'
     },
     {
       title: 'Отзывы',
-      image: 'https://psv4.userapi.com/c534536/u173154522/docs/d30/0a62fa7cf521/comment.png?extra=-Jruq2YU311JSPntW-gkGh0h0d1AKpwx-wtenOv0MvcHMH_E12UaJx-6QZi5mdMzds5o6LI_wHe-3VXTT-5Rhno6NUgzwGrGQE3GzmHqpbxA1mKctqnrUOfRIPyyxQfn3hZs9FyM3bllwlxk1AD2nHC2fg'
+      image: 'http://localhost:3001/static/comment.png'
     },
   ]
 
@@ -42,7 +42,7 @@ export const SecShortInf = ({slide, about, tour, reviews, hotelArr}) => {
     <div className={cx('section__short-inf')}>
       <div className={cx('section__title')}>
         <h1>Туры в отель {hotelArr.title}</h1>
-        <p>{hotelArr.city !== undefined ? hotelArr.city.title : '' } {hotelArr.city !== undefined ? hotelArr.city.title : '' }</p>
+        <p>{hotelArr.city !== undefined ? hotelArr.city.title : '' }</p>
       </div>
       <div className={cx('section__short-inf__body')}>
         <div className={cx('short-inf__tour-raiting')}>

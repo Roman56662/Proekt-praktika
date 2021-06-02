@@ -43,21 +43,22 @@ const TourPage = ({}) => {
   },[])
 
   // console.log('tourArr', tourArr)
-  // console.log('hotelArr', hotelArr)  
+  console.log('hotelArr', hotelArr)  
     
   return(
     <Page>
     <Header />
       <main>
+        <a href='#' className={cx('buttonUp')}> <img src="http://localhost:3001/static/up-arrow.png" alt="" /> </a>
         <div className={cx('container')}>
           <section>
             <SecShortInf hotelArr={ hotelArr }/>
           </section>
           <section id='slide'>
-            <SecSlide />
+            <SecSlide photoArr={hotelArr.room}/>
           </section>
           <section id='about'>
-            <SecAboutHotel />
+            <SecAboutHotel mapPos={hotelArr.geopos} about={hotelArr.about}/>
           </section>
           <section id='tour'>
             <SecChooseTour hotelArr={hotelArr} tourArr={tourArr}/>
