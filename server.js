@@ -4,6 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const Aviabullets = require('./models/Avia')
 const AviabulletsSales = require('./models/AviaSales')
+const BookingUser = require('./models/BookingUser')
 
 
 mongoose.connect('mongodb+srv://roma:123qwerty@cluster0.hiemo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
@@ -65,6 +66,35 @@ app.post('/base/bullets',(req,res) => {
   })
 
 })
+let bookingUser =[]
+
+// let test3 
+
+
+// app.get('/base/bookingUser',(req,res) => {
+//     res.send(test3)
+// })
+// app.post('/base/bookingUser',(req,res) => {
+//   test3 = req.body
+//   console.log(test3)
+//   const bookingUserCard = new BookingUser({
+//     name: test3.citySelectO,
+//     family: ' ',
+//     dataR: ' ',
+//     seria: ' ',
+//     nomer: ' ',
+//     cityO: ' ',
+//     cityP: ' ',
+//     dataO: ' ',
+//     timesO: ' '
+//   })
+
+//   bookingUserCard.save(function (err) {
+//     if (err) return handleError(err)
+//   })
+
+// })
+
 
 let aviabulletsArrSales = []
 
@@ -108,7 +138,9 @@ app.get('/base/sales', async(req, res) => {
 app.get('/base/search', async(req, res) => {
   res.send(aviabulletsArrSearch)
 })
-
+app.get('/base/bookingUser', async(req,res) =>{
+  res.send(test3)
+})
 app.get('/',async(req, res) => {
     res.send(aviabulletsArr)
 })
