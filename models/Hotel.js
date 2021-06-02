@@ -11,7 +11,8 @@ const schema = new Schema({
   geopos:   { type: String, required: true },
   room:    [{ type: Types.ObjectId, ref: 'Room' }],
   review:  [{ type: Types.ObjectId, ref: 'Review' }],
-  city:     { type: Types.ObjectId, ref: 'City' }
+  city:     { type: Types.ObjectId, ref: 'City' },
+  country:  { type: Types.ObjectId, ref: 'Country' }
 })
 
 module.exports = model('Hotel', schema)

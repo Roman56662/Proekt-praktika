@@ -27,8 +27,6 @@ export const TravelCard = ({rating, backImg, stars,
       hotel: hotelArr
     }
 
-    console.log(data)
-    console.log(arr)
 
 // POST
       axios.post('http://localhost:3001/api/base/tour', data)
@@ -41,8 +39,6 @@ export const TravelCard = ({rating, backImg, stars,
           }
       })
 
-      console.log(hotelArr)
-
       // POST
       axios.post('http://localhost:3001/api/base/hotel', arr)
       .then(res => {
@@ -54,10 +50,6 @@ export const TravelCard = ({rating, backImg, stars,
           }
       })
   }
-
-
-
-
 
 
 
@@ -79,7 +71,7 @@ export const TravelCard = ({rating, backImg, stars,
         
       </div>
       <div className={cx('travel-card__button')}>
-        <Button onClick={postHotelTitle} link='/tour' title={'Посмотреть тур от ' + price + ' руб.'}  theme={'_button_yellow travel-card__button'} />
+        <Button onClick={postHotelTitle} link='/tour' title={'Посмотреть туры'}  theme={'_button_yellow travel-card__button'} />
       </div>
     </div>
   )

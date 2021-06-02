@@ -12,6 +12,15 @@ export const SecTourist = ({arr}) => {
   const email = 'user@mail.ru'
   const phone = '+7(999)-999-99-99'
 
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  
+
+  const handleClick = () => {
+    alert(getRandomInt(100000,10000000))
+  }
+
   return(
       <div className={cx('section_tourist')} >
         <div className={cx('section__title')}>
@@ -24,7 +33,7 @@ export const SecTourist = ({arr}) => {
           <div className={cx('email')}>
             <input type='email' placeholder={email}/>
           </div>
-          <div className={cx('email')}>
+          <div className={cx('tel')}>
             <input type='tel' placeholder={phone}/>
           </div>
         </div>
@@ -32,7 +41,7 @@ export const SecTourist = ({arr}) => {
           <TouristString/>
         </div>
         <div className={cx('booking')} >
-        <Button link='#' title={'Забронировать'}  theme={'_button_yellow travel-card__button'} />
+          <Button onClick={handleClick} link='#' title={'Забронировать'}  theme={'_button_yellow travel-card__button'} />
         </div>
       </div>
   )

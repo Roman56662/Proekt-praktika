@@ -13,9 +13,9 @@ export const TravelCardText = ({hotel, city, bar, parking, wifiType}) => {
           <h3>{hotel}</h3>
           <p>{city}</p>
         </div>
-        <div className={cx('text__title_review')} >
+        {/* <div className={cx('text__title_review')} >
           <a href="">n отзывов</a>
-        </div>
+        </div> */}
       </div>
       <div className={cx('text__inf')} >
         <div className={cx('text__inf_sea text__inf_block')} >

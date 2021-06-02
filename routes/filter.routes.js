@@ -90,7 +90,6 @@ router.post('/post', function (req, res) {
       }
     })
 
-    console.log(titles)
 
     titles.map((item) => {
       Hotel.find({title: item}).
@@ -104,7 +103,6 @@ router.post('/post', function (req, res) {
           
 
           hotelEl.room.map((room)=>{
-            console.log(room)
             if (room.countPeople >= filterData.parentsCount) {
               City.find({}).
               populate('country').
@@ -134,7 +132,7 @@ router.post('/post', function (req, res) {
 
 console.log(hotelArr)
 
-router.get('/filter/hotels', function (req, res) {
+router.get('/hotels', function (req, res) {
   res.send(hotelArr)
   res.status(400)
 });

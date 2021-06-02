@@ -11,13 +11,13 @@ const cx = cn.bind(styles);
 
 export const Header = ({}) => {
   
-  const links = [{ label:'Туры', href:''}, { label: 'Интересное', href: ''}]
+  const links = [{ label:'Туры', href:''}, { label: 'Часто задаваемые вопросы', href: '/faq'}]
 
     
   return(
     <header id='head' className={cx('header')} >
       <div className={(cx('header__logo'))}>
-        <Logo  />
+        {/* <Logo  /> */}
         <LogoTitle />
       </div>
       <div className={('header__nav')}>

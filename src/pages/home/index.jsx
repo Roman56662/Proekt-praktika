@@ -54,7 +54,7 @@ const HomePage = () => {
             <SecPopular arr={countryArr} />
           </section>
           <section>
-            <SecAboutTours />
+            {/* <SecAboutTours /> */}
           </section>
         </div>
       </main>

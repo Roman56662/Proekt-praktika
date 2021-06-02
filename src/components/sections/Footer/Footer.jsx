@@ -17,15 +17,15 @@ export const Footer = ({}) => {
           <LogoTitle />
         </div>
         <div className={cx('footer__row-2')}>
-          <p>Сделано в Студии Олега Чулакова</p>
+          <p>Сайт сделал Байков Станислав Эдуардович, студент Авиационного колледжа ДГТУ</p>
           <div className={(cx('footer__logo'))}>
-          <Logo />
+          {/* <Logo /> */}
         </div>
       </div>
       </div>
 
       <div className={cx('footer__copyright')}>
-        <p>© ООО «Студия Олега Чулакова» 2021</p>
+        <p>© Rostov.Туры 2021</p>
       </div>
     </div>
   )

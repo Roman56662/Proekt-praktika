@@ -19,16 +19,20 @@ export const TouristString = ({key}) => {
           <input type="text" placeholder='Имя' />
         </div>
         <div className={cx('date')}>
+          
           <input type="date" placeholder='Дата рождения' />
+          <p>Дата рождения</p>
         </div>
-        <div className={cx('from')}>
+        {/* <div className={cx('from')}>
           <input type="text" placeholder='Гражданство' />
-        </div>
+        </div> */}
         <div className={cx('pas-number')}>
           <input type="number" placeholder='Номер загранпаспорта' />
         </div>
         <div className={cx('pas-date')}>
+          
           <input type="date" placeholder='Окончание дейстаия' />
+          <p>Окончание дейстаия</p>
         </div>
       </div>
     </div>

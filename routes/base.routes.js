@@ -419,6 +419,23 @@ const reviewMok = [
 
 
 
+  // const country = new Tour({
+  //   hotel: '60a2b26ac4b3420c4c896154',
+  //   room: '60a2b26ac4b3420c4c896153',
+  //   dateArrive: '2021.08.01',
+  //   dateDepart: '2021.08.07',
+  //   price: 130000,
+  //   nutrition: true,
+  //   fly: true,
+  //   transfer: true,
+  //   health: true
+
+  // })
+  // country.save(function (err) {
+  //   if (err) return handleError(err)
+  // })
+
+
 
 
 module.exports = router

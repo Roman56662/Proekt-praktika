@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import axios from 'axios'
 import { TourIcons } from './TourIcons'
 import { Button } from '../Button/Button'
 
@@ -8,7 +9,7 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
+export const Tour = ({tour, dateArrive, dateDepart, countNights, roomPlace, roomType,
                       nutrition, fly, transfer, health, price}) => {
 
   let dateA = new Date(dateArrive);
@@ -30,6 +31,27 @@ export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
     }
     return nigthTitle
   }, [count])
+
+  const postTour = () => {
+
+    const data = {
+      tour: tour
+    }
+
+// POST
+      axios.post('http://localhost:3001/api/base/pay', data)
+      .then(res => {
+          responseData = res.data
+          if (responseData.status == 'success') {
+            const user = responseData.user
+          } else {
+            alert('Something went wrong while creating account')
+          }
+      })
+
+      console.log(tour)
+
+  }
 
   return(
     <div className={cx('tour')}>
@@ -69,7 +91,7 @@ export const Tour = ({dateArrive, dateDepart, countNights, roomPlace, roomType,
       </div> 
     </div>
       <div className={cx('tour__block_button')}>
-        <Button link='' title={'Посмотреть тур от ' + price}  theme={'_button_yellow_bordered tour__button '} />
+        <Button onClick={postTour} link='/booking' title={'Посмотреть тур от ' + price}  theme={'_button_yellow_bordered tour__button '} />
       </div>
     </div>
   )

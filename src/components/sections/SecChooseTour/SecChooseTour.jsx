@@ -71,7 +71,7 @@ export const SecChooseTour = ({tourArr, hotelArr}) => {
               return(
                 <Tour 
                   key={key} 
-
+                  tour={item}
                   dateArrive={item.dateArrive}
                   dateDepart={item.dateDepart}
                   // month={item.month}

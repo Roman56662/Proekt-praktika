@@ -95,7 +95,7 @@ const findClick = () => {
             <Nights count={count} onClick={handleClick} title={title} countNights={countNights}/>
           </div>
         </Component> */}
-        <Component cls={'components__block humans'} title='Кто поедет' text={ filterData == null ? (parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens) : ( parentsCount + ' ' + titleParents + ', ' + childrensCount + ' ' + titleChildrens || filterData.parentsCount + ' ' + filterData.titleParents + ', ' + filterData.childrensCount + ' ' + filterData.titleChildrens)  }>
+        <Component cls={'components__block humans'} title='Кто поедет' text={ filterData == null ? (parentsCount + ' ' + titleParents ) : ( parentsCount + ' ' + titleParents  || filterData.parentsCount + ' ' + filterData.titleParents )  }>
           <div className={cx('humans__drop-body')}>
             <Humans 
               countParents={countParents} 

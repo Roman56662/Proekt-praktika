@@ -16,7 +16,7 @@ import styles from './styles.styl';
 const cx = cn.bind(styles);
 
 const Tours = ({}) => {
-   
+  
   const [filter, setFilter] = useState([])
   const [hotel, setHotel] = useState([])
   const [tour, setTour] = useState([])
@@ -31,13 +31,13 @@ const Tours = ({}) => {
     }
     fetchData()
   },[])  
- 
+
 
 
 // GET HOTEL
   useEffect( () => {
     async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/filter/hotels')
+      const request = await axios.get('http://localhost:3001/api/base/hotels')
       setHotel(request.data)
       return request
     }
@@ -86,12 +86,9 @@ const Tours = ({}) => {
             <SecFilter filterData={ filter }/>
           </section>
           <section>
-            {
-              hotel == undefined || hotel.length == 0  ? 
-                <p className={cx('error')}>Ничего не найдено</p>
-              :
-                <SecTours hotelArr={ hotel } />
-            }
+            
+            <SecTours hotelArr={ hotel } />
+
           </section>
         </div>
       </main>
