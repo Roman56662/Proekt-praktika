@@ -24,9 +24,15 @@ export const TravelCardText = ({hotel, city, bar, parking, wifiType}) => {
         <div className={cx('text__inf_beach text__inf_block')} >
           <p>{ parking == undefined ? 'ошибка' : (parking == true ? 'есть парковка' : 'нет парковки') }</p>
         </div>
+        <div className={cx('text__inf_beach text__inf_block')} >
+          <p>{ parking == undefined ? 'ошибка' : (parking == true ? 'можно с питомцами' : 'нельзя с питомцами') }</p>
+        </div>
+      </div>
+      <div className={cx('text__inf')} >
         <div className={cx('text__inf_wifi text__inf_block')} >
           <p>{ wifiType == undefined ? 'ошибка' : (wifiType == true ? 'есть wifi' : 'нет wifi') }</p>
         </div>
+
       </div>
     </div>
   )

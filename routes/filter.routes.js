@@ -2,7 +2,7 @@
 const { Router } = require('express')
 
 //date converter
-const dateFormat = require("dateformat")
+// const dateFormat = require("dateformat")
 
 //models
 const Tour = require('../models/Tour')

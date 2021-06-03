@@ -52,10 +52,12 @@ router.post('/tour-popular', async (req, res) =>{
 
   })
 
+
+
 })
 
 //все туры по конкретному отелю
-router.get('tour-popular/hotels', async (req, res) =>{
+router.get('/tour-popular/hotels', (req, res) =>{
   res.send( hotelArr )
   res.status(400)
 })

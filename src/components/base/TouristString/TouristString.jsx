@@ -10,7 +10,7 @@ export const TouristString = ({key}) => {
   
   return(
     <div className={cx('tourist-string')} >
-      <p>Турист #{key}</p>
+      <p>Данные туриста  {key}</p>
       <div className={cx('string')} >
         <div className={cx('fam')}>
           <input type="text" placeholder='Фамилия' />

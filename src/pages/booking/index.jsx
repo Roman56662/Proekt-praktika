@@ -60,7 +60,7 @@ const Booking = ({}) => {
       </div>
       <div className={cx('section__short-inf__body')}>
         <div className={cx('short-inf__tour-raiting')}>
-          <TravelCardRating rating='0'/>
+          {/* <TravelCardRating rating='0'/> */}
           <TravelCardStars stars={hotelArr.stars}/>
         </div>
       </div>
