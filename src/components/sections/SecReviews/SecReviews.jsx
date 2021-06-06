@@ -8,24 +8,18 @@ const cx = cn.bind(styles);
 export const SecReviews = ({}) => {
 
   const base = [
-    // {
-    //   user: 'Alex',
-    //   date: '05.03.2021',
-    //   figure: 9,
-    //   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus facilis, quam hic, repellat ipsa adipisci odio blanditiis nisi, error ut ipsam ipsum maiores totam doloremque impedit velit quas similique explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus facilis, quam hic, repellat ipsa adipisci odio blanditiis nisi, error ut ipsam ipsum maiores totam doloremque impedit velit quas similique explicabo?'
-    // },
-    // {
-    //   user: 'Sam',
-    //   date: '06.04.2021',
-    //   figure: 5,
-    //   text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, reiciendis consequuntur accusantium architecto debitis, neque fugiat vitae commodi quis temporibus officia adipisci unde cumque ad facilis sunt voluptates molestiae impedit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus facilis, quam hic, repellat ipsa adipisci odio blanditiis nisi, error ut ipsam ipsum maiores totam doloremque impedit velit quas similique explicabo'
-    // },
-    // {
-    //   user: 'Linda',
-    //   date: '07.04.2021',
-    //   figure: 3,
-    //   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sit nam voluptas ullam illo aperiam ab accusamus optio inventore adipisci mollitia quis doloribus eligendi itaque, dolorum cumque dicta quo enim! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus facilis, quam hic, repellat ipsa adipisci odio blanditiis nisi, error ut ipsam ipsum maiores totam doloremque impedit velit quas similique explicabo'
-    // },
+    {
+      user: 'Александр',
+      date: '05.03.2021',
+      figure: 9,
+      text: 'Отличный отель! Удобное расположение, относительно невысокая цена. Рекомендую всем!'
+    },
+    {
+      user: 'Виктор',
+      date: '06.04.2021',
+      figure: 8,
+      text: 'Всё очень понравилось. Отдыхал с супругой. Все достопримечательности расположены рядом. Уникальное оформление номеров, нигде такого не встречал. Рекомендую!'
+    },
   ]
 
 

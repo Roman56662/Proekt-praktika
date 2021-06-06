@@ -30,7 +30,9 @@ const hotelArr = []
 // массив с месяцами
 const monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
                   'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
-            
+
+  hotelArr.length = 0
+  
 router.post('/post', function (req, res) {
 // получение данных и запись их в фильтр
   for (key in filterData) {
@@ -134,45 +136,12 @@ console.log(hotelArr)
 
 router.get('/hotels', function (req, res) {
   res.send(hotelArr)
-  res.status(400)
 });
 
 
-
-router.get('/post', function (req, res) {
+router.get('/filter', function (req, res){
   res.send(filterData)
-  res.status(400)
-});
-
-router.get('/filter', async (req, res) =>{
-  res.send(filterData)
-  res.status(400)
-})
-
-
-
-router.get('/filter/result', async (req, res) =>{
-  res.send('123')
-  res.status(400)
 })
 
 module.exports = router
 
-// Tour.find().
-// populate('hotel room').
-// exec(function (err, tour) {
-//   if (err) return handleError(err);
-//   tour.map((item) => {
-//     if( (filterData.dayArrive == new Date(item.dateArrive).getDay()+1) && (filterData.monthArrive == new Date(item.dateArrive).getMonth()+1)  ){
-//     console.log(tour)
-//   } else {
-//     console.log('err')
-//   }
-//   })
-  
-//   console.log('tour[0].dateArrive ',new Date(tour[0].dateArrive).getDay()+1)
-//   console.log('tour[0].dateDepart ',new Date(tour[0].dateDepart).getMonth()+1)
-//   console.log('filter day ',filterData.dayArrive)
-//   console.log('filter month ',filterData.monthArrive)
-  
-// })

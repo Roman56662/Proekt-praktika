@@ -9,16 +9,23 @@ const City = require('../models/City')
 //router 
 const router = Router()
 
-const hotelTitle = [] 
-const hotelArr = []
+
 const postData = {
   country: null
-}
 
-router.post('/tour-popular', async (req, res) =>{
-  hotelTitle.length = 0
-  hotelArr.length = 0
+}
+const hotelTitle1 = [] 
+const hotelArr1 = []
+
+
+// hotelTitle1.length = 0
+// hotelArr1.length = 0
+
+router.post('/tour-popular', function (req, res) {
+
   postData.country = req.body.country
+
+  console.log(req.body.country)
 
   Tour.
   find({  }).
@@ -26,40 +33,44 @@ router.post('/tour-popular', async (req, res) =>{
   exec(function (err, tour) {
     if (err) return handleError(err)
 
+    hotelTitle1.length = 0
+    hotelArr1.length = 0
+
+    // console.log(tour)
+
     let title = tour[0].hotel.title
-    hotelTitle.push(tour[0].hotel.title)
+    hotelTitle1.push(tour[0].hotel.title)
 
     tour.map((item) => {
       if (title != item.hotel.title) {
-        hotelTitle.push(item.hotel.title)
+        hotelTitle1.push(item.hotel.title)
         title = item.hotel.title
       }
     })
 
-    hotelTitle.map((item) => {
+    // console.log(hotelTitle1)
+
+    hotelTitle1.map((item) => {
       Hotel.find({title: item}).populate('city room country').exec(function (err, hotel) {
         if (err) return handleError(err)
+
         hotel.map((hotelEl) => {
-
-          if(hotelEl.country.title == postData.country){
-            hotelArr.push(hotelEl)
-          }
-          
-
+          if(hotelEl.country.title === postData.country){
+            hotelArr1.push(hotelEl)
+          } 
         })
       })
     })
-
   })
-
-
-
 })
+
+console.log(hotelArr1)
 
 //все туры по конкретному отелю
-router.get('/tour-popular/hotels', (req, res) =>{
-  res.send( hotelArr )
-  res.status(400)
+router.get('/hotels', function (req, res) {
+  res.send( hotelArr1 )
 })
+
+
 
 module.exports = router

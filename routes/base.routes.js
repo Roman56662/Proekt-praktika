@@ -419,19 +419,36 @@ const reviewMok = [
 
 
 
-  // const country = new Tour({
-  //   hotel: '60a2b26ac4b3420c4c896154',
-  //   room: '60a2b26ac4b3420c4c896153',
-  //   dateArrive: '2021.08.01',
-  //   dateDepart: '2021.08.07',
-  //   price: 130000,
-  //   nutrition: true,
-  //   fly: true,
-  //   transfer: true,
-  //   health: true
+  // const hotel = new Hotel({
+  //   title: 'Hotel Resol Kyoto Kawaramachi Sanjo',
+  //   about: 'Отель Resol Kyoto Kawaramachi Sanjo расположен в районе Накагё города Киото, в 700 метрах от театра «Самураи-Кэмбу». Номера отеля оборудованы кондиционером. К услугам гостей ресторан, круглосуточная стойка регистрации, общий лаундж и бесплатный Wi-Fi на всей территории. Отель находится в 2,5 км от центра города и в 2 км от храма Хэйан.В каждом номере отеля установлен телевизор с плоским экраном и шкаф для одежды, оборудована собственная ванная комната. В числе удобств — холодильник.Для гостей отеля Resol Kyoto Kawaramachi Sanjo сервируют завтрак «шведский стол».В 1,3 км находится Киотский международный музей манги, а в 1,6 км — храм Сёрэн-ин. Расстояние от отеля Resol Kyoto Kawaramachi Sanjo до аэропорта Итами составляет 39 км.',
+  //   stars: 3,
+  //   photo: 'http://localhost:3001/static/hotels/Kawaramachi_Sanjo.jpg',
+  //   bar: false,
+  //   parking: false,
+  //   wifi: true,
+  //   geopos: 'https://yandex.ru/map-widget/v1/?um=constructor%3A898a111b99b39453e350516ddb8b1eed4604bc2bdc5ace03328b704aa93df218&amp;source=constructor',
+  //   city: '60a272fbbb663a2a6c9200c1',
+  //   country: '60a273b1afd4f11da47e6b66'
 
   // })
-  // country.save(function (err) {
+  // hotel.save(function (err) {
+  //   if (err) return handleError(err)
+  // })
+
+  //   const room = new Room({
+  //     type: 'Обычный',
+  //     roomsHotel:  9,
+  //     countPeople: 2,
+  //     photo: [
+  //       'http://localhost:3001/static/rooms/Kawaramachi_Sanjo_Rooms1.jpg',
+  //       'http://localhost:3001/static/rooms/Kawaramachi_Sanjo_Rooms2.jpg',
+  //       'http://localhost:3001/static/rooms/Kawaramachi_Sanjo_Rooms3.jpg'
+  //     ],
+  //     hotel: '60bc8df701a6db1504616040'
+
+  // })
+  // room.save(function (err) {
   //   if (err) return handleError(err)
   // })
 

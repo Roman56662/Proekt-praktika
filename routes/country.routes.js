@@ -24,7 +24,7 @@ Country.
   })
 
 // все страны
-router.get('/country', async (req, res) =>{
+router.get('/country', function (req, res) {
   res.send(countryArr)
   res.status(400)
 })

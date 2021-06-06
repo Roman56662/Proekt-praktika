@@ -129,10 +129,10 @@ const [count, setCount] = useState(1)
   let parentsCount = countParents
     let childrensCount = countChildrens
     const titleParents = useMemo(() => {
-        let parentTitle = 'взрослый'
+        let parentTitle = 'человек'
         
-        if (countParents <= 5 && countParents != 1) {
-            parentTitle = 'взрослых'
+        if (countParents <= 5 && countParents != 1 && countParents != 5) {
+            parentTitle = 'человека'
         }
         return parentTitle
     }, [countParents])

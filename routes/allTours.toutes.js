@@ -37,7 +37,7 @@ Tour.
   })
 
 //все отели, у которых есть туры
-router.get('/all/hotels', async (req, res) =>{
+router.get('/all/hotels', function (req, res) {
   res.send(hotelArr)
   res.status(400)
 })

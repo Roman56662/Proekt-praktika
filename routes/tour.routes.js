@@ -14,7 +14,7 @@ const tourOptions = {
 }
 
 //название конкретного отеля 
-router.post('/tour', async (req, res) =>{
+router.post('/tour', function (req, res) {
   tourArr.length = 0
   tourOptions.title = req.body.tourTitle
 
@@ -41,7 +41,7 @@ router.post('/tour', async (req, res) =>{
 
 
 //все туры по конкретному отелю
-router.get('/tour', async (req, res) =>{
+router.get('/tour', function (req, res) {
   res.send( tourArr )
   res.status(200)
 })
@@ -50,11 +50,11 @@ router.get('/tour', async (req, res) =>{
 
 let reqHotel
 //конкретный отель
-router.post('/hotel', async (req, res) =>{
+router.post('/hotel', function (req, res) {
   reqHotel = req.body.hotel
 })
 
-router.get('/hotel', async (req, res) =>{
+router.get('/hotel', function (req, res) {
   res.send(reqHotel)
   res.status(200)
 })

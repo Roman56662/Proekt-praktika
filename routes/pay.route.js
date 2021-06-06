@@ -14,7 +14,7 @@ const tourOptions = {
 }
 
 //название конкретного отеля 
-router.post('/pay', async (req, res) =>{
+router.post('/pay', function (req, res) {
   tourArr.length = 0
   tourOptions.id = req.body.tour
   
@@ -39,7 +39,7 @@ router.post('/pay', async (req, res) =>{
 
 
 
-router.get('/pay', async (req, res) =>{
+router.get('/pay', function (req, res) {
   res.send( [tourOptions.id] )
   res.status(400)
 })

@@ -19,7 +19,7 @@ const Tours = ({}) => {
   
   const [filter, setFilter] = useState([])
   const [hotel, setHotel] = useState([])
-  const [tour, setTour] = useState([])
+
 
 
 // GET FILTER
@@ -38,6 +38,7 @@ const Tours = ({}) => {
   useEffect( () => {
     async function fetchData() {
       const request = await axios.get('http://localhost:3001/api/base/hotels')
+      console.log(request)
       setHotel(request.data)
       return request
     }
@@ -45,35 +46,9 @@ const Tours = ({}) => {
   },[])
 
   
-// GET TOUR
-  useEffect( () => {
-    async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/tour')
-      setTour(request.data)
-      return request
-    }
-    fetchData()
-  },[])
-      
-
-
-// const CancelToken = axios.CancelToken;
-// const source = CancelToken.source();
-
-// axios.get('http://localhost:3001/api/filter', {
-//   cancelToken: source.token
-// }).catch(function (thrown) {
-//   if (axios.isCancel(thrown)) {
-//     console.log('Request canceled', thrown.message);
-//   } else {
-//     // handle error
-//   }
-// });
-
-// // cancel the request (the message parameter is optional)
-// source.cancel('Operation canceled by the user.');
-
-
+if(hotel.length != 0){
+  console.log(hotel)
+}
 
 
 
@@ -86,7 +61,7 @@ const Tours = ({}) => {
             <SecFilter filterData={ filter }/>
           </section>
           <section>
-            
+ 
             <SecTours hotelArr={ hotel } />
 
           </section>
@@ -99,6 +74,9 @@ const Tours = ({}) => {
         </footer>
     </Page>
   )
+
+
+  
 }
 
 export default Tours;

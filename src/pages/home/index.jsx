@@ -30,18 +30,6 @@ const HomePage = () => {
       fetchData()
     },[])
 
-//     // POST
-//     axios.post('http://localhost:3001/post', data)
-//     .then(res => {
-//         responseData = res.data
-//         if (responseData.status == 'success') {
-//           const user = responseData.user
-//         } else {
-//           alert('Something went wrong while creating account')
-//         }
-//     })
-// }
-
   return (
     <Page>
       <Header />
