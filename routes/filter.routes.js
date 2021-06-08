@@ -26,121 +26,73 @@ filterData = {
   titleChildrens: null,
 }
 
-const hotelArr = []
-// массив с месяцами
-const monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
-                  'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+  const hotelList = []
+  const hotelTitleList = [] 
 
-  hotelArr.length = 0
-  
-router.post('/post', function (req, res) {
+router.post('/hotels', function (req, res) {
+
+
 // получение данных и запись их в фильтр
   for (key in filterData) {
     filterData[key] = req.body[key]
   }  
+
+  filterData.country = req.body.country
+
+  hotelList.length = 0
+  hotelTitleList.length = 0
+
   console.log(filterData)
 
-  let hotelTitle = []
-  let titles = []
-  hotelArr.length = 0
+  
 
-// поиск тура 
   Tour.find().
   populate('hotel').
   exec(function (err, tour) {
-    if (err) return handleError(err);
 
+    let title = tour[0].hotel.title
+    hotelTitleList.push(tour[0].hotel.title)
     tour.map((item) => {
-
-// преобразование месяца из текста в слово
-      let monthA 
-      let monthD
-
-      monthArr.map((month, key)=>{  // поиск по названию месяца и получени индекса массива - номера месяца 
-        if (month == filterData.monthArrive) {
-          monthA = key + 1
-        }
-      })
-      monthArr.map((month, key)=>{ // -.-
-        if (month == filterData.monthDepart) {
-          monthD = key + 1
-        }
-      })
-
-
-
-
-//фильтрация по датам
-      if( ( (filterData.dayArrive >= new Date(item.dateArrive).getDate() && filterData.dayArrive < new Date(item.dateDepart).getDate()) && (monthA == new Date(item.dateArrive).getMonth()+1) ) ||
-          ( (filterData.dayDepart == new Date(item.dateDepart).getDate() ) && monthD == new Date(item.dateDepart).getMonth()+1) ||
-          ( (filterData.dayArrive >= new Date(item.dateArrive).getDate() && filterData.dayArrive < new Date(item.dateDepart).getDate()) && (monthA == new Date(item.dateArrive).getMonth()+1) && 
-          (filterData.dayDepart == new Date(item.dateDepart).getDate()) && (monthD == new Date(item.dateDepart).getMonth()+1) ) )
-        {
-          // console.log(item)
-          hotelTitle.push(item.hotel.title)
-          
-        } 
-        
-    })
-
-    let title = hotelTitle[0]
-    titles.push(hotelTitle[0])
-    hotelTitle.map((hotelItem) => {
-      if (hotelItem != title) {
-        titles.push(hotelItem)
-        title = hotelItem
+      if (title != item.hotel.title) {
+        hotelTitleList.push(item.hotel.title)
+        title = item.hotel.title
       }
     })
+    console.log(hotelTitleList)
 
-
-    titles.map((item) => {
-      Hotel.find({title: item}).
-      where('title').equals(item).
-      populate('city room').
-      exec(function (err, hotel) {
-        if (err) return handleError(err)
-
-        hotel.map((hotelEl)=> {
-          
-          
-
-          hotelEl.room.map((room)=>{
-            if (room.countPeople >= filterData.parentsCount) {
-              City.find({}).
-              populate('country').
-              exec(function (err, city) {
-                if (err) return handleError(err)
-
-                city.map((cityEl)=> {
-                  if (cityEl.title == hotelEl.city.title){
-                    if(cityEl.country.title == filterData.country){
-                      hotelArr.push(hotelEl)
-                    }
-                  }
-
-                })
-
-              })
+hotelTitleList.map((item) => {
+    Hotel.find({title: item}).populate('city room country').exec(function (err, hotel) {
+      if (err) return handleError(err)
+      hotel.map((hotelEl) => {
+        // проверка на страну
+        if(hotelEl.country.title === filterData.country){
+          hotelEl.room.map((room) => {
+            if(room.countPeople >= filterData.parentsCount){
+              hotelList.push(hotelEl)
+            } else if(filterData.parentsCount === undefined ){
+              hotelList.push(hotelEl)
             }
           })
-
-        })
-
+        } 
       })
     })
+  })
 
   })
+
+  
+  
+
 })
 
-console.log(hotelArr)
 
 router.get('/hotels', function (req, res) {
-  res.send(hotelArr)
+  res.send(hotelList)
 });
 
 
 router.get('/filter', function (req, res){
-  res.send(filterData)
+  res.send(filterData.country)
 })
 
 module.exports = router

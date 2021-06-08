@@ -25,30 +25,30 @@ const Tours = ({}) => {
 // GET FILTER
   useEffect( () => {
     async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/filter')
-      setFilter(request.data)
-      return request
+      try {
+        const response = await axios.get('http://localhost:3001/api/base/filter');
+        setFilter(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
     fetchData()
-  },[])  
+  },[] )
 
 
 
 // GET HOTEL
   useEffect( () => {
     async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/hotels')
-      console.log(request)
-      setHotel(request.data)
-      return request
+      try {
+        const response = await axios.get('http://localhost:3001/api/base/hotels');
+        setHotel(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
     fetchData()
-  },[])
-
-  
-if(hotel.length != 0){
-  console.log(hotel)
-}
+  },[] )
 
 
 
@@ -62,7 +62,7 @@ if(hotel.length != 0){
           </section>
           <section>
  
-            <SecTours hotelArr={ hotel } />
+            <SecTours hotelArr={ hotel == undefined || hotel.length == 0 ? [] : hotel } />
 
           </section>
         </div>

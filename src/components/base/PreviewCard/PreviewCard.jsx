@@ -15,7 +15,7 @@ export const PreviewCard = ({mod, back, flag, country, price}) => {
     }
   
   // POST
-      axios.post('http://localhost:3001/api/base/tour-popular', data)
+      axios.post('http://localhost:3001/api/base/hotels', data)
       .then(res => {
           responseData = res.data
           if (responseData.status == 'success') {

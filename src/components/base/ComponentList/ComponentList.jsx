@@ -55,7 +55,7 @@ const findClick = () => {
   }
 
 // POST
-    axios.post('http://localhost:3001/api/base/post', data)
+    axios.post('http://localhost:3001/api/base/hotels', data)
     .then(res => {
         responseData = res.data
         if (responseData.status == 'success') {
