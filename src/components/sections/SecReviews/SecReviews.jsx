@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import cn from 'classnames/bind';
 import { Reviews } from '../../base/Reviews/Reviews'
+import { ReviewAdd } from '../../base/ReviewAdd/ReviewAdd'
 //Styles
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const SecReviews = ({}) => {
+export const SecReviews = ({hotelArr}) => {
 
   const base = [
     {
@@ -31,8 +32,8 @@ export const SecReviews = ({}) => {
       <div className={cx('section__reviews__body')}>
         <div className={cx('reviews')}>
           {
-            base.length != 0 ?
-            base.map((baseItem, index) => {
+            hotelArr.length != 0  ?
+            hotelArr.review.map((baseItem, index) => {
               return(
                 <Reviews 
                   index={index} 
@@ -40,7 +41,7 @@ export const SecReviews = ({}) => {
 
                   user={baseItem.user}
                   date={baseItem.date}
-                  figure={baseItem.figure}
+                  figure={baseItem.rating}
                   text={baseItem.text}
                 />
               )
@@ -48,6 +49,9 @@ export const SecReviews = ({}) => {
             :
             <h1>Отзывов пока нет</h1>
           }
+        </div>
+        <div>
+          <ReviewAdd hotelArr={hotelArr} />
         </div>
       </div>
     </div>

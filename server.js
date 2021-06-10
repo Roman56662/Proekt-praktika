@@ -13,7 +13,8 @@ app.use(express.json())
 mongoose.connect('mongodb+srv://admin:1234qwerty@cluster0.tqb42.mongodb.net/tours?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useFindAndModify: true
 })
 
 // base connection
@@ -42,11 +43,11 @@ app.all('*', function(req, res, next) {
 const testArray = []
 // routes
 app.use('/api/base',require('./routes/filter.routes'))
-// app.use('/api/base', require('./routes/tour-popular.base.routes.js'))
 app.use('/api', require('./routes/base.routes'))
-// app.use('/api/base',require('./routes/allTours.toutes'))
 app.use('/api/base',require('./routes/country.routes'))
 app.use('/api/base',require('./routes/tour.routes'))
+app.use('/api/base',require('./routes/comment.route'))
+app.use('/api/base',require('./routes/allTours.toutes'))
 // app.use('/api/base',require('./routes/pay.route'))
 
 

@@ -61,7 +61,7 @@ router.post('/hotels', function (req, res) {
     console.log(hotelTitleList)
 
 hotelTitleList.map((item) => {
-    Hotel.find({title: item}).populate('city room country').exec(function (err, hotel) {
+    Hotel.find({title: item}).populate('city room country review').exec(function (err, hotel) {
       if (err) return handleError(err)
       hotel.map((hotelEl) => {
         // проверка на страну

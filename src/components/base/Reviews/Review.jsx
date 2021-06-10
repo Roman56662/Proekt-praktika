@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cn from 'classnames/bind';
-import img from '../../../public/assets/images/left-arrow.png'
+
+
 
 //Styles
 import styles from './styles.styl';
@@ -37,7 +38,7 @@ export const Review = ({user, date, figure, text}) => {
           <p>{user}</p>
         </div>
         <div className={cx('review__date')}>
-          <p>{date}</p>
+          <p>{ new Date(date).getDate() + '.' + new Date(date).getMonth() + '.' + new Date(date).getFullYear() }</p>
         </div>
         </div>
         <div className={cx('review__inf__col2')}>

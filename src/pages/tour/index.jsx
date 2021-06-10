@@ -42,20 +42,8 @@ const TourPage = ({}) => {
     fetchData()
   },[])
 
-  const [price, setPrice] = useState()
-
-  // GET TOUR
-  useEffect( () => {
-    async function fetchData() {
-      const request = await axios.get('http://localhost:3001/api/base/tour/price')
-      setPrice(request.data)
-      return request
-    }
-    fetchData()
-  },[])
-
   // console.log('tourArr', tourArr)
-  console.log('hotelArr', hotelArr)  
+  
     
   return(
     <Page>
@@ -76,7 +64,7 @@ const TourPage = ({}) => {
             <SecChooseTour hotelArr={hotelArr} tourArr={tourArr}/>
           </section>
           <section id='reviews'>
-            <SecReviews />
+            <SecReviews hotelArr={hotelArr} />
           </section>
         </div>
       </main>
