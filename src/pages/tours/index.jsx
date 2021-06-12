@@ -61,7 +61,7 @@ const Tours = ({}) => {
             <SecFilter filterData={ filter }/>
           </section>
           <section>
- 
+
             <SecTours hotelArr={ hotel == undefined || hotel.length == 0 ? [] : hotel } />
 
           </section>

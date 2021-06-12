@@ -22,30 +22,29 @@ const Booking = ({}) => {
 
   const [tour, setTour] = useState()
   const [hotelArr, setHotelArr] = useState([]) 
-
-    // GET COUNTRY
-    useEffect( () => {
-      async function fetchData() {
-        const request = await axios.get('http://localhost:3001/api/base/pay')
-        setTour(request.data)
-        return request
-      }
-      fetchData()
-    },[])
-
+  
     
 
-    // GET HOTEL 
-        useEffect( () => {
-          async function fetchData() {
-            const request = await axios.get('http://localhost:3001/api/base/hotel')
-            setHotelArr(request.data)
-            return request
-          }
-          fetchData()
-        },[])
+// GET HOTEL 
+  useEffect( () => {
+    async function fetchData() {
+      const request = await axios.get('http://localhost:3001/api/base/hotel')
+      setHotelArr(request.data)
+      return request
+    }
+    fetchData()
+  },[])
 
-    console.log(tour)
+// GET TOUR 
+  useEffect( () => {
+    async function fetchData() {
+      const request = await axios.get('http://localhost:3001/api/base/tour')
+      setTour(request.data)
+      return request
+    }
+    fetchData()
+  },[])
+
     
   return(
     <Page>
@@ -67,7 +66,13 @@ const Booking = ({}) => {
     </div>
           </section>
           <section>
-            <SecTourist/>
+            {
+              tour != undefined ? 
+              <SecTourist tourArr={tour}/>
+              :
+              <></>
+            }
+            
           </section>
         </div>
       </main>

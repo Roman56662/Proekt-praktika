@@ -2,15 +2,17 @@ const { Schema, model, Types } = require('mongoose')
 
 const schema = new Schema({
   name:           { type: String, required: true },
-  mail:           { type: String, required: true },
+  fam:            { type: String, required: true },
+  email:          { type: String, required: true },
   phone:          { type: String, required: true },
   birth:          { type: Date, required: true },
-  ipassport:      { type: Number, required: true },
+  ipassport:      { type: String, required: true },
   ipassportDate:  { type: Date, required: true },
-  depart:         { type: String, required: true },
-  arrive:         { type: String, required: true },
-  identifier:     { type: String, required: true },
-  hotel:          { type: Types.ObjectId, ref: 'Hotel' },
+  identifier: { 
+    {type: String, required: true},
+    {type: String, required: true}
+    },
+  tour:           { type: Types.ObjectId, ref: 'Tour' },
 })
 
 module.exports = model('Tourist', schema)

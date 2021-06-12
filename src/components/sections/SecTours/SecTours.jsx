@@ -126,7 +126,7 @@ export const SecTours = ({hotelArr}) => {
         <h1>Туры</h1>
       </div>
       <div className={('section__travel-card')}>
-        { (hotelArr != null || hotelArr != undefined) ?
+        { (hotelArr != undefined && hotelArr.length != 0) ?
           hotelArr.map((item, key) => {
             return(
               <TravelCard
@@ -146,7 +146,7 @@ export const SecTours = ({hotelArr}) => {
             )
           })
           :
-          <p className='error'>Произошла ошибка</p>
+          <h1 className='error-message'>Соединение с базой потеряно</h1>
         }
       </div>
     </div>

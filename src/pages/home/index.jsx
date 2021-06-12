@@ -39,7 +39,12 @@ const HomePage = () => {
             <SecFilter filterData={null}/>
           </section>
           <section>
-            <SecPopular arr={countryArr} />
+            {
+              countryArr != undefined && countryArr.length != 0 ?
+              <SecPopular arr={countryArr} />
+              :
+              <h1 className='error-message'>Соединение с базой потеряно</h1>
+            }
           </section>
           <section>
             {/* <SecAboutTours /> */}

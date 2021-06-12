@@ -69,7 +69,7 @@ const findClick = () => {
   return(
     <div className={cx('components')}>
       <div className={cx('components__body')}>
-        <Component cls={'components__block country'} title='Страна, курорт или отель' text={ filterData == null ? (country || 'Выберите страну') : country || filterData.country }>
+        <Component cls={'components__block country'} title='Страна, курорт или отель' text={  country || 'Выберите страну' }>
           <div className={cx('drop-down-travel__drop-body')}>
             <DropDownTravel arr={regions} getCountryFunc={getCountry}/>
           </div>

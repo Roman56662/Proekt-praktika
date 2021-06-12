@@ -22,7 +22,8 @@ export const SecReviews = ({hotelArr}) => {
       text: 'Всё очень понравилось. Отдыхал с супругой. Все достопримечательности расположены рядом. Уникальное оформление номеров, нигде такого не встречал. Рекомендую!'
     },
   ]
-
+  
+console.log(hotelArr.review)
 
   return(
     <div className={cx('section__reviews')}>
@@ -32,7 +33,7 @@ export const SecReviews = ({hotelArr}) => {
       <div className={cx('section__reviews__body')}>
         <div className={cx('reviews')}>
           {
-            hotelArr.length != 0  ?
+            hotelArr.review != undefined && hotelArr.review.length != 0  ?
             hotelArr.review.map((baseItem, index) => {
               return(
                 <Reviews 
@@ -47,7 +48,7 @@ export const SecReviews = ({hotelArr}) => {
               )
             })
             :
-            <h1>Отзывов пока нет</h1>
+            <h1 className='error-message' >Отзывов пока нет</h1>
           }
         </div>
         <div>
