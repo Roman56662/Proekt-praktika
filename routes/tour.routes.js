@@ -3,6 +3,7 @@ const { Router } = require('express')
 
 //models
 const Tour = require('../models/Tour')
+const Hotel = require('../models/Hotel')
 
 //router 
 const router = Router()
@@ -48,15 +49,24 @@ router.get('/tour', function (req, res) {
 
 
 
+let idHotel
 let reqHotel
 //конкретный отель
 router.post('/hotel', function (req, res) {
-  reqHotel = req.body.hotel
+  idHotel = req.body.hotel
+
+  Hotel.findById(idHotel).populate('city room country review').exec(
+    function (err, hotel) {
+      if (err) return handleError(err)
+      reqHotel = hotel
+      console.log(reqHotel)
+    }
+  )
+
 })
 
 router.get('/hotel', function (req, res) {
   res.send(reqHotel)
-  res.status(200)
 })
 
 module.exports = router

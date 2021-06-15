@@ -44,6 +44,7 @@ const reviewBase = new Review({
   text: review.text,
   date: review.date,
   rating: review.rating,
+  name: user.name,
   user: userBase._id,
   hotel: hotel.id
 })
@@ -60,20 +61,20 @@ userBase.save(function (err) {
 })
 
 
-
 Hotel.findOne({title: hotel.title}).populate().exec(function (err, hotel) {
   if (err) return handleError(err)
+  
   hotel.review.push(
     reviewBase._id
   )
   hotel.save(function (err) {
       if (err) return handleError(err)
     })
+    
   console.log(hotel)
 })
 
 })
-
 
 router.get('/comment', function (req, res) {
   res.send('123')

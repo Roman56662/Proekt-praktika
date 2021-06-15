@@ -10,6 +10,8 @@ const cx = cn.bind(styles);
 
 export const ReviewAdd = ({hotelArr}) => {
 
+  
+
   const [number, setNumber] = useState()
   const [comment, setComment] = useState() 
   const [name, setName] = useState() 
@@ -26,6 +28,18 @@ export const ReviewAdd = ({hotelArr}) => {
   }
   const mailChange = (event) => {
     setMail(event.target.value)
+  }
+
+  const updateClick = () => {
+    axios.post('http://localhost:3001/api/base/hotel', {
+      hotel: hotelArr._id
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   const sendHandler = () => {
@@ -48,7 +62,11 @@ export const ReviewAdd = ({hotelArr}) => {
     .catch(function (error) {
       console.log(error);
     });
+
+    setTimeout(updateClick, 500);
   }
+
+
 
 const radio = [1,2,3,4,5,6,7,8,9,10]
 

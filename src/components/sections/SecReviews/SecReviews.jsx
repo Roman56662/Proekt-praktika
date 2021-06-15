@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 import cn from 'classnames/bind';
 import { Reviews } from '../../base/Reviews/Reviews'
 import { ReviewAdd } from '../../base/ReviewAdd/ReviewAdd'
@@ -22,6 +23,8 @@ export const SecReviews = ({hotelArr}) => {
       text: 'Всё очень понравилось. Отдыхал с супругой. Все достопримечательности расположены рядом. Уникальное оформление номеров, нигде такого не встречал. Рекомендую!'
     },
   ]
+
+
   
 console.log(hotelArr.review)
 
@@ -40,7 +43,7 @@ console.log(hotelArr.review)
                   index={index} 
                   key={baseItem.id} 
 
-                  user={baseItem.user}
+                  user={baseItem.name}
                   date={baseItem.date}
                   figure={baseItem.rating}
                   text={baseItem.text}

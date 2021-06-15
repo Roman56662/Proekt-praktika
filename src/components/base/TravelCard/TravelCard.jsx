@@ -24,7 +24,7 @@ export const TravelCard = ({rating, backImg, stars,
     }
 
     const arr = {
-      hotel: hotelArr
+      hotel: hotelArr._id
     }
 
 

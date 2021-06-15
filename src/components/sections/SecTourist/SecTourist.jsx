@@ -123,7 +123,7 @@ export const SecTourist = ({ tourArr }) => {
           </div>
         </div>
         <div className={cx('booking')} >
-          <Button onClick={handleClick} link='#' title={'Забронировать'}  theme={'_button_yellow travel-card__button'} />
+          <Button onClick={handleClick} link='/' title={'Забронировать'}  theme={'_button_yellow travel-card__button'} />
         </div>
       </div>
   )

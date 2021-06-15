@@ -106,24 +106,24 @@ router.post('/pay/tourist', function (req, res) {
   console.log('tour_id => ',tour_id)
   console.log('tourist => ',tourist)
   
-  const touristBase = new Tourist({
-    name: tourist.name,
-    fam: tourist.fam,
-    email: tourist.email,
-    phone: tourist.phone,
-    birth: tourist.birth,
-    ipassport: tourist.ipassport,
-    ipassportDate: tourist.ipassportDate,
-    identifier: tourist.identifier,
+  // const touristBase = new Tourist({
+  //   name: tourist.name,
+  //   fam: tourist.fam,
+  //   email: tourist.email,
+  //   phone: tourist.phone,
+  //   birth: tourist.birth,
+  //   ipassport: tourist.ipassport,
+  //   ipassportDate: tourist.ipassportDate,
+  //   identifier: tourist.identifier,
 
 
-  })
+  // })
 
-  touristBase.save(function (err) {
-    if (err) return handleError(err)
-  })
+  // touristBase.save(function (err) {
+  //   if (err) return handleError(err)
+  // })
 
-  console.log('touristBase => ',touristBase)
+  // console.log('touristBase => ',touristBase)
 
 })
 
