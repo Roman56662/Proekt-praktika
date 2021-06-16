@@ -44,7 +44,17 @@ router.post('/hotels', function (req, res) {
 
   console.log(filterData)
 
+  let dateArrive = new Date(filterData.dayArrive)
+  let dateDepart = new Date(filterData.dayDepart)
+
+  dateArrive = new Date(dateArrive.setDate(dateArrive.getDate() + 1 ))
+  dateDepart = new Date(dateDepart.setDate(dateDepart.getDate() + 1 ))
+
+  dateArrive = new Date(dateArrive.setHours(dateArrive.getHours() - 21 ))
+  dateDepart = new Date(dateDepart.setHours(dateDepart.getHours() - 21 ))
   
+  console.log(dateArrive)
+  console.log(dateDepart)
 
   Tour.find().
   populate('hotel').
@@ -53,30 +63,36 @@ router.post('/hotels', function (req, res) {
     let title = tour[0].hotel.title
     hotelTitleList.push(tour[0].hotel.title)
     tour.map((item) => {
-      if (title != item.hotel.title) {
+      if ( (dateArrive <= item.dateArrive ) || (dateDepart >= item.dateDepart ) || (dateArrive <= item.dateArrive && dateDepart >= item.dateDepart) ){
+        console.log(item)
+      } else {
+        // console.log(item.dateArrive)
+      }
+
+      if ( title != item.hotel.title ) {
         hotelTitleList.push(item.hotel.title)
         title = item.hotel.title
       }
     })
     console.log(hotelTitleList)
 
-hotelTitleList.map((item) => {
-    Hotel.find({title: item}).populate('city room country review').exec(function (err, hotel) {
-      if (err) return handleError(err)
-      hotel.map((hotelEl) => {
-        // проверка на страну
-        if(hotelEl.country.title === filterData.country){
-          hotelEl.room.map((room) => {
-            if(room.countPeople >= filterData.parentsCount){
-              hotelList.push(hotelEl)
-            } else if(filterData.parentsCount === undefined ){
-              hotelList.push(hotelEl)
-            }
-          })
-        } 
+  hotelTitleList.map((item) => {
+      Hotel.find({title: item}).populate('city room country review').exec(function (err, hotel) {
+        if (err) return handleError(err)
+        hotel.map((hotelEl) => {
+          // проверка на страну
+          if(hotelEl.country.title === filterData.country){
+            hotelEl.room.map((room) => {
+              if(room.countPeople >= filterData.parentsCount){
+                hotelList.push(hotelEl)
+              } else if(filterData.parentsCount === undefined ){
+                hotelList.push(hotelEl)
+              }
+            })
+          } 
+        })
       })
     })
-  })
 
   })
 

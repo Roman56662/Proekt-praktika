@@ -7,7 +7,7 @@ import cn from 'classnames/bind';
 import styles from './styles.styl';
 const cx = cn.bind(styles);
 
-export const CalendarComponent = ({getDayArrived, getDayDeparted, getMonthArrived, getMonthDeparted}) => {
+export const CalendarComponent = ({ getArrive, getDepart, getDayArrived, getDayDeparted, getMonthArrived, getMonthDeparted}) => {
 
   const [dateArrived, setDateArrived] = useState(new Date())
   const [dateDeparted, setDateDeparted] = useState(new Date())
@@ -15,6 +15,7 @@ export const CalendarComponent = ({getDayArrived, getDayDeparted, getMonthArrive
   let today
 
   const onChangeArrived = useCallback( (dateArrived) => {
+    getArrive(dateArrived)
     setDateArrived(dateArrived);
     today = dateArrived.getDate()
     getDayArrived(dateArrived.getDate(dateArrived.setDate(today)))
@@ -22,6 +23,7 @@ export const CalendarComponent = ({getDayArrived, getDayDeparted, getMonthArrive
   },[dateArrived]) 
 
   const onChangeDeparted = useCallback( (dateDeparted) => {
+    getDepart(dateDeparted)
     setDateDeparted(dateDeparted);
     today = dateDeparted.getDate()
     getDayDeparted(dateDeparted.getDate(dateDeparted.setDate(today)))

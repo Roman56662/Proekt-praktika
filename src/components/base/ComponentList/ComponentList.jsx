@@ -40,11 +40,23 @@ export const ComponentList = ({
   handleClickParents,
 }) => {
 
+  // back date
+  const [arrive, setArrive] = useState()
+  const [depart, setDepart] = useState()
+
+  const getArrive = (value) => {
+    setArrive(value)
+  }
+  const getDepart = (value) => {
+    setDepart(value)
+  }
+  //
+
 const findClick = () => {
   const data = {
     country: country,
-    dayArrive: dayArrived,
-    dayDepart: dayDeparted,
+    dayArrive: arrive,
+    dayDepart: depart,
     monthArrive: monthArrived,
     monthDepart: monthDeparted,
     countNights: countNights,
@@ -83,6 +95,8 @@ const findClick = () => {
         >
           <div className={cx('calendar__drop-body')}>
             <CalendarComponent 
+              getArrive={getArrive}
+              getDepart={getDepart}
               getDayArrived={getDayArrived} 
               getDayDeparted={getDayDeparted} 
               getMonthArrived={getMonthArrived} 
