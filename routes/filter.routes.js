@@ -52,29 +52,38 @@ router.post('/hotels', function (req, res) {
 
   dateArrive = new Date(dateArrive.setHours(dateArrive.getHours() - 21 ))
   dateDepart = new Date(dateDepart.setHours(dateDepart.getHours() - 21 ))
-  
-  console.log(dateArrive)
-  console.log(dateDepart)
+
 
   Tour.find().
   populate('hotel').
   exec(function (err, tour) {
 
-    let title = tour[0].hotel.title
-    hotelTitleList.push(tour[0].hotel.title)
-    tour.map((item) => {
-      if ( (dateArrive <= item.dateArrive ) || (dateDepart >= item.dateDepart ) || (dateArrive <= item.dateArrive && dateDepart >= item.dateDepart) ){
-        console.log(item)
-      } else {
-        // console.log(item.dateArrive)
-      }
+    if (filterData.dayArrive == undefined && filterData.dayDepart == undefined) {
+      let title = tour[0].hotel.title
+      hotelTitleList.push(tour[0].hotel.title)
+      tour.map((item) => {
+        if ( title != item.hotel.title ) {
+          hotelTitleList.push(item.hotel.title)
+          title = item.hotel.title
+        }
+      })
+    } else {
+      let title = tour[0].hotel.title
+      hotelTitleList.push(tour[0].hotel.title)
+      tour.map((item) => {
+        if ( (dateArrive <= item.dateArrive && dateDepart >= item.dateDepart ) ){
+          console.log(item)
+          if ( title != item.hotel.title ) {
+            hotelTitleList.push(item.hotel.title)
+            title = item.hotel.title
+          }
+        }
+        
+      })
+    }
 
-      if ( title != item.hotel.title ) {
-        hotelTitleList.push(item.hotel.title)
-        title = item.hotel.title
-      }
-    })
     console.log(hotelTitleList)
+    
 
   hotelTitleList.map((item) => {
       Hotel.find({title: item}).populate('city room country review').exec(function (err, hotel) {

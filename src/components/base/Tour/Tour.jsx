@@ -69,9 +69,9 @@ export const Tour = ({tour, dateArrive, dateDepart, countNights, roomPlace, room
           <span>{ monthArr[dateD.getMonth()] }</span>
         </div>
       </div>
-      <div className={cx('tour__block tour__nigths')}>
+      {/* <div className={cx('tour__block tour__nigths')}>
         <p>{count} {title}</p>
-      </div>
+      </div> */}
       <div className={cx('tour__block tour__nutrition')}>
         <p>
           {nutrition === true ? 'Питание включено' : 'Питание не включено'}
