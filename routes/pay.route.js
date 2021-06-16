@@ -8,7 +8,7 @@ let salt = bcrypt.genSaltSync(10);
 
 //models
 const Tour = require('../models/Tour');
-const Tourist = require('../models/Tour');
+const Tourist = require('../models/Tourist');
 
 //router 
 const router = Router()
@@ -103,27 +103,29 @@ router.post('/pay/tourist', function (req, res) {
   tourist.ipassportDate = req.body.ipassportDate
   tourist.identifier = encrypt(`'${req.body.identifier}'`)
   let tour_id = req.body.tour_id
+  // tourist.ipassportDate = new Date(tourist.ipassportDate)
+  // tourist.birth = new Date(tourist.birth)
   console.log('tour_id => ',tour_id)
   console.log('tourist => ',tourist)
   
-  // const touristBase = new Tourist({
-  //   name: tourist.name,
-  //   fam: tourist.fam,
-  //   email: tourist.email,
-  //   phone: tourist.phone,
-  //   birth: tourist.birth,
-  //   ipassport: tourist.ipassport,
-  //   ipassportDate: tourist.ipassportDate,
-  //   identifier: tourist.identifier,
+  const touristBase = new Tourist({
+    name: tourist.name,
+    fam: tourist.fam,
+    email: tourist.email,
+    phone: tourist.phone,
+    birth: tourist.birth,
+    ipassport: tourist.ipassport,
+    ipassportDate: tourist.ipassportDate,
+    identifier: tourist.identifier.content,
+    tour: tour_id
 
+  })
 
-  // })
+  touristBase.save(function (err) {
+    if (err) return handleError(err)
+  })
 
-  // touristBase.save(function (err) {
-  //   if (err) return handleError(err)
-  // })
-
-  // console.log('touristBase => ',touristBase)
+  console.log('touristBase => ',touristBase)
 
 })
 

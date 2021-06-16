@@ -8,7 +8,7 @@ const schema = new Schema({
   birth:          { type: Date, required: true },
   ipassport:      { type: String, required: true },
   ipassportDate:  { type: Date, required: true },
-  identifier:     {type: String, required: true},
+  identifier:     { type: String, required: true },
   tour:           { type: Types.ObjectId, ref: 'Tour' },
 })
 

@@ -146,7 +146,7 @@ export const SecTours = ({hotelArr}) => {
             )
           })
           :
-          <h1 className='error-message'>Соединение с базой потеряно</h1>
+          <h1 className='error-message'>Ничего не найдено</h1>
         }
       </div>
     </div>
