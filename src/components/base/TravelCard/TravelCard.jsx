@@ -54,24 +54,26 @@ export const TravelCard = ({rating, backImg, stars,
 
 
   return(
-    <div className={cx('travel-card')}>
-      <div className={cx('travel-card__back')}>
-        <TravelCardRating rating={rating}/>
-        <TravelCardBackground backImg={backImg} />
-      </div>
-      <div className={cx('travel-card__body')}>
-        <TravelCardStars stars={stars}/>
-        <TravelCardText 
-          hotel={hotel}  
-          city={city} 
-          bar={bar} 
-          parking={parking} 
-          wifiType={wifiType} 
-        />
-        
-      </div>
-      <div className={cx('travel-card__button')}>
-        <Button onClick={postHotelTitle} link='/tour' title={'Посмотреть туры'}  theme={'_button_yellow travel-card__button'} />
+    <div className={cx('container-travel-card')}>
+      <div className={cx('travel-card')}>
+        <div className={cx('travel-card__back')}>
+          <TravelCardRating rating={rating}/>
+          <TravelCardBackground backImg={backImg} />
+        </div>
+        <div className={cx('travel-card__body')}>
+          <TravelCardStars stars={stars}/>
+          <TravelCardText 
+            hotel={hotel}  
+            city={city} 
+            bar={bar} 
+            parking={parking} 
+            wifiType={wifiType} 
+          />
+          
+        </div>
+        <div className={cx('travel-card__button')}>
+          <Button onClick={postHotelTitle} link='/tour' title={'Посмотреть туры'}  theme={'_button_yellow travel-card__button'} />
+        </div>
       </div>
     </div>
   )

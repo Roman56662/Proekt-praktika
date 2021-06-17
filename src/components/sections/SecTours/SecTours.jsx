@@ -126,6 +126,7 @@ export const SecTours = ({hotelArr}) => {
         <h1>Туры</h1>
       </div>
       <div className={('section__travel-card')}>
+        <div className={('container-block')}>
         { (hotelArr != undefined && hotelArr.length != 0) ?
           hotelArr.map((item, key) => {
             return(
@@ -148,6 +149,7 @@ export const SecTours = ({hotelArr}) => {
           :
           <h1 className='error-message'>Ничего не найдено</h1>
         }
+        </div>
       </div>
     </div>
   )
