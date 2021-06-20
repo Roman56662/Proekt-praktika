@@ -420,16 +420,16 @@ const reviewMok = [
 
 
   // const hotel = new Hotel({
-  //   title: 'Hotel Resol Kyoto Kawaramachi Sanjo',
-  //   about: 'Отель Resol Kyoto Kawaramachi Sanjo расположен в районе Накагё города Киото, в 700 метрах от театра «Самураи-Кэмбу». Номера отеля оборудованы кондиционером. К услугам гостей ресторан, круглосуточная стойка регистрации, общий лаундж и бесплатный Wi-Fi на всей территории. Отель находится в 2,5 км от центра города и в 2 км от храма Хэйан.В каждом номере отеля установлен телевизор с плоским экраном и шкаф для одежды, оборудована собственная ванная комната. В числе удобств — холодильник.Для гостей отеля Resol Kyoto Kawaramachi Sanjo сервируют завтрак «шведский стол».В 1,3 км находится Киотский международный музей манги, а в 1,6 км — храм Сёрэн-ин. Расстояние от отеля Resol Kyoto Kawaramachi Sanjo до аэропорта Итами составляет 39 км.',
-  //   stars: 3,
-  //   photo: 'http://localhost:3001/static/hotels/Kawaramachi_Sanjo.jpg',
-  //   bar: false,
-  //   parking: false,
+  //   title: 'Hotel Grand Chancellor Melbourne',
+  //   about: 'Отель Grand Chancellor Melbourne с великолепным видом на Мельбурн, располагающий бассейном с подогревом на крыше и 2 ресторанами, находится в самом центре театрального района.Отель расположен менее чем в 10 минутах ходьбы от улиц Бурк-Стрит и Коллинс-Стрит, вблизи оживленных городских мест: театров, ночных клубов, магазинов и стадионов. Прогулка до Китайского квартала займет 3 минуты.Стильные современные номера отеля Grand Chancellor Melbourne оснащены спутниковым телевидением, а в ванной комнате гостей ждут туалетно-косметические принадлежности премиум-класса.По утрам в ресторане Footlights подается изысканный завтрак "шведский стол". Поужинать и заказать напитки можно в баре-ресторане Encore. В отеле круглосуточно производится обслуживание номеров.',
+  //   stars: 4,
+  //   photo: 'http://localhost:3001/static/hotels/Hotel_Grand_Chancellor_Melbourne.jpg',
+  //   bar: true,
+  //   parking: true,
   //   wifi: true,
-  //   geopos: 'https://yandex.ru/map-widget/v1/?um=constructor%3A898a111b99b39453e350516ddb8b1eed4604bc2bdc5ace03328b704aa93df218&amp;source=constructor',
-  //   city: '60a272fbbb663a2a6c9200c1',
-  //   country: '60a273b1afd4f11da47e6b66'
+  //   geopos: 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1a23176d607a55b39677671c6306ce7867641eb9f34ace78fb5b19931f346d13&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true',
+  //   city: '60a272fbbb663a2a6c9200c4',
+  //   country: '60a273b1afd4f11da47e6b67'
 
   // })
   // hotel.save(function (err) {
@@ -437,21 +437,36 @@ const reviewMok = [
   // })
 
   //   const room = new Room({
-  //     type: 'Обычный',
-  //     roomsHotel:  9,
-  //     countPeople: 2,
+  //     type: 'Делюкс',
+  //     roomsHotel:  5,
+  //     countPeople: 3,
   //     photo: [
-  //       'http://localhost:3001/static/rooms/Kawaramachi_Sanjo_Rooms1.jpg',
-  //       'http://localhost:3001/static/rooms/Kawaramachi_Sanjo_Rooms2.jpg',
-  //       'http://localhost:3001/static/rooms/Kawaramachi_Sanjo_Rooms3.jpg'
+  //       'http://localhost:3001/static/rooms/Ovolo_1888_Darling_Harbour_Rooms1.jpg',
+  //       'http://localhost:3001/static/rooms/Ovolo_1888_Darling_Harbour_Rooms2.jpg',
+  //       'http://localhost:3001/static/rooms/Ovolo_1888_Darling_Harbour_Rooms3.jpg'
   //     ],
-  //     hotel: '60bc8df701a6db1504616040'
+  //     hotel: '60cf770337652e22a46923b5'
 
   // })
   // room.save(function (err) {
   //   if (err) return handleError(err)
   // })
 
+  //     const tour = new Tour({
+  //     hotel: '60bbdbea4af2eb171c55a53a',
+  //     room:  '60bbe1530a2bcd18c492493c',
+  //     dateArrive: '2021-08-14',
+  //     dateDepart: '2021-08-21',
+  //     price: 160000,
+  //     nutrition: true,
+  //     fly: true,
+  //     transfer: true,
+  //     health: true
+
+  // })
+  // tour.save(function (err) {
+  //   if (err) return handleError(err)
+  // })
 
 
 
